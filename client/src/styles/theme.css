@@ -1,0 +1,144 @@
+/* ============================================================
+   theme.css — design system ported from the original PHP site
+   (index.php + Kullanici_Ekrani.php colour/typography tokens).
+   ============================================================ */
+:root {
+  --navy:       #1a3a6b;
+  --navy-mid:   #1f4580;
+  --navy-light: #2a5298;
+  --navy-deep:  #0d1f3c;
+  --navy-pale:  #e8f0fd;
+  --gold:       #d4a843;
+  --gold-l:     #f0ca6e;
+  --gold-d:     #b8892e;
+  --cream:      #f7f9fc;
+  --white:      #ffffff;
+  --text:       #1e2d4a;
+  --muted:      #6b7a96;
+  --border:     rgba(26,58,107,.12);
+  --red:        #e74c3c;
+  --green:      #27ae60;
+  --orange:     #f39c12;
+  --shadow-sm:  0 2px 12px rgba(26,58,107,.08);
+  --shadow-md:  0 8px 32px rgba(26,58,107,.12);
+  --shadow-lg:  0 20px 60px rgba(26,58,107,.15);
+  --font:  'Outfit', system-ui, sans-serif;
+  --serif: 'Playfair Display', Georgia, serif;
+  --mono:  'IBM Plex Mono', monospace;
+  --radius: 12px;
+  --trans: all .25s cubic-bezier(.4,0,.2,1);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font);
+  color: var(--text);
+  background: var(--cream);
+  overflow-x: hidden;
+  line-height: 1.55;
+}
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+button { font-family: inherit; cursor: pointer; }
+h1, h2, h3 { line-height: 1.15; }
+
+.container { max-width: 1200px; margin: 0 auto; padding: 0 5%; }
+.serif { font-family: var(--serif); }
+.text-gold { color: var(--gold); }
+
+/* ── Buttons ─────────────────────────────────────────────── */
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 12px 26px; border: none; border-radius: 8px;
+  font-weight: 600; font-size: .95rem; transition: var(--trans);
+}
+.btn-gold { background: linear-gradient(135deg, var(--gold), var(--gold-d)); color: #fff; box-shadow: var(--shadow-sm); }
+.btn-gold:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+.btn-navy { background: var(--navy); color: #fff; }
+.btn-navy:hover { background: var(--navy-mid); }
+.btn-ghost { background: transparent; color: var(--navy); border: 1.5px solid var(--border); }
+.btn-ghost:hover { border-color: var(--navy); }
+.btn[disabled] { opacity: .55; cursor: not-allowed; transform: none; }
+
+/* ── Forms ───────────────────────────────────────────────── */
+.field { margin-bottom: 1rem; }
+label { display: block; font-size: .78rem; font-weight: 600; letter-spacing: .04em;
+  text-transform: uppercase; color: var(--muted); margin-bottom: .4rem; }
+input, select, textarea {
+  width: 100%; padding: .72rem .9rem; border: 1.5px solid var(--border);
+  border-radius: 8px; font-family: var(--font); font-size: .95rem;
+  color: var(--text); background: var(--white); transition: var(--trans); outline: none;
+}
+input:focus, select:focus, textarea:focus {
+  border-color: var(--gold); box-shadow: 0 0 0 3px rgba(212,168,67,.16);
+}
+
+/* ── Cards ───────────────────────────────────────────────── */
+.card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius);
+  box-shadow: var(--shadow-sm); }
+
+/* ── Utility ─────────────────────────────────────────────── */
+.spinner {
+  width: 18px; height: 18px; border: 2.5px solid rgba(255,255,255,.4);
+  border-top-color: #fff; border-radius: 50%; animation: spin .7s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+
+.badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: .72rem; font-weight: 700; }
+.toast-wrap { position: fixed; bottom: 24px; right: 24px; z-index: 9999; display: flex; flex-direction: column; gap: 10px; }
+.toast { padding: 12px 18px; border-radius: 10px; color: #fff; box-shadow: var(--shadow-md); font-size: .9rem; animation: rise .3s ease; }
+.toast.ok { background: var(--green); } .toast.err { background: var(--red); } .toast.info { background: var(--navy); }
+@keyframes rise { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+
+/* ============================================================
+   Dark theme — flips the token palette; toggled via
+   <html data-theme="dark"> (Settings → Kişiselleştirme).
+   ============================================================ */
+:root[data-theme="dark"] {
+  --navy:       #b9c9e6;   /* now light — used mostly as heading/accent TEXT */
+  --navy-mid:   #2a4a80;
+  --navy-light: #3a5f9e;
+  --navy-deep:  #0a1120;   /* sidebar / dark bars */
+  --navy-pale:  #1b2740;   /* elevated / active surface */
+  --cream:      #0e1420;   /* page background */
+  --white:      #172130;   /* card / surface */
+  --text:       #e6eaf2;
+  --muted:      #98a3b8;
+  --border:     rgba(255,255,255,.11);
+  --shadow-sm:  0 2px 12px rgba(0,0,0,.45);
+  --shadow-md:  0 8px 32px rgba(0,0,0,.55);
+  --shadow-lg:  0 20px 60px rgba(0,0,0,.6);
+}
+/* Inputs: slightly darker than the card so fields read as inset. */
+:root[data-theme="dark"] input,
+:root[data-theme="dark"] select,
+:root[data-theme="dark"] textarea { background: #0f1728; color: var(--text); border-color: var(--border); }
+/* Elements that used --navy as a BACKGROUND (now light) — pin them back to navy. */
+:root[data-theme="dark"] .btn-navy { background: #2a4a80; color: #fff; }
+:root[data-theme="dark"] .btn-navy:hover { background: #35589a; }
+:root[data-theme="dark"] .toast.info { background: #2a4a80; }
+:root[data-theme="dark"] table.data th { background: #101a2c; color: rgba(255,255,255,.7); }
+:root[data-theme="dark"] .editor-topbar,
+:root[data-theme="dark"] .drawer-head,
+:root[data-theme="dark"] .ks-head { background: #0f1728; }
+:root[data-theme="dark"] .month-badge { background: #2a4a80; color: var(--gold); }
+:root[data-theme="dark"] .editor-copy { background: #2a4a80; }
+:root[data-theme="dark"] .editor-copy:hover { background: #35589a; }
+/* Secondary light surfaces / hovers. */
+:root[data-theme="dark"] .nav { background: rgba(15,20,32,.9); }
+:root[data-theme="dark"] table.data tbody tr:hover td,
+:root[data-theme="dark"] .ks-policies tbody tr:hover td { background: #1e2a42; }
+:root[data-theme="dark"] .kasko-tbl tr:nth-child(even) td,
+:root[data-theme="dark"] .trafik-tbl tr:nth-child(even) td,
+:root[data-theme="dark"] .comp-table td.rl { background: #1b2436; }
+:root[data-theme="dark"] .month-card.current-month { background: #1c2740; }
+:root[data-theme="dark"] .new-section-row td { background: rgba(212,168,67,.15); color: var(--gold-l); }
+/* Dim the full-row status colours so they don't glare on a dark surface. */
+:root[data-theme="dark"] table.data tr[data-status="Poliçelendirildi"] td { background: rgba(39,174,96,.15); color: #bfe8cd; }
+:root[data-theme="dark"] table.data tr[data-status="Poliçelendirildi"]:hover td { background: rgba(39,174,96,.24); }
+:root[data-theme="dark"] table.data tr[data-status="İptal"] td { background: rgba(231,76,60,.15); color: #f1b8b2; }
+:root[data-theme="dark"] table.data tr[data-status="İptal"]:hover td { background: rgba(231,76,60,.24); }
+:root[data-theme="dark"] table.data tr[data-status="Yapılmayacak"] td { background: rgba(41,128,185,.15); color: #afd0ee; }
+:root[data-theme="dark"] table.data tr[data-status="Yapılmayacak"]:hover td { background: rgba(41,128,185,.24); }

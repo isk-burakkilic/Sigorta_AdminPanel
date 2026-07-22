@@ -1,0 +1,7 @@
+{
+  "_comment": "Copy to users.json and fill in real bcrypt hashes. users.json is gitignored. Generate a hash with: node -e \"console.log(require('bcryptjs').hashSync('YourPassword', 12))\"",
+  "someuser": {
+    "hash": "$2b$12$replace_with_a_real_bcrypt_hash_value_here_000000000000",
+    "email": "user@example.com"
+  }
+}

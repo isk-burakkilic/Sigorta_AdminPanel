@@ -1,0 +1,51 @@
+# ============================================================
+#  .gitignore — keep secrets and build artifacts out of git
+# ============================================================
+
+# ── Secrets (NEVER commit) ──────────────────────────────────
+.env
+.env.*
+!.env.example
+users.php
+generate_hashes.php
+server/.env
+server/.env.*
+!server/.env.example
+
+# ── User roster with password hashes (NEVER commit) ─────────
+server/data/users.json
+server/data/tenants.json
+
+# ── Per-agency database registry (may hold DB creds — NEVER commit) ──
+server/data/tenant_db.json
+
+# ── Local DB setup (contains a local dev DB password) ───────
+server/data/setup.sql
+
+# ── Runtime reference lists (user-managed, per-tenant) ──────
+server/data/ref_*.json
+
+# ── Runtime knowledge base (user-uploaded content) ──────────
+ek_bilgiler.txt
+server/data/ek_bilgiler.txt
+
+# ── Security audit log (PII-access records — NEVER commit) ──
+server/data/audit.log
+
+# ── Node / build artifacts ──────────────────────────────────
+node_modules/
+dist/
+build/
+*.log
+npm-debug.log*
+
+# ── OS / editor cruft ───────────────────────────────────────
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# One-time date-normalization backup (recovery artifact)
+server/data/bitis_serial_backup.json
+# ── Deployment artifacts (DB dump with PII — NEVER commit) ──
+deploy/
