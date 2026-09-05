@@ -1,23 +1,42 @@
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { auth, resetCsrf } from '../lib/api.js';
+import { useNavigate, useSearchParams } from 'react-router-dom';
+import { auth, resetCsrf, setTabToken } from '../lib/api.js';
 import '../styles/auth.css';
 
-// Marketing carousel shown on the left of the login screen.
+// Giriş ekranının tam sayfa görsel şeridi. Sahneler ACENTE PANELİNİ anlatır —
+// müşteriye sigorta anlatan tanıtım görselleri değil. Hepsi elle çizilmiş SVG:
+// vektör oldukları için her çözünürlük ve DPI'da keskin, toplamı ~30 KB.
 const SLIDES = [
-  { img: '/images/family-meadow.jpg', title: 'Sevdiklerinizi güvence altına alın',         text: 'Ailenizin bugününü ve yarınını doğru sigortayla koruyun.' },
-  { img: '/images/family-home.jpg',   title: 'Yuvanızı konut sigortasıyla güvenceye alın', text: 'Yangın, deprem ve hırsızlığa karşı eviniz her zaman güvende.' },
-  { img: '/images/family-baby.jpg',   title: 'Ailenizin sağlığı en değerli yatırımınız',   text: 'Tamamlayıcı ve özel sağlık sigortasıyla her an yanınızdayız.' },
-  { img: '/images/family-park.jpg',   title: 'Mutlu anlar, güvenli yarınlar',              text: 'Her adımda ailenizin yanında güçlü bir sigorta çözümü.' },
-  { img: '/images/senior-couple.jpg', title: 'Geleceğinizi bugünden güvenceye alın',        text: 'Hayat ve bireysel emeklilik sigortasıyla huzurlu bir gelecek.' },
-  { img: '/images/family-cozy.jpg',   title: 'Huzurunuz bizim önceliğimiz',                text: 'Sevdiklerinizle geçirdiğiniz her an güvende olsun.' },
+  { img: '/images/slide-uretim.svg',
+    title: 'Tüm üretiminiz tek ekranda',
+    text: 'Aylık üretim, tamamlanma oranları ve poliçe listesi bir arada.' },
+  { img: '/images/slide-yenileme.svg',
+    title: 'Yenilemeyi kaçırmayın',
+    text: 'Bitiş tarihi yaklaşan poliçeler öne çıkar, takip sizde kalır.' },
+  { img: '/images/slide-cari.svg',
+    title: 'Tahsilatı poliçe poliçe görün',
+    text: 'Cari hesap; hangi poliçe tahsil edildi, ne kadar kaldı — net.' },
+  { img: '/images/slide-musteri.svg',
+    title: 'Müşteriyi 360° tanıyın',
+    text: 'Poliçeler, görüşme geçmişi ve cari durum aynı ekranda.' },
+  { img: '/images/slide-belge.svg',
+    title: 'Belgeden tabloya saniyeler içinde',
+    text: 'Poliçe PDF’i ve ruhsat okunur, veriler listeye hazır gelir.' },
+  { img: '/images/slide-portfoy.svg',
+    title: 'Portföyünüzü rakamlarla yönetin',
+    text: 'Branş ve şirket dağılımı, prim toplamları anlık hesaplanır.' },
+  { img: '/images/slide-guvenlik.svg',
+    title: 'Her acentenin verisi kendine',
+    text: 'Ayrı veritabanı, iki adımlı giriş ve güvenilir cihaz koruması.' },
 ];
 const SLIDE_MS = 5000;
 
 export default function Login() {
   const nav = useNavigate();
+  const [params] = useSearchParams();
+  const endedReason = params.get('reason'); // 'idle' | 'session' — why we were sent back
   const [slide, setSlide] = useState(0);
-  const [step, setStep] = useState('login'); // login | otp
+  const [step, setStep] = useState('login'); // login | otp | forgot | forgot-otp
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState('');
   const [notice, setNotice] = useState('');
@@ -30,6 +49,11 @@ export default function Login() {
   const [password, setPassword] = useState('');
   const [showPw, setShowPw] = useState(false);
   const [otp, setOtp] = useState('');
+  const [newPassword, setNewPassword] = useState('');
+  const [newPassword2, setNewPassword2] = useState('');
+  // "Bu cihazı hatırla" — işaretliyse OTP bir kez doğrulandıktan sonra bu
+  // tarayıcıda TRUSTED_DAYS gün boyunca doğrulama kodu istenmez.
+  const [remember, setRemember] = useState(true);
 
   // Already logged in? Go straight to the panel.
   useEffect(() => {
@@ -49,7 +73,7 @@ export default function Login() {
 
   // OTP countdown
   useEffect(() => {
-    if (step !== 'otp' || remain <= 0) return;
+    if ((step !== 'otp' && step !== 'forgot-otp') || remain <= 0) return;
     const t = setInterval(() => setRemain((r) => Math.max(0, r - 1)), 1000);
     return () => clearInterval(t);
   }, [step, remain]);
@@ -59,8 +83,13 @@ export default function Login() {
     if (!tenant) { setError('Lütfen bir acente seçin.'); return; }
     setError(''); setNotice(''); setBusy(true);
     try {
-      const r = await auth.login(tenant, username.trim(), password);
-      if (r.ok && r.step === 'otp') {
+      const r = await auth.login(tenant, username.trim(), password, remember);
+      if (r.ok && r.step === 'done') {
+        // Cihaz daha önce doğrulanmış — OTP adımı atlandı, doğrudan panele.
+        resetCsrf();
+        setTabToken(r.tabToken);
+        nav(r.redirect || '/panel', { replace: true });
+      } else if (r.ok && r.step === 'otp') {
         setStep('otp');
         setNotice(r.notice || '');
         setMaskedEmail(r.maskedEmail || '');
@@ -82,10 +111,58 @@ export default function Login() {
       const r = await auth.verifyOtp(otp.trim());
       if (r.ok) {
         resetCsrf();
+        setTabToken(r.tabToken); // binds the session to THIS tab (cleared when it closes)
         nav(r.redirect || '/panel', { replace: true });
       } else {
         setError(r.error || 'Doğrulama başarısız.');
         if (r.step === 'login') { setStep('login'); setOtp(''); setPassword(''); }
+      }
+    } catch {
+      setError('Bağlantı hatası. Lütfen tekrar deneyin.');
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  // Şifremi Unuttum — adım 1: acente + kullanıcı adı ile kod iste.
+  // Sunucu hesap var/yok bilgisini asla sızdırmaz: her durumda AYNI genel
+  // mesajla forgot-otp adımına geçilir.
+  async function doForgotRequest(e) {
+    e.preventDefault();
+    if (!tenant) { setError('Lütfen bir acente seçin.'); return; }
+    setError(''); setNotice(''); setBusy(true);
+    try {
+      const r = await auth.forgotPasswordRequest(tenant, username.trim());
+      if (r.ok) {
+        setStep('forgot-otp');
+        setNotice(r.notice || '');
+        setOtp(''); setNewPassword(''); setNewPassword2('');
+        setRemain(Math.max(0, (r.otpExpires || 0) - Math.floor(Date.now() / 1000)));
+      } else {
+        setError(r.error || 'İşlem başarısız.');
+      }
+    } catch {
+      setError('Bağlantı hatası. Lütfen tekrar deneyin.');
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  // Şifremi Unuttum — adım 2: kod + yeni şifre.
+  async function doForgotConfirm(e) {
+    e.preventDefault();
+    setError('');
+    if (newPassword !== newPassword2) { setError('Şifreler eşleşmiyor.'); return; }
+    setBusy(true);
+    try {
+      const r = await auth.forgotPasswordConfirm(otp.trim(), newPassword);
+      if (r.ok) {
+        setStep('login');
+        setPassword(''); setOtp(''); setNewPassword(''); setNewPassword2('');
+        setNotice('Şifreniz güncellendi. Şimdi yeni şifrenizle giriş yapabilirsiniz.');
+      } else {
+        setError(r.error || 'Doğrulama başarısız.');
+        if (r.step === 'forgot') { setStep('forgot'); setOtp(''); setNewPassword(''); setNewPassword2(''); }
       }
     } catch {
       setError('Bağlantı hatası. Lütfen tekrar deneyin.');
@@ -130,18 +207,26 @@ export default function Login() {
           <div className="auth-brand">Zenith <span>Peak</span></div>
           <div className="auth-sub">Güvenli Acente Erişimi</div>
         </div>
-        <div className="auth-steps">
-          <div className={`auth-step ${step === 'login' ? 'active' : 'done'}`}>
-            <span className="n">{step === 'login' ? '1' : '✓'}</span> Giriş
+        {(step === 'login' || step === 'otp') && (
+          <div className="auth-steps">
+            <div className={`auth-step ${step === 'login' ? 'active' : 'done'}`}>
+              <span className="n">{step === 'login' ? '1' : '✓'}</span> Giriş
+            </div>
+            <div className={`auth-step ${step === 'otp' ? 'active' : ''}`}>
+              <span className="n">2</span> Doğrulama
+            </div>
           </div>
-          <div className={`auth-step ${step === 'otp' ? 'active' : ''}`}>
-            <span className="n">2</span> Doğrulama
-          </div>
-        </div>
+        )}
 
         <div className="auth-body">
           {error && <div className="auth-error">{error}</div>}
-          {notice && step === 'otp' && <div className="auth-notice">{notice}</div>}
+          {notice && <div className="auth-notice">{notice}</div>}
+          {!error && step === 'login' && endedReason === 'idle' && (
+            <div className="auth-notice">Uzun süre işlem yapılmadığı için oturumunuz güvenlik gereği kapatıldı.</div>
+          )}
+          {!error && step === 'login' && endedReason === 'session' && (
+            <div className="auth-notice">Oturumunuz sonlandırıldı. Lütfen tekrar giriş yapın.</div>
+          )}
 
           {step === 'login' ? (
             <form onSubmit={doLogin}>
@@ -173,11 +258,21 @@ export default function Login() {
                   </button>
                 </div>
               </div>
+              <div className="auth-foot" style={{ textAlign: 'right', margin: '-8px 0 14px' }}>
+                <a onClick={() => { setStep('forgot'); setError(''); setNotice(''); }}>Şifremi unuttum</a>
+              </div>
+              <label className="auth-remember">
+                <input type="checkbox" checked={remember} onChange={(e) => setRemember(e.target.checked)} />
+                <span>
+                  <b>Bu cihazı hatırla</b>
+                  <small>Bu tarayıcıda bir daha e-posta doğrulama kodu istenmez. Şifreniz yine sorulur.</small>
+                </span>
+              </label>
               <button className="btn btn-navy" style={{ width: '100%', justifyContent: 'center' }} disabled={busy}>
                 {busy ? <span className="spinner" /> : 'Devam Et →'}
               </button>
             </form>
-          ) : (
+          ) : step === 'otp' ? (
             <form onSubmit={doVerify}>
               <h2>Doğrulama Kodu</h2>
               <p className="lead">
@@ -193,7 +288,59 @@ export default function Login() {
                 {busy ? <span className="spinner" /> : 'Giriş Yap'}
               </button>
               <div className="auth-foot">
-                <a onClick={() => { setStep('login'); setError(''); setOtp(''); }}>← Baştan başla</a>
+                <a onClick={() => { setStep('login'); setError(''); setNotice(''); setOtp(''); }}>← Baştan başla</a>
+              </div>
+            </form>
+          ) : step === 'forgot' ? (
+            <form onSubmit={doForgotRequest}>
+              <h2>Şifremi Unuttum</h2>
+              <p className="lead">Acentenizi ve kullanıcı adınızı girin; hesabınız varsa kayıtlı e-posta adresinize bir doğrulama kodu göndereceğiz.</p>
+              <div className="field">
+                <label htmlFor="ft">Acente</label>
+                <select id="ft" value={tenant} onChange={(e) => setTenant(e.target.value)} required>
+                  <option value="">— Acente seçin —</option>
+                  {tenants.map((t) => <option key={t.id} value={t.id}>{t.name}</option>)}
+                </select>
+              </div>
+              <div className="field">
+                <label htmlFor="fu">Kullanıcı Adı</label>
+                <input id="fu" autoComplete="username" value={username} onChange={(e) => setUsername(e.target.value)} required />
+              </div>
+              <button className="btn btn-navy" style={{ width: '100%', justifyContent: 'center' }} disabled={busy}>
+                {busy ? <span className="spinner" /> : 'Doğrulama Kodu Gönder'}
+              </button>
+              <div className="auth-foot">
+                <a onClick={() => { setStep('login'); setError(''); setNotice(''); }}>← Giriş ekranına dön</a>
+              </div>
+            </form>
+          ) : (
+            <form onSubmit={doForgotConfirm}>
+              <h2>Şifreyi Sıfırla</h2>
+              <p className="lead">
+                E-postanıza gönderilen 6 haneli kodu ve yeni şifrenizi girin.
+                {remain > 0 && <> <span className="timer">Kalan süre {mm}:{ss}</span></>}
+              </p>
+              <div className="field">
+                <label htmlFor="fotp">6 Haneli Kod</label>
+                <input id="fotp" className="otp-input" inputMode="numeric" maxLength={6} value={otp}
+                  onChange={(e) => setOtp(e.target.value.replace(/\D/g, ''))} autoFocus required />
+              </div>
+              <div className="field">
+                <label htmlFor="np">Yeni Şifre</label>
+                <input id="np" type="password" autoComplete="new-password" minLength={10}
+                  value={newPassword} onChange={(e) => setNewPassword(e.target.value)} required />
+              </div>
+              <div className="field">
+                <label htmlFor="np2">Yeni Şifre (tekrar)</label>
+                <input id="np2" type="password" autoComplete="new-password" minLength={10}
+                  value={newPassword2} onChange={(e) => setNewPassword2(e.target.value)} required />
+              </div>
+              <button className="btn btn-gold" style={{ width: '100%', justifyContent: 'center' }}
+                disabled={busy || otp.length !== 6 || newPassword.length < 10}>
+                {busy ? <span className="spinner" /> : 'Şifreyi Sıfırla'}
+              </button>
+              <div className="auth-foot">
+                <a onClick={() => { setStep('forgot'); setError(''); setNotice(''); setOtp(''); }}>← Tekrar kod iste</a>
               </div>
             </form>
           )}

@@ -27,10 +27,31 @@
   --mono:  'IBM Plex Mono', monospace;
   --radius: 12px;
   --trans: all .25s cubic-bezier(.4,0,.2,1);
+  --sb-thumb: rgba(26,58,107,.32);
+  --sb-thumb-hover: var(--gold);
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
+
+/* ── Scrollbar ───────────────────────────────────────────────
+   Chromium/WebKit: ince, yuvarlatılmış, tema renkli kaydırma çubuğu.
+   background-clip + şeffaf kenarlık, çubuğu raydan ayrık "hap" gibi gösterir. */
+::-webkit-scrollbar { width: 11px; height: 11px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-corner { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background-color: var(--sb-thumb);
+  border-radius: 20px;
+  border: 3px solid transparent;
+  background-clip: padding-box;
+}
+::-webkit-scrollbar-thumb:hover,
+::-webkit-scrollbar-thumb:active { background-color: var(--sb-thumb-hover); }
+/* Firefox: standart özellikler (webkit sözdizimini desteklemez) */
+@supports not selector(::-webkit-scrollbar) {
+  * { scrollbar-width: thin; scrollbar-color: var(--sb-thumb) transparent; }
+}
 body {
   font-family: var(--font);
   color: var(--text);
@@ -91,54 +112,181 @@ input:focus, select:focus, textarea:focus {
 .toast { padding: 12px 18px; border-radius: 10px; color: #fff; box-shadow: var(--shadow-md); font-size: .9rem; animation: rise .3s ease; }
 .toast.ok { background: var(--green); } .toast.err { background: var(--red); } .toast.info { background: var(--navy); }
 @keyframes rise { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
-
 /* ============================================================
-   Dark theme — flips the token palette; toggled via
-   <html data-theme="dark"> (Settings → Kişiselleştirme).
+   Karanlık tema — 2026-08-30'da yeniden tasarlandı.
+
+   Eski sürümün sorunu renk SEÇİMİ değil, renklerin BİRBİRİYLE
+   ilişkisiydi: yüzeyler ayrı ton ailelerindeydi (kenar çubuğu
+   #0a1120 %52 doygunlukta mor-lacivert, sayfa #0e1420 %39, kart
+   #172130 %35). Ekranda üç ayrı "mavi" yan yana durunca göz bunu
+   uyumsuzluk olarak okur.
+
+   Yeni kural — TEK TON AİLESİ (hue ≈ 218°), yükseldikçe doygunluğu
+   düşen bir yüzey merdiveni:
+
+     kenar çubuğu / koyu bar   #0b101a   ← en dip
+     sayfa zemini              #111722
+     kart / yüzey              #1a2130
+     yükseltilmiş / aktif      #242d3e   ← en üst
+
+   Her basamak bir öncekinden görünür ölçüde açık; hiçbiri ötekiyle
+   ton yarışına girmez. Altın tek başına sıcak unsurdur — koyu
+   zeminde biraz açıldı, yoksa kahverengiye düşüyordu.
    ============================================================ */
 :root[data-theme="dark"] {
-  --navy:       #b9c9e6;   /* now light — used mostly as heading/accent TEXT */
-  --navy-mid:   #2a4a80;
-  --navy-light: #3a5f9e;
-  --navy-deep:  #0a1120;   /* sidebar / dark bars */
-  --navy-pale:  #1b2740;   /* elevated / active surface */
-  --cream:      #0e1420;   /* page background */
-  --white:      #172130;   /* card / surface */
-  --text:       #e6eaf2;
-  --muted:      #98a3b8;
-  --border:     rgba(255,255,255,.11);
-  --shadow-sm:  0 2px 12px rgba(0,0,0,.45);
-  --shadow-md:  0 8px 32px rgba(0,0,0,.55);
-  --shadow-lg:  0 20px 60px rgba(0,0,0,.6);
+  /* Yüzey merdiveni — tek ton ailesi (bkz. yukarıdaki not) */
+  --navy-deep:  #0b101a;   /* kenar çubuğu, koyu barlar */
+  --cream:      #111722;   /* sayfa zemini */
+  --white:      #1a2130;   /* kart / yüzey */
+  --navy-pale:  #242d3e;   /* yükseltilmiş / aktif yüzey */
+
+  /* --navy karanlık temada ZEMİN değil METİN rengidir: başlıklar ve
+     vurgulu sayılar. Gövde metninden belirgin açık olmalı, yoksa
+     hiyerarşi kayboluyor. */
+  --navy:       #e9eefb;
+  --navy-mid:   #2c4a80;   /* zemin olarak kullanıldığı yerler için */
+  --navy-light: #3d6099;
+
+  --text:       #ced6e4;   /* gövde metni — saf beyaz değil, göz yormasın */
+  --muted:      #8d99b0;
+  --border:     rgba(158,180,222,.14);
+
+  /* Anlam renkleri koyu zeminde bir tık açılır; koyu tonlar
+     (#27ae60, #e74c3c) siyah üstünde çamurlaşıyordu. */
+  --gold:       #e2b95f;
+  --gold-l:     #f4d693;
+  --gold-d:     #c39630;
+  --red:        #ef6155;
+  --green:      #33bd77;
+  --orange:     #e9a53a;
+
+  /* Gölge koyu temada derinlik değil kirlilik üretir — hafifletildi;
+     ayrımı kenarlık + yüzey basamağı yapıyor. */
+  --shadow-sm:  0 1px 3px rgba(0,0,0,.4);
+  --shadow-md:  0 6px 22px rgba(0,0,0,.45);
+  --shadow-lg:  0 18px 48px rgba(0,0,0,.55);
+  --sb-thumb:   rgba(158,180,222,.22);
+
+  color-scheme: dark;
 }
-/* Inputs: slightly darker than the card so fields read as inset. */
+
+/* Girdiler: karttan bir tık koyu → alan "içe gömülü" okunur. */
 :root[data-theme="dark"] input,
 :root[data-theme="dark"] select,
-:root[data-theme="dark"] textarea { background: #0f1728; color: var(--text); border-color: var(--border); }
-/* Elements that used --navy as a BACKGROUND (now light) — pin them back to navy. */
-:root[data-theme="dark"] .btn-navy { background: #2a4a80; color: #fff; }
+:root[data-theme="dark"] textarea { background: #141a27; color: var(--text); border-color: var(--border); }
+:root[data-theme="dark"] input::placeholder,
+:root[data-theme="dark"] textarea::placeholder { color: #6f7b91; }
+/* Altın düğmede beyaz yazı koyu temada parlıyordu; koyu yazı okunur. */
+:root[data-theme="dark"] .btn-gold { color: #1d1607; }
+
+/* --navy'yi ZEMİN olarak kullanan öğeler (artık açık renk) — lacivertte sabitlenir. */
+:root[data-theme="dark"] .btn-navy { background: var(--navy-mid); color: #fff; }
 :root[data-theme="dark"] .btn-navy:hover { background: #35589a; }
-:root[data-theme="dark"] .toast.info { background: #2a4a80; }
-:root[data-theme="dark"] table.data th { background: #101a2c; color: rgba(255,255,255,.7); }
+:root[data-theme="dark"] .rz-type.on { background: var(--navy-mid); border-color: var(--navy-mid); color: #fff; }
+:root[data-theme="dark"] .c360-ibtn.ok { background: var(--navy-mid); color: #fff; }
+:root[data-theme="dark"] .c360-tab.active { background: var(--navy-mid); color: #fff; }
+:root[data-theme="dark"] .toast.info { background: var(--navy-mid); }
+:root[data-theme="dark"] .month-badge { background: var(--navy-mid); color: var(--gold-l); }
+:root[data-theme="dark"] .editor-copy { background: var(--navy-mid); }
+:root[data-theme="dark"] .editor-copy:hover { background: #35589a; }
+:root[data-theme="dark"] .topbar-back:hover:not(:disabled) { background: var(--navy-mid); border-color: var(--navy-mid); color: #fff; }
+:root[data-theme="dark"] .cmp-add-btn:hover { background: var(--navy-pale); border-color: var(--navy-light); color: var(--navy); }
+:root[data-theme="dark"] .ai-hdr { background: linear-gradient(135deg, #0b101a, #1b2a4a); color: var(--gold); }
+:root[data-theme="dark"] .ai-hdr button { color: var(--gold); }
+
+/* Tablo başlıkları: karttan da sayfadan da koyu — satırlarla karışmasın. */
+:root[data-theme="dark"] table.data th,
+:root[data-theme="dark"] .dp-table-wrap th,
+:root[data-theme="dark"] .kasko-tbl th, :root[data-theme="dark"] .trafik-tbl th,
+:root[data-theme="dark"] .comp-table th,
+:root[data-theme="dark"] .tki-table th,
+:root[data-theme="dark"] .hlp-mock-head .hlp-mock-cell { background: #131a27; color: #aab6cc; }
+:root[data-theme="dark"] table.data th:hover { color: var(--navy); }
+/* Katman başlıkları (düzenleyici, çekmece, modal) — hepsi aynı koyu bant. */
 :root[data-theme="dark"] .editor-topbar,
 :root[data-theme="dark"] .drawer-head,
-:root[data-theme="dark"] .ks-head { background: #0f1728; }
-:root[data-theme="dark"] .month-badge { background: #2a4a80; color: var(--gold); }
-:root[data-theme="dark"] .editor-copy { background: #2a4a80; }
-:root[data-theme="dark"] .editor-copy:hover { background: #35589a; }
-/* Secondary light surfaces / hovers. */
-:root[data-theme="dark"] .nav { background: rgba(15,20,32,.9); }
+:root[data-theme="dark"] .tki-form-head,
+:root[data-theme="dark"] .ks-head,
+:root[data-theme="dark"] .tk-top { background: #131a27; }
+
+/* Plaka: koyu zeminde kalın + geniş harf aralıklı mono yazı bulanıklaşıp
+   (halation) okunması zorlaşıyordu. Karanlık temada ince ağırlığa çekilir,
+   ışık temasında dokunulmaz. */
+:root[data-theme="dark"] .plate-cell { font-weight: 500; color: #c7d4ea; }
+
+/* İkincil yüzeyler / vurgular — hepsi yeni merdivenden. */
+:root[data-theme="dark"] .nav { background: rgba(17,23,34,.9); }
 :root[data-theme="dark"] table.data tbody tr:hover td,
-:root[data-theme="dark"] .ks-policies tbody tr:hover td { background: #1e2a42; }
+:root[data-theme="dark"] .ks-policies tbody tr:hover td { background: #232c3d; }
 :root[data-theme="dark"] .kasko-tbl tr:nth-child(even) td,
 :root[data-theme="dark"] .trafik-tbl tr:nth-child(even) td,
-:root[data-theme="dark"] .comp-table td.rl { background: #1b2436; }
-:root[data-theme="dark"] .month-card.current-month { background: #1c2740; }
-:root[data-theme="dark"] .new-section-row td { background: rgba(212,168,67,.15); color: var(--gold-l); }
-/* Dim the full-row status colours so they don't glare on a dark surface. */
-:root[data-theme="dark"] table.data tr[data-status="Poliçelendirildi"] td { background: rgba(39,174,96,.15); color: #bfe8cd; }
-:root[data-theme="dark"] table.data tr[data-status="Poliçelendirildi"]:hover td { background: rgba(39,174,96,.24); }
-:root[data-theme="dark"] table.data tr[data-status="İptal"] td { background: rgba(231,76,60,.15); color: #f1b8b2; }
-:root[data-theme="dark"] table.data tr[data-status="İptal"]:hover td { background: rgba(231,76,60,.24); }
-:root[data-theme="dark"] table.data tr[data-status="Yapılmayacak"] td { background: rgba(41,128,185,.15); color: #afd0ee; }
-:root[data-theme="dark"] table.data tr[data-status="Yapılmayacak"]:hover td { background: rgba(41,128,185,.24); }
+:root[data-theme="dark"] .comp-table td.rl { background: #1e2635; }
+:root[data-theme="dark"] .month-card.current-month { background: #1f283a; border-color: var(--gold-d); }
+:root[data-theme="dark"] table.data tfoot td { background: #1e2635; }
+:root[data-theme="dark"] .stat-brut { background: rgba(226,185,95,.15); color: var(--gold-l); }
+:root[data-theme="dark"] .new-section-row td { background: rgba(226,185,95,.13); color: var(--gold-l); }
+:root[data-theme="dark"] .p-hamburger:hover,
+:root[data-theme="dark"] .topbar-gear:hover,
+:root[data-theme="dark"] .topbar-theme:hover,
+:root[data-theme="dark"] .legend-item:hover { background: rgba(255,255,255,.06); }
+:root[data-theme="dark"] .sync-pill,
+:root[data-theme="dark"] .topbar-back { background: rgba(255,255,255,.05); }
+:root[data-theme="dark"] .ch-hbar-track,
+:root[data-theme="dark"] .ch-dbar-track { background: rgba(255,255,255,.07); }
+:root[data-theme="dark"] .switch .slider { background: #3a4459; }
+/* Kaplamalar: lacivert tentesi koyu temada mor bir sis bırakıyordu. */
+:root[data-theme="dark"] .ks-overlay,
+:root[data-theme="dark"] .editor-overlay { background: rgba(4,7,12,.68); }
+/* İpucu balonu sayfadan KOYU olursa "delik" gibi görünüyor — yükseltilmiş yüzey. */
+:root[data-theme="dark"] .chart-tip { background: #2a3346; border: 1px solid var(--border); }
+:root[data-theme="dark"] .rz-box { background: #131a27; border: 1px solid var(--border); }
+
+/* Sohbet balonları (ışık teması için sabit pastel yazılmıştı). */
+:root[data-theme="dark"] .ai-sel > p { color: #c7d4ea; }
+:root[data-theme="dark"] .ai-sel-btn { background: #141a27; border-color: var(--navy-mid); color: #c7d4ea; }
+:root[data-theme="dark"] .ai-sel-btn:hover { background: var(--navy-mid); color: var(--gold); }
+:root[data-theme="dark"] .ai-m.bot { background: #242d3e; color: var(--text); }
+:root[data-theme="dark"] .ai-m.typ { background: #242d3e; color: var(--muted); }
+:root[data-theme="dark"] .ai-m.usr { color: #1d1607; }
+:root[data-theme="dark"] .ai-reset { color: #7d8aa3; }
+:root[data-theme="dark"] .ai-inp { border-top-color: var(--border); }
+:root[data-theme="dark"] .ai-inp input { border-color: var(--border); }
+
+/* Ölçüt kutucuğu ikonları: ışık temasının pastel zeminleri koyu kartta
+   parlıyordu → aynı rengin saydam tonuna çevrildi (Grafikler ekranındaki
+   an-kpi-icon ile aynı yöntem). */
+:root[data-theme="dark"] .metric-icon.tone-blue   { background: rgba(76,141,255,.18); }
+:root[data-theme="dark"] .metric-icon.tone-green  { background: rgba(47,174,106,.20); }
+:root[data-theme="dark"] .metric-icon.tone-orange { background: rgba(233,165,58,.18); }
+:root[data-theme="dark"] .metric-icon.tone-violet { background: rgba(139,123,240,.20); }
+
+/* Satır durum renkleri: koyu zeminde okunacak kadar opak, ekranı
+   boyamayacak kadar sakin. */
+:root[data-theme="dark"] table.data tr[data-status="Poliçelendirildi"] td { background: rgba(47,174,106,.20); color: #b8ecce; }
+:root[data-theme="dark"] table.data tr[data-status="Poliçelendirildi"]:hover td { background: rgba(47,174,106,.30); }
+:root[data-theme="dark"] table.data tr[data-status="İptal"] td { background: rgba(234,90,85,.20); color: #f7c6c1; }
+:root[data-theme="dark"] table.data tr[data-status="İptal"]:hover td { background: rgba(234,90,85,.30); }
+:root[data-theme="dark"] table.data tr[data-status="Yapılmayacak"] td { background: rgba(76,141,255,.20); color: #c8dcfa; }
+:root[data-theme="dark"] table.data tr[data-status="Yapılmayacak"]:hover td { background: rgba(76,141,255,.30); }
+
+/* Durum rozetleri: ışık temasının pastelleri koyuda kamaşma yapıyor —
+   saydam renk çipi + parlak yazı + aynı tondan saç teli kenarlık. */
+:root[data-theme="dark"] .status-badge { box-shadow: inset 0 0 0 1px rgba(255,255,255,.08); }
+:root[data-theme="dark"] .status-calisilmadi { background: rgba(148,163,184,.16); color: #c0cade; }
+:root[data-theme="dark"] .status-calisildi { background: rgba(226,185,95,.16); color: #f4d693; }
+:root[data-theme="dark"] .status-policelendirildi { background: rgba(47,174,106,.22); color: #7fe3ad; }
+:root[data-theme="dark"] .status-iptal { background: rgba(33,184,166,.18); color: #7fdfd4; }
+:root[data-theme="dark"] .status-eksik { background: rgba(233,165,58,.18); color: #f3bf72; }
+:root[data-theme="dark"] .status-yapilmayacak { background: rgba(76,141,255,.18); color: #aecbfa; }
+:root[data-theme="dark"] .status-dis-teklif { background: rgba(139,123,240,.22); color: #c6bcf7; }
+
+/* Ay kartı sayaçları + not rozeti. */
+:root[data-theme="dark"] .stat-total { background: rgba(158,180,222,.14); color: #c7d4ea; }
+:root[data-theme="dark"] .stat-done { background: rgba(47,174,106,.20); color: #7fe3ad; }
+:root[data-theme="dark"] .stat-cancel { background: rgba(234,90,85,.18); color: #f2ada5; }
+:root[data-theme="dark"] .stat-wontdo { background: rgba(76,141,255,.18); color: #aecbfa; }
+:root[data-theme="dark"] .stat-pend { background: rgba(233,165,58,.18); color: #f3bf72; }
+:root[data-theme="dark"] .month-grade { background: rgba(47,174,106,.20); color: #7fe3ad; }
+
+/* Yeşil metin ışık temasında koyu (#1c7a44); koyu zeminde okunmuyordu. */
+:root[data-theme="dark"] .tki-op.ok:hover { color: #7fe3ad; }

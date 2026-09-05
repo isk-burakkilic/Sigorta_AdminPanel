@@ -1,20 +1,37 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { filterContacts } from '../lib/contacts.js';
+import { useBackLevel } from '../lib/backnav.js';
 import Customer360 from './Customer360.jsx';
 
 const MAX_LIST = 100; // cap the rendered list for large customer bases
 
-export default function ContactSearch({ contacts, loading, onClose, onOpenPolicy }) {
+// `paused` — üstte poliçe düzenleyici açıkken bu panel arkada durur:
+// odağı düzenleyiciye bırakır. Escape ayrıca bekletilmez: backnav.js'teki
+// katman yığını zaten düzenleyiciyi üstte tutar, `installEscGuard` (Panel.jsx)
+// Escape'i her zaman en üstteki katmana yönlendirir.
+export default function ContactSearch({ contacts, loading, paused = false, onClose, onOpenPolicy }) {
   const [q, setQ] = useState('');
   const [sel, setSel] = useState(null);
   const inputRef = useRef(null);
 
-  useEffect(() => { if (!sel) inputRef.current?.focus(); }, [sel]);
+  useEffect(() => { if (!sel && !paused) inputRef.current?.focus(); }, [sel, paused]);
+  // Müşteri 360 ekranı da bir geri katmanıdır: geri tuşu (ve Escape) kişi listesine döner.
+  // Panelin kendisi (kapanışı = onClose) zaten Panel.jsx'te `contactsOpen` katmanı olarak kayıtlı.
+  useBackLevel(!!sel, 'Kişiler', () => setSel(null));
+
+  // Poliçe kaydedilip/silinip liste yenilendiğinde seçili müşteriyi TAZE
+  // nesneyle değiştir — açık duran Müşteri 360 ekranı güncel veriyi gösterir.
+  // Müşteri listeden düştüyse (son poliçesi silindi) kişi listesine dön.
   useEffect(() => {
-    const onKey = (e) => { if (e.key === 'Escape') { if (sel) setSel(null); else onClose(); } };
-    window.addEventListener('keydown', onKey);
-    return () => window.removeEventListener('keydown', onKey);
-  }, [onClose, sel]);
+    if (!sel || !contacts.length) return;
+    const fresh = contacts.find((c) => c.id === sel.id);
+    if (!fresh) setSel(null);
+    else if (fresh !== sel) setSel(fresh);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [contacts]);
+
+  // Not: liste bilerek SADE tutulur — isim + kimlik satırı. Cari bakiye burada
+  // gösterilmez (rozet kaldırıldı); bakiye müşterinin Cari Hesap sekmesinde.
 
   // Live typeahead — filters as you type (input is uppercased in filterContacts).
   const results = useMemo(() => filterContacts(contacts, q), [contacts, q]);

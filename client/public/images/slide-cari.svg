@@ -1,0 +1,157 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000"
+     role="img" aria-label="Cari hesap — tahsilat durumu ve bakiye kartları">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0a1428"/>
+      <stop offset=".55" stop-color="#122544"/>
+      <stop offset="1" stop-color="#0b1a33"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="30%" r="56%">
+      <stop offset="0" stop-color="#27ae60" stop-opacity=".16"/>
+      <stop offset="1" stop-color="#27ae60" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M48 0H0v48" fill="none" stroke="#fff" stroke-opacity=".045"/>
+    </pattern>
+  </defs>
+
+  <rect width="1600" height="1000" fill="url(#bg)"/>
+  <rect width="1600" height="1000" fill="url(#grid)"/>
+  <rect width="1600" height="1000" fill="url(#glow)"/>
+  <!-- Sahne, guvenli alana (x 300..1170, y 195..700) oturtulur: cover genis
+       ekranda ust/alti, sagdaki giris karti da sag kenari kirpiyor. -->
+  <g transform="translate(23.7 86.5) scale(0.8891)">
+
+
+  <!-- ── özet kartları ── -->
+  <g>
+    <!-- Kesilen poliçeler -->
+    <g>
+      <rect x="340" y="176" width="216" height="112" rx="14"
+            fill="#fff" fill-opacity=".055" stroke="#fff" stroke-opacity=".12"/>
+      <rect x="340" y="176" width="4" height="112" rx="2" fill="#2a78d6"/>
+      <rect x="366" y="202" width="92" height="9" rx="4" fill="#fff" fill-opacity=".16"/>
+      <rect x="366" y="224" width="132" height="17" rx="8" fill="#fff" fill-opacity=".32"/>
+      <rect x="366" y="252" width="70" height="8" rx="4" fill="#fff" fill-opacity=".10"/>
+    </g>
+    <!-- Ek borç -->
+    <g>
+      <rect x="572" y="176" width="216" height="112" rx="14"
+            fill="#fff" fill-opacity=".055" stroke="#fff" stroke-opacity=".12"/>
+      <rect x="572" y="176" width="4" height="112" rx="2" fill="#f39c12"/>
+      <rect x="598" y="202" width="104" height="9" rx="4" fill="#fff" fill-opacity=".16"/>
+      <rect x="598" y="224" width="106" height="17" rx="8" fill="#fff" fill-opacity=".32"/>
+      <rect x="598" y="252" width="84" height="8" rx="4" fill="#fff" fill-opacity=".10"/>
+    </g>
+    <!-- Tahsilat -->
+    <g>
+      <rect x="804" y="176" width="216" height="112" rx="14"
+            fill="#fff" fill-opacity=".055" stroke="#fff" stroke-opacity=".12"/>
+      <rect x="804" y="176" width="4" height="112" rx="2" fill="#27ae60"/>
+      <rect x="830" y="202" width="88" height="9" rx="4" fill="#fff" fill-opacity=".16"/>
+      <rect x="830" y="224" width="122" height="17" rx="8" fill="#5fd18f" fill-opacity=".55"/>
+      <rect x="830" y="252" width="76" height="8" rx="4" fill="#fff" fill-opacity=".10"/>
+    </g>
+    <!-- Bakiye — kapalı (vurgulu) -->
+    <g>
+      <rect x="1036" y="176" width="224" height="112" rx="14"
+            fill="#27ae60" fill-opacity=".14" stroke="#27ae60" stroke-opacity=".45"/>
+      <rect x="1036" y="176" width="4" height="112" rx="2" fill="#5fd18f"/>
+      <rect x="1062" y="202" width="70" height="9" rx="4" fill="#fff" fill-opacity=".22"/>
+      <rect x="1062" y="224" width="96" height="17" rx="8" fill="#5fd18f" fill-opacity=".7"/>
+      <g transform="translate(1198 214)">
+        <circle cx="18" cy="18" r="18" fill="#27ae60" fill-opacity=".3"/>
+        <path d="M10 18 l6 6 12 -14" fill="none" stroke="#5fd18f" stroke-width="3.2"
+              stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+    </g>
+  </g>
+
+  <!-- ── döküm tablosu ── -->
+  <g>
+    <rect x="340" y="316" width="920" height="374" rx="18"
+          fill="#fff" fill-opacity=".05" stroke="#fff" stroke-opacity=".12"/>
+    <!-- başlık satırı -->
+    <g fill="#fff" fill-opacity=".14">
+      <rect x="372" y="344" width="54" height="9" rx="4"/>
+      <rect x="470" y="344" width="70" height="9" rx="4"/>
+      <rect x="600" y="344" width="88" height="9" rx="4"/>
+      <rect x="840" y="344" width="46" height="9" rx="4"/>
+      <rect x="932" y="344" width="66" height="9" rx="4"/>
+      <rect x="1050" y="344" width="50" height="9" rx="4"/>
+      <rect x="1150" y="344" width="70" height="9" rx="4"/>
+    </g>
+    <line x1="340" y1="372" x2="1260" y2="372" stroke="#fff" stroke-opacity=".10"/>
+
+    <!-- satır 1: tahsilat tamamlandı -->
+    <g>
+      <rect x="372" y="386" width="60" height="10" rx="5" fill="#fff" fill-opacity=".18"/>
+      <rect x="470" y="382" width="104" height="24" rx="12" fill="#2a78d6" fill-opacity=".3"/>
+      <rect x="600" y="386" width="176" height="10" rx="5" fill="#fff" fill-opacity=".14"/>
+      <rect x="826" y="386" width="60" height="10" rx="5" fill="#fff" fill-opacity=".22"/>
+      <rect x="934" y="386" width="64" height="10" rx="5" fill="#5fd18f" fill-opacity=".55"/>
+      <rect x="1052" y="386" width="44" height="10" rx="5" fill="#fff" fill-opacity=".18"/>
+      <rect x="1128" y="378" width="112" height="26" rx="13" fill="#27ae60" fill-opacity=".24"
+            stroke="#27ae60" stroke-opacity=".45"/>
+      <path d="M1146 391 l7 7 12 -14" fill="none" stroke="#5fd18f" stroke-width="2.8"
+            stroke-linecap="round" stroke-linejoin="round"/>
+      <rect x="1176" y="387" width="50" height="8" rx="4" fill="#5fd18f" fill-opacity=".6"/>
+      <line x1="356" y1="424" x2="1244" y2="424" stroke="#fff" stroke-opacity=".07"/>
+    </g>
+    <!-- satır 2: kısmi tahsilat -->
+    <g>
+      <rect x="372" y="440" width="60" height="10" rx="5" fill="#fff" fill-opacity=".18"/>
+      <rect x="470" y="436" width="104" height="24" rx="12" fill="#2a78d6" fill-opacity=".3"/>
+      <rect x="600" y="440" width="148" height="10" rx="5" fill="#fff" fill-opacity=".14"/>
+      <rect x="826" y="440" width="60" height="10" rx="5" fill="#fff" fill-opacity=".22"/>
+      <rect x="944" y="440" width="54" height="10" rx="5" fill="#5fd18f" fill-opacity=".4"/>
+      <rect x="1044" y="440" width="52" height="10" rx="5" fill="#f0be74" fill-opacity=".7"/>
+      <rect x="1128" y="432" width="112" height="26" rx="13" fill="#f39c12" fill-opacity=".22"
+            stroke="#f39c12" stroke-opacity=".45"/>
+      <rect x="1146" y="441" width="76" height="8" rx="4" fill="#f0be74" fill-opacity=".6"/>
+      <line x1="356" y1="478" x2="1244" y2="478" stroke="#fff" stroke-opacity=".07"/>
+    </g>
+    <!-- satır 3: bekliyor -->
+    <g>
+      <rect x="372" y="494" width="60" height="10" rx="5" fill="#fff" fill-opacity=".18"/>
+      <rect x="470" y="490" width="104" height="24" rx="12" fill="#2a78d6" fill-opacity=".3"/>
+      <rect x="600" y="494" width="192" height="10" rx="5" fill="#fff" fill-opacity=".14"/>
+      <rect x="826" y="494" width="60" height="10" rx="5" fill="#fff" fill-opacity=".22"/>
+      <rect x="1040" y="494" width="56" height="10" rx="5" fill="#fff" fill-opacity=".22"/>
+      <rect x="1128" y="486" width="112" height="26" rx="13" fill="#fff" fill-opacity=".08"/>
+      <rect x="1146" y="495" width="76" height="8" rx="4" fill="#fff" fill-opacity=".2"/>
+      <line x1="356" y1="532" x2="1244" y2="532" stroke="#fff" stroke-opacity=".07"/>
+    </g>
+    <!-- satır 4: manuel hareket -->
+    <g>
+      <rect x="372" y="548" width="60" height="10" rx="5" fill="#fff" fill-opacity=".18"/>
+      <rect x="470" y="544" width="88" height="24" rx="12" fill="#27ae60" fill-opacity=".26"/>
+      <rect x="600" y="548" width="132" height="10" rx="5" fill="#fff" fill-opacity=".14"/>
+      <rect x="944" y="548" width="54" height="10" rx="5" fill="#5fd18f" fill-opacity=".5"/>
+      <rect x="1050" y="548" width="46" height="10" rx="5" fill="#fff" fill-opacity=".12"/>
+      <g fill="#fff" fill-opacity=".16">
+        <rect x="1152" y="542" width="26" height="22" rx="6"/>
+        <rect x="1186" y="542" width="26" height="22" rx="6"/>
+      </g>
+      <line x1="356" y1="586" x2="1244" y2="586" stroke="#fff" stroke-opacity=".07"/>
+    </g>
+    <!-- satır 5: iptal / hariç -->
+    <g opacity=".45">
+      <rect x="372" y="602" width="60" height="10" rx="5" fill="#fff" fill-opacity=".18"/>
+      <rect x="470" y="598" width="104" height="24" rx="12" fill="#fff" fill-opacity=".12"/>
+      <rect x="600" y="602" width="164" height="10" rx="5" fill="#fff" fill-opacity=".14"/>
+      <rect x="826" y="602" width="60" height="10" rx="5" fill="#fff" fill-opacity=".18"/>
+      <rect x="1064" y="602" width="32" height="10" rx="5" fill="#fff" fill-opacity=".18"/>
+      <rect x="1128" y="594" width="112" height="26" rx="13" fill="#fff" fill-opacity=".07"/>
+    </g>
+  </g>
+
+  <!-- para / tahsilat rozeti -->
+  <g transform="translate(1180 122)">
+    <circle cx="26" cy="26" r="26" fill="#27ae60" fill-opacity=".2" stroke="#27ae60" stroke-opacity=".5"/>
+    <rect x="12" y="17" width="28" height="20" rx="4" fill="none" stroke="#5fd18f" stroke-width="2.4"/>
+    <circle cx="26" cy="27" r="4.5" fill="none" stroke="#5fd18f" stroke-width="2.2"/>
+  </g>
+
+  </g>
+</svg>

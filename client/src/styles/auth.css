@@ -29,6 +29,13 @@
   padding: 6px; cursor: pointer; color: var(--muted); display: flex; align-items: center; border-radius: 6px; transition: color .18s, background .18s; }
 .pw-toggle:hover { color: var(--gold-d); background: rgba(201,168,76,.1); }
 .otp-input { font-size: 1.7rem !important; font-weight: 700; letter-spacing: .5em; text-align: center; padding-left: 1.5rem !important; }
+/* "Bu cihazı hatırla" onay kutusu (giriş formu) */
+.auth-remember { display: flex; align-items: flex-start; gap: 10px; margin: -2px 0 16px;
+  cursor: pointer; text-transform: none; letter-spacing: normal; font-weight: 400; color: var(--text); }
+.auth-remember input { width: 17px; height: 17px; flex-shrink: 0; margin-top: 2px; cursor: pointer; }
+.auth-remember b { display: block; font-size: .88rem; font-weight: 600; }
+.auth-remember small { display: block; font-size: .76rem; color: var(--muted); line-height: 1.4; }
+
 .auth-foot { text-align: center; margin-top: 18px; font-size: .84rem; }
 .auth-foot a { color: var(--gold-d); font-weight: 600; }
 .timer { font-variant-numeric: tabular-nums; color: var(--muted); font-size: .82rem; }
@@ -180,6 +187,11 @@
 .auth-split .field select option { color: #1a2133; background: #fff; }
 .auth-split .pw-toggle { color: rgba(255,255,255,.6); }
 .auth-split .pw-toggle:hover { color: var(--gold-l); background: rgba(201,168,76,.16); }
+
+/* "Bu cihazı hatırla" — dark glass kartına uygun onay kutusu */
+.auth-split .auth-remember { color: rgba(255,255,255,.82); }
+.auth-split .auth-remember small { color: rgba(255,255,255,.55); }
+.auth-split .auth-remember input { accent-color: var(--gold-l); }
 
 /* Primary button → brand gold so it pops on the dark glass */
 .auth-split .btn-navy {

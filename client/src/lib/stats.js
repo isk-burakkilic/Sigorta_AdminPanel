@@ -4,9 +4,15 @@
 //  with the same Turkish/plain number handling used elsewhere.
 // ============================================================
 
-// Validated categorical palette (dataviz skill reference instance, light mode).
-// Fixed order — never cycled; a 9th category folds into "Diğer".
-export const PALETTE = ['#2a78d6', '#008300', '#e87ba4', '#eda100', '#1baf7a', '#eb6834', '#4a3aa7', '#e34948'];
+// Validated categorical palette. Fixed order — never cycled; a 9th category
+// folds into "Diğer".
+//
+// Renkler SVG'ye `fill="..."` özniteliğiyle basılır; öznitelik `var(--x)`
+// kabul etmediği için palet temaya göre değişemez → TEK palet İKİ temada da
+// çalışmak zorunda. Bu yüzden hepsi orta açıklıkta (L≈%55-62) seçildi:
+// eski paletteki koyu yeşil (#008300) ve koyu mor (#4a3aa7) karanlık temada
+// zemine gömülüp okunmuyordu.
+export const PALETTE = ['#4c8dff', '#2fae6a', '#ef7fae', '#e9a53a', '#21b8a6', '#f2734a', '#8b7bf0', '#ea5a55'];
 
 // Parse a premium string ("7.795,45" or "7795.45" or "10556") -> number.
 export function parsePremium(s) {
@@ -17,21 +23,18 @@ export function parsePremium(s) {
 }
 
 // Collapse the many raw police_turu variants into clean categories.
-// Known types map to friendly names; unrecognised codes are shown as-is
-// (dynamic + lossless), and small ones fold into "Diğer" at chart time.
-export function categorizeType(pt) {
-  const raw = String(pt ?? '').trim();
-  const p = raw.toLocaleUpperCase('tr-TR');
-  if (!p) return 'Belirtilmemiş';
-  if (p.includes('TRAFİK') || p.includes('TRAFIK') || p.includes('410')) return 'Trafik';
-  if (p.includes('KASKO') || p.includes('701')) return 'Kasko';
-  if (p.includes('DASK')) return 'DASK';
-  if (p.includes('KONUT') || p.includes('722')) return 'Konut';
-  if (p.includes('SAĞLIK') || p.includes('SAGLIK') || p.includes('TIBBİ') || p.includes('TIBBI')) return 'Sağlık';
-  if (p.includes('SEYAHAT')) return 'Seyahat';
-  if (p.includes('İŞYERİ') || p.includes('ISYERI') || p.includes('KOBİ') || p.includes('KOBI') || p.includes('TİCARİ') || p.includes('TICARI') || p.includes('PAKET')) return 'İşyeri';
-  return raw; // unknown code -> keep it (chart stays dynamic)
-}
+// Poliçe türünü kategorisine çevirir. Kural artık BURADA DEĞİL —
+// `lib/policyTypes.js` tek doğruluk kaynağıdır (kullanıcının Ayarlar →
+// Poliçe Türleri → Kategoriler eşlemesi, sonra yerleşik sezgi, sonra ham
+// değer). Grafik, ay filtresi ve teklif formu aynı kaynağı kullanır ki
+// "TRAFİK POLİÇESİ" ile "410" grafikte iki ayrı dilim olmasın.
+// DİKKAT: `export {x as y} from` SADECE yeniden dışa aktarır — adı bu modülün
+// kapsamına BAĞLAMAZ. Aşağıdaki aggregate() onu çağırdığı için önce import
+// edilmeli, sonra dışa aktarılmalı. (Yeniden aktarımla yazıldığında derleme
+// sessizce geçti, canlıda `categorizeType is not defined` ile ana sayfa
+// grafikleri hiç gelmedi — 2026-08-28.)
+import { displayCategory as categorizeType } from './policyTypes.js';
+export { categorizeType };
 
 // Aggregate raw stats rows into per-type / per-company premium totals + metrics.
 export function aggregate(rows) {

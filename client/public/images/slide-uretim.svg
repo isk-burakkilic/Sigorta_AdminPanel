@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000"
+     role="img" aria-label="Üretim listesi paneli — aylık tamamlanma oranları ve üretim grafiği">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0a1428"/>
+      <stop offset=".55" stop-color="#122544"/>
+      <stop offset="1" stop-color="#0b1a33"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="52%" cy="30%" r="58%">
+      <stop offset="0" stop-color="#d4a843" stop-opacity=".22"/>
+      <stop offset="1" stop-color="#d4a843" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M48 0H0v48" fill="none" stroke="#fff" stroke-opacity=".045"/>
+    </pattern>
+    <linearGradient id="area" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#d4a843" stop-opacity=".42"/>
+      <stop offset="1" stop-color="#d4a843" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1600" height="1000" fill="url(#bg)"/>
+  <rect width="1600" height="1000" fill="url(#grid)"/>
+  <rect width="1600" height="1000" fill="url(#glow)"/>
+
+  <!-- Sahne, güvenli alana (x 300..1170, y 195..700) oturtulur: `cover` geniş
+       ekranda üst/altı, sağdaki giriş kartı da sağ kenarı kırpıyor. -->
+  <g transform="translate(-10.7 74.6) scale(0.9139)">
+
+  <!-- ana panel -->
+  <g>
+    <rect x="340" y="168" width="920" height="516" rx="18"
+          fill="#fff" fill-opacity=".055" stroke="#fff" stroke-opacity=".13"/>
+    <!-- başlık çubuğu -->
+    <line x1="340" y1="224" x2="1260" y2="224" stroke="#fff" stroke-opacity=".10"/>
+    <circle cx="370" cy="196" r="5" fill="#e74c3c" fill-opacity=".7"/>
+    <circle cx="390" cy="196" r="5" fill="#d4a843" fill-opacity=".8"/>
+    <circle cx="410" cy="196" r="5" fill="#27ae60" fill-opacity=".7"/>
+    <rect x="440" y="189" width="176" height="13" rx="6" fill="#fff" fill-opacity=".22"/>
+    <rect x="1096" y="186" width="60" height="20" rx="10" fill="#fff" fill-opacity=".10"/>
+    <rect x="1166" y="186" width="66" height="20" rx="10" fill="#d4a843" fill-opacity=".28"/>
+
+    <!-- ızgara çizgileri -->
+    <g stroke="#fff" stroke-opacity=".07">
+      <line x1="382" y1="472" x2="1220" y2="472"/>
+      <line x1="382" y1="402" x2="1220" y2="402"/>
+      <line x1="382" y1="332" x2="1220" y2="332"/>
+      <line x1="382" y1="262" x2="1220" y2="262"/>
+    </g>
+
+    <!-- üretim eğrisi -->
+    <path d="M382 432 L487 396 L592 410 L697 350 L802 366 L907 300 L1012 316 L1117 262 L1220 240
+             L1220 472 L382 472 Z" fill="url(#area)"/>
+    <path d="M382 432 L487 396 L592 410 L697 350 L802 366 L907 300 L1012 316 L1117 262 L1220 240"
+          fill="none" stroke="#d4a843" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/>
+    <g fill="#0f1d38" stroke="#d4a843" stroke-width="3">
+      <circle cx="382" cy="432" r="5.5"/><circle cx="592" cy="410" r="5.5"/>
+      <circle cx="802" cy="366" r="5.5"/><circle cx="1012" cy="316" r="5.5"/>
+      <circle cx="1220" cy="240" r="6.5"/>
+    </g>
+
+    <!-- ay kartları: tamamlanma halkaları -->
+    <g font-family="system-ui,'Segoe UI',Roboto,sans-serif">
+      <!-- TEMMUZ %92 -->
+      <g>
+        <rect x="382" y="500" width="266" height="152" rx="14"
+              fill="#fff" fill-opacity=".05" stroke="#fff" stroke-opacity=".11"/>
+        <circle cx="452" cy="576" r="30" fill="none" stroke="#fff" stroke-opacity=".14" stroke-width="9"/>
+        <circle cx="452" cy="576" r="30" fill="none" stroke="#27ae60" stroke-width="9"
+                stroke-linecap="round" stroke-dasharray="173.4 188.5"
+                transform="rotate(-90 452 576)"/>
+        <text x="452" y="583" fill="#e6eaf2" font-size="20" font-weight="700" text-anchor="middle">92</text>
+        <text x="506" y="562" fill="#98a3b8" font-size="15" letter-spacing="2.5">TEMMUZ</text>
+        <rect x="506" y="576" width="112" height="9" rx="4" fill="#fff" fill-opacity=".20"/>
+        <rect x="506" y="594" width="72" height="9" rx="4" fill="#fff" fill-opacity=".11"/>
+      </g>
+      <!-- AĞUSTOS %78 -->
+      <g>
+        <rect x="668" y="500" width="266" height="152" rx="14"
+              fill="#fff" fill-opacity=".05" stroke="#fff" stroke-opacity=".11"/>
+        <circle cx="738" cy="576" r="30" fill="none" stroke="#fff" stroke-opacity=".14" stroke-width="9"/>
+        <circle cx="738" cy="576" r="30" fill="none" stroke="#d4a843" stroke-width="9"
+                stroke-linecap="round" stroke-dasharray="147 188.5"
+                transform="rotate(-90 738 576)"/>
+        <text x="738" y="583" fill="#e6eaf2" font-size="20" font-weight="700" text-anchor="middle">78</text>
+        <text x="792" y="562" fill="#98a3b8" font-size="15" letter-spacing="2.5">AĞUSTOS</text>
+        <rect x="792" y="576" width="98" height="9" rx="4" fill="#fff" fill-opacity=".20"/>
+        <rect x="792" y="594" width="60" height="9" rx="4" fill="#fff" fill-opacity=".11"/>
+      </g>
+      <!-- EYLÜL %64 -->
+      <g>
+        <rect x="954" y="500" width="266" height="152" rx="14"
+              fill="#fff" fill-opacity=".05" stroke="#fff" stroke-opacity=".11"/>
+        <circle cx="1024" cy="576" r="30" fill="none" stroke="#fff" stroke-opacity=".14" stroke-width="9"/>
+        <circle cx="1024" cy="576" r="30" fill="none" stroke="#2a78d6" stroke-width="9"
+                stroke-linecap="round" stroke-dasharray="120.6 188.5"
+                transform="rotate(-90 1024 576)"/>
+        <text x="1024" y="583" fill="#e6eaf2" font-size="20" font-weight="700" text-anchor="middle">64</text>
+        <text x="1078" y="562" fill="#98a3b8" font-size="15" letter-spacing="2.5">EYLÜL</text>
+        <rect x="1078" y="576" width="104" height="9" rx="4" fill="#fff" fill-opacity=".20"/>
+        <rect x="1078" y="594" width="66" height="9" rx="4" fill="#fff" fill-opacity=".11"/>
+      </g>
+    </g>
+  </g>
+
+  <!-- yükseliş rozeti -->
+  <g transform="translate(1180 132)">
+    <rect x="0" y="0" width="112" height="40" rx="20" fill="#27ae60" fill-opacity=".22"
+          stroke="#27ae60" stroke-opacity=".5"/>
+    <path d="M22 26 L34 15 L44 21 L58 10" fill="none" stroke="#5fd18f" stroke-width="3"
+          stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M50 10 h9 v9" fill="none" stroke="#5fd18f" stroke-width="3"
+          stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="80" cy="20" r="4" fill="#5fd18f"/>
+    <rect x="90" y="16" width="12" height="8" rx="4" fill="#5fd18f" fill-opacity=".7"/>
+  </g>
+
+  </g>
+</svg>

@@ -17,13 +17,16 @@ function readIfExists(file) {
 // Loaded once at first use; the notes never change at runtime.
 let TSS = null;
 let OSS = null;
+let GSS = null;
 
 export function getNotlar(insuranceType) {
   if (TSS === null) TSS = readIfExists(path.join(paths.dataDir, 'tss_notlari.txt'));
   if (OSS === null) OSS = readIfExists(path.join(paths.dataDir, 'oss_notlari.txt'));
+  if (GSS === null) GSS = readIfExists(path.join(paths.dataDir, 'gss_notlari.txt'));
 
   if (insuranceType === 'TSS') return { notlar: TSS, tip: 'Tamamlayici Saglik Sigortasi (TSS)' };
   if (insuranceType === 'OSS') return { notlar: OSS, tip: 'Ozel Saglik Sigortasi (OSS)' };
+  if (insuranceType === 'GSS') return { notlar: GSS, tip: 'Grup Saglik Sigortasi (GSS)' };
   return { notlar: '', tip: '' };
 }
 

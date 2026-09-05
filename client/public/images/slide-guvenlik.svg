@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000"
+     role="img" aria-label="Çok acentelilik ve veri güvenliği — her acentenin kendi veritabanı">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0a1428"/>
+      <stop offset=".55" stop-color="#122544"/>
+      <stop offset="1" stop-color="#0b1a33"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="34%" r="50%">
+      <stop offset="0" stop-color="#d4a843" stop-opacity=".26"/>
+      <stop offset="1" stop-color="#d4a843" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M48 0H0v48" fill="none" stroke="#fff" stroke-opacity=".045"/>
+    </pattern>
+    <linearGradient id="shield" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#d4a843" stop-opacity=".28"/>
+      <stop offset="1" stop-color="#d4a843" stop-opacity=".06"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1600" height="1000" fill="url(#bg)"/>
+  <rect width="1600" height="1000" fill="url(#grid)"/>
+  <rect width="1600" height="1000" fill="url(#glow)"/>
+  <!-- Sahne, guvenli alana (x 300..1170, y 195..700) oturtulur: cover genis
+       ekranda ust/alti, sagdaki giris karti da sag kenari kirpiyor. -->
+  <g transform="translate(-26.9 13.3) scale(0.8737)">
+
+
+  <!-- eş merkezli halkalar -->
+  <g fill="none" stroke="#d4a843" stroke-opacity=".14">
+    <circle cx="800" cy="360" r="180"/>
+    <circle cx="800" cy="360" r="240" stroke-opacity=".09"/>
+    <circle cx="800" cy="360" r="300" stroke-opacity=".05"/>
+  </g>
+
+  <!-- ── kalkan + kilit ── -->
+  <g>
+    <path d="M800 208 L930 262 V392 C930 484 872 542 800 574 C728 542 670 484 670 392 V262 Z"
+          fill="url(#shield)" stroke="#d4a843" stroke-opacity=".75" stroke-width="3.5"/>
+    <path d="M800 240 L900 282 V390 C900 464 854 512 800 540 C746 512 700 464 700 390 V282 Z"
+          fill="none" stroke="#d4a843" stroke-opacity=".22" stroke-width="1.5"/>
+    <!-- kilit -->
+    <g>
+      <path d="M770 366 v-24 a30 30 0 0 1 60 0 v24" fill="none" stroke="#f0ca6e"
+            stroke-width="7" stroke-linecap="round"/>
+      <rect x="756" y="364" width="88" height="70" rx="12" fill="#f0ca6e" fill-opacity=".9"/>
+      <circle cx="800" cy="392" r="9" fill="#12213d"/>
+      <rect x="796" y="396" width="8" height="20" rx="4" fill="#12213d"/>
+    </g>
+  </g>
+
+  <!-- ── izole acente veritabanları ── -->
+  <g>
+    <!-- bağlantı çizgileri -->
+    <g stroke="#d4a843" stroke-opacity=".3" stroke-width="2" stroke-dasharray="5 7">
+      <path d="M800 578 v42 h-260 v34" fill="none"/>
+      <path d="M800 578 v76" fill="none"/>
+      <path d="M800 578 v42 h260 v34" fill="none"/>
+    </g>
+
+    <!-- acente 1 -->
+    <g>
+      <rect x="428" y="654" width="224" height="132" rx="16"
+            fill="#fff" fill-opacity=".055" stroke="#fff" stroke-opacity=".13"/>
+      <ellipse cx="484" cy="700" rx="26" ry="9" fill="none" stroke="#7fb2f0" stroke-width="2.4"/>
+      <path d="M458 700 v34 c0 5 12 9 26 9 s26 -4 26 -9 v-34" fill="none" stroke="#7fb2f0" stroke-width="2.4"/>
+      <path d="M458 717 c0 5 12 9 26 9 s26 -4 26 -9" fill="none" stroke="#7fb2f0" stroke-opacity=".5" stroke-width="2"/>
+      <rect x="528" y="686" width="96" height="11" rx="5" fill="#fff" fill-opacity=".26"/>
+      <rect x="528" y="706" width="64" height="9" rx="4" fill="#fff" fill-opacity=".13"/>
+      <rect x="528" y="722" width="78" height="9" rx="4" fill="#fff" fill-opacity=".10"/>
+      <rect x="452" y="754" width="176" height="6" rx="3" fill="#2a78d6" fill-opacity=".45"/>
+    </g>
+    <!-- acente 2 (etkin) -->
+    <g>
+      <rect x="688" y="654" width="224" height="132" rx="16"
+            fill="#d4a843" fill-opacity=".12" stroke="#d4a843" stroke-opacity=".5"/>
+      <ellipse cx="744" cy="700" rx="26" ry="9" fill="none" stroke="#f0ca6e" stroke-width="2.4"/>
+      <path d="M718 700 v34 c0 5 12 9 26 9 s26 -4 26 -9 v-34" fill="none" stroke="#f0ca6e" stroke-width="2.4"/>
+      <path d="M718 717 c0 5 12 9 26 9 s26 -4 26 -9" fill="none" stroke="#f0ca6e" stroke-opacity=".5" stroke-width="2"/>
+      <rect x="788" y="686" width="96" height="11" rx="5" fill="#fff" fill-opacity=".32"/>
+      <rect x="788" y="706" width="72" height="9" rx="4" fill="#fff" fill-opacity=".16"/>
+      <rect x="788" y="722" width="56" height="9" rx="4" fill="#fff" fill-opacity=".12"/>
+      <rect x="712" y="754" width="176" height="6" rx="3" fill="#d4a843" fill-opacity=".7"/>
+    </g>
+    <!-- acente 3 -->
+    <g>
+      <rect x="948" y="654" width="224" height="132" rx="16"
+            fill="#fff" fill-opacity=".055" stroke="#fff" stroke-opacity=".13"/>
+      <ellipse cx="1004" cy="700" rx="26" ry="9" fill="none" stroke="#7fe3c0" stroke-width="2.4"/>
+      <path d="M978 700 v34 c0 5 12 9 26 9 s26 -4 26 -9 v-34" fill="none" stroke="#7fe3c0" stroke-width="2.4"/>
+      <path d="M978 717 c0 5 12 9 26 9 s26 -4 26 -9" fill="none" stroke="#7fe3c0" stroke-opacity=".5" stroke-width="2"/>
+      <rect x="1048" y="686" width="96" height="11" rx="5" fill="#fff" fill-opacity=".26"/>
+      <rect x="1048" y="706" width="58" height="9" rx="4" fill="#fff" fill-opacity=".13"/>
+      <rect x="1048" y="722" width="80" height="9" rx="4" fill="#fff" fill-opacity=".10"/>
+      <rect x="972" y="754" width="176" height="6" rx="3" fill="#1baf7a" fill-opacity=".5"/>
+    </g>
+  </g>
+
+  <!-- 2FA rozeti -->
+  <g transform="translate(1188 214)">
+    <rect x="0" y="0" width="128" height="46" rx="23" fill="#fff" fill-opacity=".07"
+          stroke="#fff" stroke-opacity=".16"/>
+    <g fill="#d4a843">
+      <circle cx="26" cy="23" r="6"/><circle cx="50" cy="23" r="6"/>
+      <circle cx="74" cy="23" r="6" fill-opacity=".35"/><circle cx="98" cy="23" r="6" fill-opacity=".2"/>
+    </g>
+  </g>
+
+  </g>
+</svg>

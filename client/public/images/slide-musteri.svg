@@ -1,0 +1,139 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000"
+     role="img" aria-label="Müşteri 360 — poliçe, görüşme ve tahsilat geçmişi tek ekranda">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0a1428"/>
+      <stop offset=".55" stop-color="#122544"/>
+      <stop offset="1" stop-color="#0b1a33"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="42%" r="48%">
+      <stop offset="0" stop-color="#d4a843" stop-opacity=".24"/>
+      <stop offset="1" stop-color="#d4a843" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M48 0H0v48" fill="none" stroke="#fff" stroke-opacity=".045"/>
+    </pattern>
+    <linearGradient id="avatar" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#d4a843" stop-opacity=".38"/>
+      <stop offset="1" stop-color="#d4a843" stop-opacity=".12"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1600" height="1000" fill="url(#bg)"/>
+  <rect width="1600" height="1000" fill="url(#grid)"/>
+  <rect width="1600" height="1000" fill="url(#glow)"/>
+  <!-- Sahne, guvenli alana (x 300..1170, y 195..700) oturtulur: cover genis
+       ekranda ust/alti, sagdaki giris karti da sag kenari kirpiyor. -->
+  <g transform="translate(92.8 98.7) scale(0.8028)">
+
+
+  <!-- yörünge halkaları -->
+  <g fill="none" stroke="#fff">
+    <circle cx="800" cy="430" r="150" stroke-opacity=".10"/>
+    <circle cx="800" cy="430" r="248" stroke-opacity=".07" stroke-dasharray="3 9"/>
+    <circle cx="800" cy="430" r="330" stroke-opacity=".04"/>
+  </g>
+
+  <!-- bağlantı çizgileri -->
+  <g stroke="#d4a843" stroke-opacity=".28" stroke-width="2">
+    <line x1="800" y1="290" x2="800" y2="216"/>
+    <line x1="933" y1="360" x2="1010" y2="304"/>
+    <line x1="933" y1="500" x2="1010" y2="556"/>
+    <line x1="667" y1="500" x2="590" y2="556"/>
+    <line x1="667" y1="360" x2="590" y2="304"/>
+  </g>
+
+  <!-- merkez: müşteri -->
+  <g>
+    <circle cx="800" cy="430" r="96" fill="url(#avatar)" stroke="#d4a843" stroke-opacity=".7" stroke-width="3"/>
+    <circle cx="800" cy="404" r="30" fill="#f0ca6e" fill-opacity=".9"/>
+    <path d="M748 494 a52 52 0 0 1 104 0 z" fill="#f0ca6e" fill-opacity=".9"/>
+    <circle cx="800" cy="430" r="118" fill="none" stroke="#d4a843" stroke-opacity=".3" stroke-width="1.5"/>
+  </g>
+
+  <!-- ── çevredeki kartlar ── -->
+  <!-- üst: poliçeler -->
+  <g>
+    <rect x="676" y="120" width="248" height="96" rx="15"
+          fill="#fff" fill-opacity=".07" stroke="#fff" stroke-opacity=".15"/>
+    <g transform="translate(704 148)">
+      <rect x="0" y="0" width="40" height="40" rx="7" fill="#2a78d6" fill-opacity=".3"/>
+      <g fill="#7fb2f0" fill-opacity=".85">
+        <rect x="9" y="10" width="22" height="4" rx="2"/>
+        <rect x="9" y="19" width="16" height="4" rx="2"/>
+        <rect x="9" y="28" width="20" height="4" rx="2"/>
+      </g>
+    </g>
+    <rect x="760" y="150" width="132" height="12" rx="6" fill="#fff" fill-opacity=".3"/>
+    <rect x="760" y="172" width="88" height="9" rx="4" fill="#fff" fill-opacity=".14"/>
+  </g>
+
+  <!-- sağ üst: görüşme / arama -->
+  <g>
+    <rect x="1010" y="256" width="248" height="96" rx="15"
+          fill="#fff" fill-opacity=".07" stroke="#fff" stroke-opacity=".15"/>
+    <g transform="translate(1038 284)">
+      <rect x="0" y="0" width="40" height="40" rx="7" fill="#27ae60" fill-opacity=".28"/>
+      <path d="M12 14 a3 3 0 0 1 3 -3 h3 l3 7 -3 3 a14 14 0 0 0 6 6 l3 -3 7 3 v3 a3 3 0 0 1 -3 3
+               c-11 0 -22 -11 -22 -22 z" fill="#5fd18f" fill-opacity=".9"/>
+    </g>
+    <rect x="1094" y="286" width="116" height="12" rx="6" fill="#fff" fill-opacity=".3"/>
+    <rect x="1094" y="308" width="78" height="9" rx="4" fill="#fff" fill-opacity=".14"/>
+  </g>
+
+  <!-- sağ alt: cari / tahsilat -->
+  <g>
+    <rect x="1010" y="508" width="248" height="96" rx="15"
+          fill="#fff" fill-opacity=".07" stroke="#fff" stroke-opacity=".15"/>
+    <g transform="translate(1038 536)">
+      <rect x="0" y="0" width="40" height="40" rx="7" fill="#d4a843" fill-opacity=".28"/>
+      <rect x="8" y="13" width="24" height="16" rx="3" fill="none" stroke="#f0ca6e" stroke-width="2.2"/>
+      <circle cx="20" cy="21" r="3.6" fill="none" stroke="#f0ca6e" stroke-width="2"/>
+    </g>
+    <rect x="1094" y="538" width="104" height="12" rx="6" fill="#fff" fill-opacity=".3"/>
+    <rect x="1094" y="560" width="126" height="9" rx="4" fill="#f0ca6e" fill-opacity=".55"/>
+  </g>
+
+  <!-- sol alt: notlar / zaman çizelgesi -->
+  <g>
+    <rect x="342" y="508" width="248" height="96" rx="15"
+          fill="#fff" fill-opacity=".07" stroke="#fff" stroke-opacity=".15"/>
+    <g transform="translate(370 536)">
+      <rect x="0" y="0" width="40" height="40" rx="7" fill="#4a3aa7" fill-opacity=".35"/>
+      <circle cx="20" cy="20" r="12" fill="none" stroke="#a99df0" stroke-width="2.2"/>
+      <path d="M20 13 v8 l6 4" fill="none" stroke="#a99df0" stroke-width="2.2" stroke-linecap="round"/>
+    </g>
+    <rect x="426" y="538" width="122" height="12" rx="6" fill="#fff" fill-opacity=".3"/>
+    <rect x="426" y="560" width="84" height="9" rx="4" fill="#fff" fill-opacity=".14"/>
+  </g>
+
+  <!-- sol üst: kimlik bilgileri -->
+  <g>
+    <rect x="342" y="256" width="248" height="96" rx="15"
+          fill="#fff" fill-opacity=".07" stroke="#fff" stroke-opacity=".15"/>
+    <g transform="translate(370 284)">
+      <rect x="0" y="0" width="40" height="40" rx="7" fill="#e87ba4" fill-opacity=".26"/>
+      <circle cx="20" cy="16" r="6" fill="none" stroke="#f0a8c4" stroke-width="2.2"/>
+      <path d="M10 32 a10 10 0 0 1 20 0" fill="none" stroke="#f0a8c4" stroke-width="2.2"/>
+    </g>
+    <rect x="426" y="286" width="134" height="12" rx="6" fill="#fff" fill-opacity=".3"/>
+    <rect x="426" y="308" width="96" height="9" rx="4" fill="#fff" fill-opacity=".14"/>
+  </g>
+
+  <!-- alt: zaman çizelgesi şeridi -->
+  <g transform="translate(560 700)">
+    <line x1="0" y1="20" x2="480" y2="20" stroke="#fff" stroke-opacity=".12" stroke-width="2"/>
+    <g>
+      <circle cx="40" cy="20" r="9" fill="#2a78d6" fill-opacity=".8"/>
+      <rect x="24" y="40" width="34" height="7" rx="3" fill="#fff" fill-opacity=".14"/>
+      <circle cx="160" cy="20" r="9" fill="#27ae60" fill-opacity=".8"/>
+      <rect x="144" y="40" width="34" height="7" rx="3" fill="#fff" fill-opacity=".14"/>
+      <circle cx="280" cy="20" r="9" fill="#4a3aa7" fill-opacity=".85"/>
+      <rect x="264" y="40" width="34" height="7" rx="3" fill="#fff" fill-opacity=".14"/>
+      <circle cx="400" cy="20" r="11" fill="#d4a843"/>
+      <rect x="382" y="42" width="38" height="7" rx="3" fill="#f0ca6e" fill-opacity=".5"/>
+    </g>
+  </g>
+
+  </g>
+</svg>

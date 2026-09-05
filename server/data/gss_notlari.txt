@@ -1,0 +1,931 @@
+==========================================================================
+GRUP SAĞLIK SİGORTASI (GSS) — KURUMSAL TAMAMLAYICI SAĞLIK SİGORTASI
+Sigorta Şirketi: Anadolu Anonim Türk Sigorta Şirketi (Anadolu Sigorta)
+Kaynak belgeler: "Kurumsal TSS Wording" + "Kurumsal TSS Ek Protokol" + Teminat Tablosu
+==========================================================================
+
+# Bu ürünün tam adı "Kurumsal Tamamlayıcı Sağlık Sigortası"dır; panelde ve müşteri
+# konuşmalarında "Grup Sağlık Sigortası (GSS)" olarak anılır. Firma çalışanları ve
+# bağımlı statüsündeki eş/çocukları için düzenlenen, SGK ile birlikte çalışan
+# (SGK'nın karşılamadığı farkı ödeyen) bir grup poliçesidir.
+
+# Ferdi/bireysel TSS'den farkı: sigorta ettiren FİRMADIR, primler firma tarafından
+# ödenir, poliçeye giriş-çıkışlar gün esaslı zeyil ile yapılır ve işten ayrılan
+# personel poliçeden çıkarılır.
+
+
+==========================================================================
+BÖLÜM 1 — TEMİNAT TABLOSU (YILLIK LİMİTLER)
+==========================================================================
+
+# Tabloda iki alternatif sunulmuştur. İki alternatif SADECE ayakta (yatışsız)
+# tedavi adedinde farklılaşır: Alternatif 1 → 10 adet, Alternatif 2 → 6 adet.
+# Diğer bütün teminatlar iki alternatifte de aynıdır.
+
+## YATARAK (YATIŞLI) TEDAVİ TEMİNATLARI
+| TEMİNAT | ÖDEME ORANI (%) | LİMİT — ALTERNATİF 1 (YILLIK) | LİMİT — ALTERNATİF 2 (YILLIK) |
+| :--- | :--- | :--- | :--- |
+| AMELİYAT | 100 | LİMİTSİZ | LİMİTSİZ |
+| ODA-YEMEK-REFAKATÇİ | 100 | LİMİTSİZ | LİMİTSİZ |
+| YOĞUN BAKIM | 100 | LİMİTSİZ | LİMİTSİZ |
+| KÜÇÜK MÜDAHALE | 100 | LİMİTSİZ | LİMİTSİZ |
+| KEMOTERAPİ | 100 | LİMİTSİZ | LİMİTSİZ |
+| RADYOTERAPİ | 100 | LİMİTSİZ | LİMİTSİZ |
+| DİYALİZ | 100 | LİMİTSİZ | LİMİTSİZ |
+
+# Tüm yatarak tedavi teminatları %100 ödeme oranlıdır ve LİMİTSİZDİR.
+
+## AYAKTA (YATIŞSIZ) TEDAVİ TEMİNATLARI
+| TEMİNAT | ÖDEME ORANI (%) | LİMİT — ALTERNATİF 1 (YILLIK) | LİMİT — ALTERNATİF 2 (YILLIK) |
+| :--- | :--- | :--- | :--- |
+| DOKTOR MUAYENE | 100 | 10 ADET | 6 ADET |
+| TANI GİDERLERİ | 100 | 10 ADET | 6 ADET |
+| FİZİK TEDAVİ (max. 30 seans) | 100 | 10 ADET | 6 ADET |
+
+# ÖNEMLİ: "10 ADET" / "6 ADET" limiti doktor muayene, tanı giderleri ve fizik tedavi
+# teminatlarının TOPLAMI için geçerli ORTAK bir yıllık adet limitidir; her teminat için
+# ayrı ayrı 10/6 adet değildir. Fizik tedavide ayrıca yılda maksimum 30 seans sınırı vardır.
+# Ayakta tedavi teminatı ancak yatarak tedavi teminatının alınması koşuluyla verilir.
+# Ayakta tedaviye ait ilaç ve aşı giderleri teminat kapsamı DIŞINDADIR.
+
+## DİĞER TEDAVİ TEMİNATLARI
+| TEMİNAT | ÖDEME ORANI (%) | LİMİT — ALTERNATİF 1 (YILLIK) | LİMİT — ALTERNATİF 2 (YILLIK) |
+| :--- | :--- | :--- | :--- |
+| EVDE BAKIM | 100 | 50.000 TL | 50.000 TL |
+| YARDIMCI TIBBİ MALZEME | 100 | 5.000 TL | 5.000 TL |
+| SUNİ UZUV | 100 | 50.000 TL | 50.000 TL |
+
+## ASİSTANS PAKETLER
+| PAKET İSMİ | LİMİT — ALTERNATİF 1 (YILLIK) | LİMİT — ALTERNATİF 2 (YILLIK) |
+| :--- | :--- | :--- |
+| TIBBİ DANIŞMANLIK ve AMBULANS | LİMİTSİZ | LİMİTSİZ |
+| ASİSTANS DİŞ BAKIM PAKETİ | YILDA 1 KEZ | YILDA 1 KEZ |
+| 7/24 CANLI ve GÖRÜNTÜLÜ SAĞLIK DANIŞMANLIĞI | LİMİTSİZ | LİMİTSİZ |
+
+## ÖDEME ORANI HAKKINDA TEMEL AÇIKLAMA
+Sadece SGK tarafından karşılanacak tedavi masraflarının yasal çerçeve içerisinde
+sigortalının ödemesi gereken FARK KISMI, özel şartlar dâhilinde ve bu poliçe kapsamında
+%100 ve LİMİTSİZ olarak karşılanacaktır.
+
+
+==========================================================================
+BÖLÜM 1b — TEKLİF NOTLARI, ANLAŞMALI KURUM AĞI VE ASİSTANS HİZMETLERİ
+==========================================================================
+
+## ANLAŞMALI KURUM AĞI (NETWORK)
+Tamamlayıcı Network ve Tamamlayıcı Eko Network kurumlarının listesine aşağıdaki
+bağlantıdan ulaşılabilir:
+https://saglik.anadolusigorta.com.tr/kurum-bul
+
+## TEKLİFİN GEÇERLİLİK KOŞULU
+Teklif, kurumsal sağlık sigortası prim ödemelerinin ŞİRKET BÜTÇESİNDEN karşılanması
+koşulu ile geçerlidir. (Primleri çalışanın kendisinin ödediği yapılar bu teklif
+kapsamında değildir.)
+
+## YAŞ SINIRI
+Sigortalanma üst yaş sınırı 64'tür. **65 yaş ve üstü kişiler poliçe kapsamına
+ALINMAYACAKTIR.**
+
+## KAPSAMA DAHİL OLAN ÖZEL DURUMLAR
+- Mesleki sebepten kaynaklanan hastalık ve yaralanmalar kapsam dahilindedir.
+- İşitme rahatsızlığı kapsam içerisinde olacaktır.
+- MS (Multipl Skleroz) hastalığı ile ilgili giderler, hastalığın sigorta başlangıç
+  tarihinden sonra teşhis edilmesi koşuluyla kapsam dahilindedir.
+
+## TIBBİ DANIŞMANLIK ve AMBULANS
+Kurumsal tamamlayıcı sağlık sigortalıları, "Acil Durumlar"da, Sigorta Şirketi adına bu
+hizmeti veren firmanın doktorlarının 7 gün 24 saat hizmet verdiği Alarm Merkezini
+**0850 744 03 03** numaralı telefondan arayarak ÜCRETSİZ danışmanlık hizmeti alabilir ve
+bir doktor eşliğinde kara ambulansı hizmetinden yararlanabilirler.
+"Acil Durumlar" listesine ve paketin detaylarına wording dosyasından ulaşılabilir.
+
+## ASİSTANS DİŞ PAKETİ
+Bu paket TÜM SİGORTALILAR için sağlanmıştır ve şu üç işlemi içerir:
+- DİŞ HEKİM MUAYENESİ
+- DETERTRAJ (DİŞ TAŞI TEMİZLİĞİ — ALT VE ÜST ÇENE)
+- DİŞ RÖNTGEN FİLMİ (PERİAPİKAL — TEK DİŞ)
+
+1 poliçe döneminde kullanılmak üzere geçerlidir. Grubun bir sonraki dönemde Şirketten
+yenilenmesi halinde bu hizmetin geçerli olup olmayacağı yeniden değerlendirilecektir.
+
+## 7/24 CANLI ve GÖRÜNTÜLÜ SAĞLIK DANIŞMANLIĞI
+Evden ayrılmadan 7 gün 24 saat, ücretsiz tıbbi danışma ayrıcalığı sunulur.
+Bu hizmet ile sağlık sigortalıları 7 gün 24 saat canlı ve görüntülü ücretsiz sağlık
+danışmanlığı alabilirler. **Sağlığım Cepte** mobil uygulaması üzerinden giriş yaparak
+doktorlara danışabilirler.
+
+Görüntülü Sağlık Danışmanlığı kapsamında danışmanlık alınabilecek branşlara Sağlığım
+Cepte uygulamasından ulaşılabilir. Acil Tıp DIŞINDAKİ branş hekimleri uygunluk
+durumlarına göre hafta içi mesai saatleri içinde hemen veya ileriye dönük
+oluşturulabilecek randevu ile hafta içi mesai saatleri içerisinde ya da hafta sonu
+danışmanlık verecektir.
+
+## SAĞLIĞIM CEPTE UYGULAMASI
+Anadolu Sigorta'dan yepyeni bir sağlık uygulaması: **Sağlığım Cepte**.
+Sağlığım Cepte ile poliçeye ait kullanım ve işlem bilgilerine ulaşılabilir, profil
+bilgileri görüntülenebilir, **Sağlık Açık Rıza Beyanı** onaylanabilir veya iletişim
+tercihleri değiştirilebilir.
+Uygulamayı indirmek ve detaylı bilgi için: https://sagligimcepte.app/
+
+
+==========================================================================
+BÖLÜM 2 — EK PROTOKOL (Kurumsal TSS Ek Protokolü)
+==========================================================================
+
+# BU EK PROTOKOL SÖZLEŞMENİN AYRILMAZ PARÇASIDIR. Sözleşme maddeleri ile
+# çelişirse EK PROTOKOL maddeleri geçerlidir.
+
+Kurumsal Tamamlayıcı sağlık sigortası için geçerli olan anlaşmalı sağlık kuruluşlarımız hakkında www.anadolusigorta.com.tr adresinden veya Şirketimizi arayarak bilgi alabileceğinizi hatırlatır, sağlıklı günler dileriz.
+
+KURUMSAL TAMAMLAYICI SAĞLIK SIGORTASI EK PROTOKOLÜ
+
+BU EK PROTOKOL KURUMSAL TAMAMLAYICI SAĞLIK SİGORTASI SÖZLEŞMESİNİN AYRILMAZ BİR PARÇASIDIR. SÖZLEŞME MADDELERİ İÇERİSİNDE AKSİNE HÜKÜM OLMASI HALİNDE BU EK PROTOKOL MADDELERİ GEÇERLİ OLACAKTIR.
+
+Teklif, sigortalanacak grubun mevcut sigortalılık durumu, ödenen tazminat/kazanılmış prim oranı ve sigortalanacak kişi sayısı esas alınarak hazırlanır. Teklif, tarafınıza sunulduktan kabul edilene kadar geçen süre içerisinde yüksek tutarda tazminat ödenmesini gerektirecek önemli rahatsızlıkların ortaya çıkmayacağı, ödenen tazminat/kazanılmış prim oranında değişiklik olmayacağı ve sigortalanacak kişi sayısının azalmayacağı varsayılarak hazırlanır. Aksi takdirde teklif revize edilir.
+
+EK PROTOKOL
+
+Kurumsal sağlık sigortası teklifimizin onaylanması halinde tüm sigortalılar aynı plan altında sigortalanacaklardır.
+
+İŞ BU TEKLİFİMİZDE AYAKTA TEDAVİLER İLE İLGİLİ YER ALAN AÇIKLAMALAR VE BU TEDAVİLER İLE İLGİLİ GİDERLER, SADECE YATARAK TEDAVİ TEMİNATLARINI İÇEREN VE/VEYA İLGİLİ AYAKTA TEDAVİ TEMİNATI POLİÇEDE YER ALMAYAN ALTERNATİFLER İÇİN GEÇERLİ OLMAYACAKTIR.
+
+Bu teklif sadece firma çalışanları ile bağımlı statüsündeki eş ve çocukları için geçerlidir. Firmada çalışmayanlar grup sigortasına dahil olmayacaklardır.
+
+Teklifimiz kurumsal tamamlayıcı sağlık sigortası içindeki personelin; Hipertansiyon, şeker, kalp hastalığı (geçirilmiş miyokard enfaktüsü, koroner by-pass ameliyatı, koroner arter hastalığı, kalp yetmezliği, kalp kapak hastalığı vb.), beyin damarı hastalıkları, kanser, kronik böbrek yetmezliği, kronik karaciğer hastalıkları (siroz, kronik hepatit, Hepatit C vb.), kronik nörolojik hastalıklardan (felç, mültipl skleroz, ilerleyici kas hastalıkları vb.), herhangi birisine sahip olmadığı varsayılarak hazırlanmıştır. Aksi takdirde teklifimiz revize edilecektir.
+
+Poliçeye giriş ve çıkışlar gün esaslı yapılacaktır. Zeyiller grup poliçesinin onaylanan sözleşme şartlarındaki peşinat ve taksit sayısı dikkate alınarak düzenlenecek ve sigortalı girişlerinde vade bitim tarihine kadar aynı şekilde taksitlendirilecektir.  Örnek verecek olursak; poliçe dönemi Ocak 2018- Ocak 2019 olan ve 4 eşit taksitte ödemesi yapılacak bir grup için ödeme tarihleri Ocak, Şubat, Mart ve Nisan olacaktır. Mart ayında bu poliçe kapsamına giren bir sigortalı yine 4 eşit taksit üzerinden poliçelendirilecek ve ödemeleri Mart, Nisan, Mayıs ve Haziran olacaktır. Ancak kalan süre taksit sayısından az ise kalan süre kadar taksitlendirme yapılacaktır. Örneğin bu poliçe için Kasım ayında sigorta kapsamına giren bir sigortalı için Kasım ve Aralık ayı olmak üzere 2 taksitte ödeme yapılabilecektir.
+
+Diğer sigorta şirketlerinde sigortalı iken o şirketteki poliçelerini yenilemeyerek, 1 aydan fazla süre ara vermeden yeni dönemde Anadolu Sigorta’ya ferdi/grup kurumsal tamamlayıcı sağlık sigortası yaptırmak isteyen kişilerin sağlık beyanları ve önceki sigorta şirketinden gönderilen geçmiş sigortalılık bilgileri incelenerek, uygun görülen sigortalılar önceki sigorta şirketlerindeki yenileme garantisi hakları devralınarak sigortalanabileceklerdir. Önceki sigorta şirketindeki poliçesi sona erdikten sonra, 1 aydan fazla ara vermeden Anadolu Sigorta’da ferdi/grup sağlık sigortası kapsamına alınan ve önceki sigorta şirketindeki sigortalılık süresi içinde kurumsal tamamlayıcı sağlık sigortası yenileme garantisine hak kazanmamış olan kişilerin yenileme garantisine hak kazanıp kazanmadıkları ile ilgili değerlendirme, Anadolu Sigorta’daki 2. yıllarının sonunda yapılacaktır.
+
+Yenileme garantisi verilirken, Anadolu Sigorta’da sigorta başlangıç tarihinden sonra ortaya çıkan hastalıkları kapsam dışı bırakılmayacak ve söz konusu hastalıklarından dolayı ek prim alınmayacaktır. Anadolu Sigorta’daki sigorta başlangıç tarihinden önce ortaya çıkmış olan hastalıklar kapsam dışı bırakılabilecek veya bu hastalıklar için ek prim de alınabilecektir.
+
+Devir tarihinden sonraki 2.yılları sonunda değerlendirme yapılır. 2. yılın sonunda TSSYG alamayanların değerlendirmeleri son 3 yıla bakarak yapılır. Sigortalı yine TSSYG'ye hak kazanmıyorsa, değerlendirme 3 yıl dikkate alınarak yapılır. Böylelikle devir gruplarda da TSSYG değerlendirmesi mevcut uygulamamıza çekilmiş olur.
+
+Grubun Şirketimizden poliçe yaptırması durumunda tüm sigortalılardan “Sağlık Açık Rıza” onayı istenecektir.
+
+Terör sonucu oluşan hastalıklar ve doğal afetlerden (deprem, zelzele, sel, yanardağ patlaması ve toprak kayması) kaynaklanacak giderler teminat kapsamı dışındadır.
+
+MS hastalığı ile ilgili giderler, hastalığın sigorta başlangıç tarihinden sonra teşhis edilmesi koşuluyla, kapsam dahilindedir.
+
+Trafikte motor kullanımı sonrası yaralanmalar poliçe genel ve özel şartları dahilinde kapsam içerisinde olacaktır.
+
+İşitme rahatsızlığı kapsam içerisinde olacaktır.
+
+Mesleki sebepten kaynaklanan hastalık ve yaralanmalar kapsam dahilindedir.
+
+Kurumsal Tamamlayıcı Sağlık Sigortası yurtdışında geçerli değildir.
+
+Teklifimiz sunulduğu tarihten itibaren 7 gün süreyle geçerlidir.
+
+SİGORTA SÖZLEŞME BAŞLANGIÇ VE BİTİŞ TARİH VE SAATİ : Poliçenin teminatları, poliçede yazılı başlangıç tarihinde saat 00:00 itibariyle başlar, poliçede yazılı bitiş tarihinde saat 23:59 itibariyle sona erer. Poliçe süresi 1 yıldır. (Kesin tarihler her poliçede ayrıca belirtilir.)
+
+SİGORTA PRİMİNİN ÖDENMESİ: Sigorta primi, teklifte kararlaştırılan peşinat ve eşit taksitler halinde ödenir. Taksit sayısı gruba göre belirlenir ve poliçede/ödeme planında belirtilir.
+
+Taksit tutarları ve ödeme tarihleri ödeme planında belirtilecektir. Taksitlerin vade tarihinden itibaren en geç 15 gün içinde ödenmemesi halinde Sigorta Şirketi tazminat ödemelerini, firma vadesi gelen prim borçlarını ödeyene kadar durduracaktır. Sigortalı şirket peşinat tutarını ödemeden Sigorta Şirketi, tazminat ödemesi yapmayacak ve verilen sigorta kartları kullanıma kapalı olacaktır. Primlerin tamamı teklifimizde belirtilen peşinat ve taksitler doğrultusunda Şirketimiz kurumsal hesabına ödenecektir. (Prim ödemelerinde kredi kartı kabul edilmeyecektir.)
+
+Türk Ticaret Kanunu 1434.maddeye göre 1431 inci maddeye uygun olarak istenilen sigorta primini ödemeyen sigorta ettiren mütemerrit olur. İlk taksidi veya tamamı bir defada ödenmesi gereken prim, zamanında ödenmemişse, sigortacı, ödeme yapılmadığı sürece, sözleşmeden üç ay içinde cayabilir. Bu süre, vadeden başlar. Prim alacağının, muacceliyet gününden itibaren üç ay içinde dava veya takip yoluyla istenmemiş olması hâlinde, sözleşmeden cayılmış olunur. İzleyen primlerden herhangi biri zamanında ödenmez ise, sigortacı sigorta ettirene, noter aracılığı veya iadeli taahhütlü mektupla on günlük süre vererek borcunu yerine getirmesini, aksi hâlde, süre sonunda, sözleşmenin feshedilmiş sayılacağını ihtar eder. Bu sürenin bitiminde borç ödenmemiş ise sigorta sözleşmesi feshedilmiş olur. Sigortacının, sigorta ettirenin temerrüdü nedeniyle Türk Borçlar Kanunundan doğan diğer hakları saklıdır. Bir sigorta dönemi içinde sigorta ettirene iki defa ihtar gönderilmişse sigortacı, sigorta döneminin sonunda hüküm doğurmak üzere sözleşmeyi feshedebilir.
+
+Suni Uzuv Teminatı:
+Sigortalının poliçe süresi içindeki tedavisi suni uzuv gerektirirse, suni uzuv giderleri (El, kol, bacak, takma göz ve estetik amaç taşımayan protezler) teminat tablosunda belirtilmiş olan limit ve poliçe özel ve genel şartları dahilinde ödenir. Suni uzuv teminatı sadece kullanılan aparat (Malzeme) içindir. İlgili malzemenin bakım ve onarım masrafları kapsam dışıdır. Ayrıca robotik malzemeler de poliçe dahilinde ödenmez. Sigorta başlangıç tarihinden önce var olan maluliyetler için kullanılan ya da yenilenecek olan suni uzuvlar poliçe kapsamı dışındadır. Suni uzuvlar sigortalılık süresi içinde sadece bir kez ödenir, yenilenmesi poliçe kapsamı dışındadır.
+Poliçe kapsamında kabul edilmiş meme kanseri için mastektomi sonrası yapılan rekonstrüksyon ameliyatlarına ilişkin tüm giderler bu teminat limitleri dahilinde karşılanacaktır. Ayrıca ameliyat, oda-yemek-refakatçi, doktor takibi, yatarak ilaç, yatarak tanı vb. diğer teminatlar yürürlüğe girmez. Poliçe kapsamında kabul edilmiş meme kanseri nedeniyle sigortalıların kullanacağı meme protezlerine ait giderler de bu teminat kapsamında karşılanacaktır.
+
+Yardımcı Tıbbi Malzeme Teminatı:
+Sigorta başlangıç tarihinden sonra meydana gelen bir kaza veya hastalık sonucu sigortalıya uygulanan tedavinin bir parçası olarak, vücuda dışarıdan destek olacak şekilde ve sadece tıbbi amaçlarla kullanılan, taşınabilir, kişiye özel: atel (orthez, brace, aktif ankle, bon spur ped), ortopedik tabanlık, walker, elastik bandaj, kol askısı, korse, varis çorabı, nebulizatör, işitme cihazı, boyunluk, dizlik, bileklik, oturma simidi, yanık tedavisinde kullanılan örtüler, ileostomi torbası, sistostomi torbası, insülin pompası, lenf ödem çorabı, şeker ölçüm stripleri ve koltuk değneğinden ibaret tıbbi malzemeler bu teminat kapsamında, poliçede belirtilen yıllık limit ve ödeme yüzdesi dahilinde karşılanır. Yukarıda sayılanların dışındaki yardımcı tıbbi malzemeler kapsam dışındadır.
+
+Evde Bakım Teminatı:
+Sigortalının sağlık kuruluşundaki yatarak tedavisi sonrasında söz konusu tedavinin devamı için kendi evinde sadece tıbbi personel tarafından yapılan tıbbi bakım ve tedavilerine ilişkin giderler bu teminattan karşılanır. Sigortalının bu teminattan faydalanabilmesi için sigortalıyı tedavi eden doktorun, sigortalının tedavisinin bir sağlık personeli eşliğinde evde sürdürülmesi gerektiğini bir raporla Şirketimize bildirmesi ve bu durumun ANADOLU ANONİM TÜRK SİGORTA ŞİRKETİ tarafından onaylanması zorunludur. Evde bakım hizmeti sırasında gerçekleşen tüm giderler (Usg, laboratuar, vb) bu teminattan karşılanacaktır.
+Sigortalının günlük yaşam aktivitelerini tek başına yerine getiremiyor olması, inkontinans ya da immobilize olması, yemeğinin yedirilmesinde yardıma gereksinimi olması, ağız yoluyla ilaç alıyor olması, tam banyo ihtiyacı ya da yardımla banyo yapabiliyor olması, üriner kateter bulunması, evde yalnız yaşıyor olması ve sosyal desteğe gereksinimi olan kronik hastalığının bulunması Evde Bakım Hizmetleri teminatı kapsamına girmez. Ayrıca tedavi süresince oluşabilecek tıbbi cihaz kiralama giderleri poliçe kapsamı dışındadır.
+
+Aşağıdaki Asistans Diş Planı tüm sigortalılar için sağlanmıştır.
+1 poliçe döneminde kullanılmak üzere, poliçe bitim tarihine kadar geçerli olacaktır. Grubun bir sonraki
+dönemde Şirketimizden yenilenmesi halinde, bu hizmetin geçerli olup olmayacağı yeniden
+değerlendirilecektir.
+
+Her bir işlem yılda 1 kez yapılabilmektedir.
+
+Asistans diş sağlığı planı ile ilgili detaylar aşağıda belirtilmektedir;
+1. Plan kapsamında aşağıda belirtilen dental hizmetlerde, sigortalılarımız bir defaya mahsus herhangi
+bir ödeme yapmamaktadır.
+2. Asistans Diş Planı kişiye özel olacaktır. Başka bir kişiye ve bir sonraki yıla devredilemeyecektir.
+3. Asistans Diş Planı sadece anlaşmalı diş hekimlerinde ve kurumlarda geçerlidir.
+
+Hizmet alımı öncesinde mutlaka randevu organizasyonunun yapılması gerekmektedir.
+
+Asistans Diş Planı ile ilgili tercih edebileceğiniz kurum ve doktorları öğrenebilmeniz ve randevu
+oluşturabilmeniz için 0850 724 0850 numaralı telefondan bilgi alabilirsiniz.
+
+# Asistans Diş Planı kapsamındaki işlemler (kaynak belgede tablo başlığı sehven
+# "Check-Up Paketi" yazmıştır; içerik DİŞ paketidir. Aşağıdaki "ASİSTANS CHECK UP"
+# başlıklı paket bundan AYRI bir hizmettir, karıştırma):
+| Asistans Diş Planı Kapsamı |
+| Diş Hekim Muayenesi |
+| Periapikal Röntgen (tek diş) |
+| Detertraj (diş taşı temizliği — alt ve üst çene) |
+
+“Grup sağlık poliçesine dahil edilmesi için Sigorta Şirketine iletilecek tüm sigortalı adaylarının cep telefon numarasının, poliçelendirme işlemleri başlamadan ve Sigorta Şirketinin istediği formatta beyan edilmesi gerekmektedir. Aksi halde sigortalı adayına kontak tanımlaması yapılamayacağından, poliçelendirme işlemleri tamamlanamayacaktır ve grup sağlık sigortasına dahil edilemeyecektir. “
+
+ASİSTANS CHECK UP
+
+Aşağıdaki paket çerçevesinde grup poliçe bitiş tarihine kadar, sadece 14 yaş üzerindeki kişiler için geçerli olmak üzere check-up hizmeti verilecektir.
+
+Bu hizmet, sadece asistans firmanın anlaşmalı olduğu kurumlarda geçerli olup, elden ödeme uygulaması bulunmamaktadır. Anlaşmalı kurum bilgileri ve randevu oluşturmak için öğrenebilmeniz ve randevu oluşturabilmeniz için 0850 7 24 0850 numaralı telefondan bilgi alabilirsiniz.
+
+1 poliçe döneminde kullanılmak üzere geçerli olup, grubun bir sonraki dönemde Şirketimizden yenilenmesi halinde bu hizmetin geçerli olup olmayacağı yeniden değerlendirilecektir.
+
+| ASİSTANS CHECK UP PAKETİ |
+| Doktor Değerlendirmesi |
+| Akciğer Grafisi |
+| EKG Kalp Elektrosu |
+| Tam Kan Sayımı |
+| Tam İdrar Tahlili |
+| Sedimantasyon |
+| Açlık Kan Şekeri |
+| Total Kolesterol |
+
+
+==========================================================================
+BÖLÜM 3 — POLİÇE METNİ / WORDING (Kurumsal Tamamlayıcı Sağlık Sigortası Teklifi)
+Sigortanın konusu, teminat açıklamaları, özel şartlar, kapsam dışı haller,
+tanımlar, tazminat ödemeleri, yenileme garantisi ve Sağlık Sigortası Genel Şartları
+==========================================================================
+
+KURUMSAL TAMAMLAYICI SAĞLIK SİGORTASI TEKLİFİ
+
+A -) SİGORTANIN KONUSU
+
+POLİÇE TEMİNATI:
+
+Anadolu Anonim Türk Sigorta Şirketi (Anadolu Sigorta), Sağlık Sigortası Genel Şartları ve Kurumsal Tamamlayıcı Sağlık Sigortası Özel Şartları çerçevesinde sigortalının, sigorta başlangıç tarihinden sonra ortaya çıkan hastalıklarına ait muayene, tetkik ve tedavi giderlerini, poliçesinde belirtilen teminatların kapsamı ve limitleri, Sosyal Güvenlik Kurumu (SGK) geri ödeme kuralları ve bu dokümanda belirtilen detaylar dahilinde tazmin eder. SGK’dan provizyon alınmamış sağlık harcamalarına ait giderler bu poliçe kapsamı dışındadır. Bu poliçe kapsamında ödeme yapılabilmesi için, sigortalının muayene, tetkik ve tedavilerinin, poliçenin geçerli olduğu tarihler arasında gerçekleştirilmiş olması gerekmektedir. Belirtisinin/bulgusunun veya teşhisinin ve/veya tedavisinin başlangıcı sigorta başlangıç tarihi öncesine dayanan rahatsızlıklar ve bunlara bağlı olarak gelişen rahatsızlıklara (komplikasyonlara) ilişkin tüm giderler poliçe kapsamı dışındadır.
+
+Sigortalıya sağlanan sigorta teminatı, poliçede ve sigorta genel ve özel şartlarında teminata dahil olduğu belirtilmiş olan hususlarla sınırlıdır. Teminata dahil olduğu açıkça öngörülmüş bulunan hallerin dışındaki hiçbir hal, teminat dışında kalan haller arasında ayrıca sayılmış olmasa dahi, kesinlikle sigorta koruması altında değildir.
+
+Sadece SGK tarafından karşılanacak tedavi masraflarının yasal çerçeve içerisinde sigortalının ödemesi gereken fark kısmı özel şartlar dahilinde bu poliçe kapsamında karşılanacaktır. Kurumsal Tamamlayıcı Sağlık sigortası ürünleri, Şirketimizin Kurumsal Tamamlayıcı Sağlık sigortası için anlaşmalı olduğu ve SGK ile de anlaşması bulunan kurumlarda/doktorlarda geçerli olacaktır. SGK ile anlaşmalı olduğu halde, Şirketimizle Kurumsal Tamamlayıcı Sağlık sigortası kapsamında anlaşması bulunmayan sağlık kuruluşlarında yapılacak tedavi giderleri ve Genel Sağlık Sigortası(GSS) hak sahibi olmayan kişilerin tedavi giderleri poliçe teminat kapsamı dışındadır. SGK tarafından kapsama alınan ve Genel Sağlık Sigortası olan kişiler bu poliçe kapsamında yer alabilmektedir. Kurumsal Tamamlayıcı Sağlık sigortasından faydalanabilmek için aile fertlerinin her birinin ayrı poliçeye sahip olması gerekmektedir.
+
+Kurumsal Tamamlayıcı Sağlık sigortası kapsamında sadece Genel Sağlık Sigortası hak sahibi olan Türkiye Cumhuriyeti (T.C) vatandaşları ve Genel Sağlık Sigortası hak sahibi olan yabancı uyruklu kişiler sigortalanabileceklerdir. Bu poliçe sadece Türkiye Cumhuriyeti (T.C) sınırları dahilinde geçerli olup, yurt dışında geçerli olmayacaktır. KKTC yurt dışı olarak kabul edilmektedir.
+
+İlk Sigorta Başlangıç Tarihi ve Kazanılmış Haklar : Halen çalışmakta oldukları firmadaki kurumsal tamamlayıcı sağlık sigortalılık süreleri kesintiye uğramamış olması kaydıyla, Kurumsal Tamamlayıcı Sağlık Sigortası poliçesine sahip olan kişilerin Sigorta Ettiren firmada ilk kez kurumsal tamamlayıcı sağlık sigortası kapsamına alındıkları tarih; “İlk Sigorta Başlangıç Tarihi” olarak esas alınacaktır. Her sigortalının Sigorta Ettiren firmada ilk kez kurumsal tamamlayıcı sağlık sigortası kapsamına alındığı tarih olan ilk sigorta başlangıç tarihinden sonra ortaya çıkan rahatsızlıkları “Kazanılmış Hak” olarak kabul edilecektir.
+
+İşbu sözleşmenin konusu olan poliçenin geçerli olduğu dönem içinde Sigorta Ettiren firmada kurumsal tamamlayıcı sağlık sigortası kapsamına ara dönemde giren kişilerin, daha önce çalıştıkları firmalarda, primlerinin tamamı firma tarafından ödenen bir kurumsal tamamlayıcı sağlık sigortası poliçesine sahip olanları, sigortalılıklarına 1 aydan fazla ara vermeden primlerinin tamamı firma tarafından ödenen Sigorta Ettiren firmada kurumsal tamamlayıcı sağlık sigortası kapsamında sigortalanırlarsa; Kalp ve kalp damarı hastalıkları, Kanser, Beyinde kitle kanama ve beyin damarı hastalıkları, Felç ve benzeri hastalıklar, Kronik organ yetersizlikleri (böbrek, karaciğer vb), Sistemik kan hastalıkları (hemofili, pansitopeni, ITP, aplastik anemi) Hepatit C, Talasemi, MS, Şeker, omur disk hastalıkları Sigortalının Doğuştan Gelen Hastalıklarına ait tedavi giderleri kapsam dışı kalması koşuluyla önceki poliçelerindeki eski haklarıyla sigortalanırlar. Önceki sigorta şirketinde /Şirketimizde primlerinin tamamı firma tarafından ödenen bir poliçedeki sigortalılık süreleri 3 ayını doldurmuş olan bu sigortalılara ameliyat bekleme süreleri uygulanmaz. Bu uygulama sadece; primlerin tamamı firma tarafından ödenen bir kurumsal tamamlayıcı sağlık sigortasına sahip iken, sigortalılıklarına 1 aydan fazla ara vermeden primlerin tamamı Sigorta Ettiren firma tarafından ödenen kurumsal tamamlayıcı sağlık sigortası poliçesine alınan sigortalılar için geçerlidir.
+
+Başka bir sigorta şirketinde bireysel bir poliçeye ya da primlerinin tamamı veya bir kısmı kendileri tarafından ödenen bir kurumsal tamamlayıcı sağlık sigortasına sahip olan kişiler 1 ay ara vermeden Sigorta Ettiren firmada kurumsal tamamlayıcı sağlık sigortası kapsamına alınsa dahi, önceki sigorta şirketinde kazanmış oldukları haklar devir olarak alınmayacak, sigorta şirketi bir risk değerlendirmesi yapacak ve hangi şartlarla sigortalanacaklarına sigorta şirketi karar verecektir. Bu sigortalılardan önceki sigorta şirketindeki sigortalılık süreleri 3 ayını doldurmuş olanlara bu sözleşmede belirtilen ameliyat bekleme süresi uygulanmayacaktır.
+
+Şirketimizde bireysel tamamlayıcı sağlık sigortası kapsamında olup, bu poliçesini sonlandırıp 1 ay içinde kurumsal tamamlayıcı sağlık sigortası kapsamına girmesi durumunda kazanılmış hakları devir alınacaktır. Ancak kurumsal tamamlayıcı sağlık sigortası kapsamından çıkıp, bireysel tamamlayıcı sağlık sigortası kapsamına girecek sigortalılardan ömür boyu yenileme garantisi alan kişiler risk değerlendirmesi yapılmadan kazanılmış hakları devir alınacaktır. Ömür boyu yenileme garantisi alamayan kişiler için risk değerlendirmesi yapılıp, hangi şartlar ile sigortalanacaklarına sigorta şirketi karar verecektir.
+
+Ayrıca primlerin tamamı firma tarafından ödenen bir kurumsal tamamlayıcı sağlık sigortasına sahip iken, sigortalılıklarına 1 aydan fazla ara vermeden Sigorta Ettiren firmada kurumsal tamamlayıcı sağlık sigortası isteğe bağlı grup kapsamına dahil olacak kişilerin de, önceki sigorta şirketinde kazanmış oldukları haklar devir olarak alınmayacak, sigorta şirketi bir risk değerlendirmesi yapacak ve hangi şartlarla sigortalanacaklarına sigorta şirketi karar verecektir. Bu sigortalılardan önceki sigorta şirketindeki sigortalılık süreleri 3 ayını doldurmuş olanlara bu sözleşmede belirtilen ameliyat bekleme süresi uygulanmayacaktır. Ancak önceki sigorta şirketindeki sigortalılık süreleri 6 ayını doldurmuş olan bu sigortalılara bu sözleşmede doğum teminatı için belirtilen bekleme süresi uygulanacak, bu sigortalılara bekleme süresi içinde doğum teminatı ile ilgili giderler ödenmeyecektir.
+
+Anlaşmalı Sağlık Kuruluşlarındaki Tedaviler : Sigortalılar www.anadolusigorta.com.tr adresli internet sitesindeki “Anlaşmalı Kurumlar” bölümüne girerek sigorta şirketinin anlaşmalı olduğu sağlık kuruluşları hakkında bilgi sahibi olabilirler.
+
+Anlaşmalı sağlık kuruluşlarına başvuran sigortalılar, hastane yetkililerine nüfus cüzdanı ya da ehliyetlerini de göstermek zorundadırlar.
+
+Sigortalıların özellikle acil durumlar haricinde yatışlı tedavi olacaklarını 3 iş günü önceden anlaşmalı kurum aracılığı ile sigorta şirketine bildirmeleri ve gerekli tüm evrakları ile birlikte kendilerine bildirilen faks numarasına ilgili belgeleri göndererek tedavi giderlerinin ödenip ödenmeyeceği hakkında bilgi almaları gerekmektedir.
+
+Sigortalıların anlaşmalı sağlık kuruluşlarında, hangi nedenle olursa olsun, sağlık giderlerinin tamamını kendileri ödemek durumunda kalırlarsa, sigortalı olduklarını beyan etmeleri ve fatura tutarının sigorta şirketi ile sağlık kuruluşu arasında imzalanan sözleşmeye göre indirimli olarak kesilmesini sağlamaları gerekmektedir. Her durumda sigortalıların anlaşmalı sağlık kuruluşlarından kendilerinin ödeyerek sigorta şirketine gönderdikleri faturalar ödenmeyecektir.
+
+Sigorta şirketinin poliçe dönemi içinde bazı sağlık kuruluşları ile var olan sözleşmeleri iptal etme hakkı saklıdır.
+
+Güncel anlaşmalı kurumlar listemize www.anadolusigorta.com.tr adresli internet sitesindeki “Anlaşmalı Kurumlar” bölümüne girerek ulaşılabilinir.
+
+Anlaşmalı Sağlık Kuruluşlarımızda, internet, interaktif telefon sistemi ile gerçekleştirilen provizyon işlemleri, hastanelerdeki tüm banko elemanları tarafından gerçekleştirilebilmektedir. Sistemin kolaylığı, hem yaygın olmasına hem de hatasız bir şekilde provizyon işlemlerinin yürütülmesine olanak tanımıştır. ANADOLU ANONİM TÜRK SİGORTA ŞİRKETİ tarafından sisteme tanımlanan teminatlar ve ödeme oranları ile sistemden otomatik olarak provizyon alınmaktadır.
+
+Anlaşmasız Kuruluşlarda ise, fatura bedeli ödenmeyecektir.
+
+B-POLİÇENİN KAPSAMI VE TEMİNATLARI
+
+Aşağıda Şirketimizin Kurumsal Tamamlayıcı Sağlık Sigortası ürünlerindeki teminatlara ilişkin açıklamalar yer almaktadır. Sigortalılar, aşağıda açıklamaları yapılan teminatlardan, poliçelerinde bu teminatlar varsa yararlanabileceklerdir. Sigortalılar poliçelerinde bulunmayan teminatlardan yararlanamazlar.
+
+YATIŞSIZ TEDAVİ TEMİNATLARI
+
+Aşağıdaki açıklama bu teminatın yer aldığı poliçeler için geçerlidir.
+
+Bu teminat ancak “Yatışlı Tedavi Teminatı”nın alınması koşuluyla verilecektir.
+
+Bu teminat doktor muayene, tanı ve fizik tedavi teminatlarından oluşur.
+
+Yatışsız tedavi kullanımları teminat tablosunda belirtilen miktar ile sınırlı olacaktır. Fizik tedavi giderleri için yıllık teminat tablosunda belirtilen seans limiti bulunmaktadır. İlaç ve aşı giderleri teminat kapsamı dışındadır.
+
+YATIŞLI TEDAVİ TEMİNATLARI
+
+Aşağıdaki açıklama bu teminatın yer aldığı poliçeler için geçerlidir.
+
+Yatışlı tedavi teminatı SGK geri ödeme koşulları dahilinde gerçekleşen cerrahi ve dahili tedavileri kapsamaktadır.
+
+Anlaşmalı sağlık kuruluşlarına verilen yatış onayları süresiz değildir. Verilen yatış onayı, yedi gün içerisinde gerçekleşmesi ve poliçenin yürürlükte olması kaydıyla geçerlidir. Belirtilen sürelerden sonra hastanede yatışlı tedavi görülmesi gerekiyorsa sigortalının ve sağlık kuruluşunun tekrar provizyon verilmesi için başvurmaları gerekmektedir.
+
+On beş günü aşan tüm yatışlarda, on beşinci günden sonra oluşan teminat kapsamındaki giderlerin karşılanabilmesi için, konuya ilişkin yeni bir bildirim formu gönderilerek Şirketimizin onayının tekrar alınması gerekmektedir.
+
+Sigortalı, acilen sağlık kuruluşlarına yatırılması gereken haller dışında, işlemlerin kolaylaştırılmasını sağlamak amacıyla yatışlı tedavi görmesi gerektiğini sağlık kuruluşuna giriş yapmadan birkaç gün önce sigortacıya bildirmelidir.
+
+Kara ambulans teminatı:
+
+Kurumsal tamamlayıcı sağlık sigortalılarımız, poliçelerde ve aşağıda belirtilen "Acil Durumlarda", Sigorta Şirketi adına bu hizmeti veren firmanın doktorlarının 7 gün 24 saat hizmet verdiği İstanbul’daki alarm merkezini 0850 744 03 03  no’lu telefon numarasından arayarak, ücretsiz olarak danışmanlık hizmeti alabilecekler ve bir doktor eşliğinde kara ambulansı hizmetinden yararlanabileceklerdir.
+
+Sigorta Şirketinin anlaşmalı olduğu firma, İstanbul dışında örgütlendiği il ve ilçelerde de bu hizmeti verecektir. İstanbul dışındaki sigortalılar aradığında Alarm Merkezi, yerleşim merkezine en yakın ambulansı doktor eşliğinde sigortalının adresine yönlendirecektir. Gelen ekip sigortalıyı evde tedavi edebileceği gibi, gerekirse uygun bir sağlık kuruluşuna götürecektir. Sigortalılar, aşağıda belirtilen "Acil Durumlarda" Sigorta Şirketinin anlaşmalı olduğu firmanın verdiği bu hizmet için herhangi bir ücret ödemeyeceklerdir.
+
+Sigortalıların, acil vakalarda Anadolu Sigorta’nın anlaşmalı olduğu firmanın temin ettiği ambulans dışında bir ambulans kullanmaları halinde, ambulans giderleri karşılanmayacaktır.
+
+Acil durumlarda hastane veya bir sağlık merkezine transport edilmesi gereken sigortalılar, klinik durumlarına uygun olarak öncelikle Tamamlayıcı Sağlık Sigortası poliçesinin geçerli olduğu hastane networkü dahilindeki kuruluşlara poliçe kapsamı dahilinde transport edilecektir. Sigortalıların, kendi tercihleri ya da klinik durumları doğrultusunda Tamamlayıcı Sağlık Sigortası poliçesi anlaşmalı sağlık kuruluşu ağı dışında bir kuruma transport edilmeleri durumunda gerçekleşecek tedavi masrafları poliçe teminatı kapsamı dışındadır. Ayrıca, acil durumlar dahilinde bir sağlık merkezine transport edilen sigortalının, başka bir sağlık kurumuna nakli yapılırsa ortaya çıkacak transport giderleri poliçe kapsamı dahilinde değildir.
+
+Poliçe kapsamında "Acil Vaka" olarak değerlendirilecek durumlar aşağıda liste halinde belirtilmiştir:
+
+Suda boğulma, trafik kazası, yüksekten düşme, uzuv kopması, elektrik çarpması, donma, soğuk çarpması, ısı çarpması, ciddi yanıklar, göz yaralanmaları, zehirlenmeler, anafilaktik tablolar, kemik kırıkları, miyokard enfarktüsü, hipertansif ensefalopati, akut serebrovasküler atak, ani felçler, şeker ve üre komaları,  akut masif kanamalar, akut böbrek yetmezliği, menenjit, ensefalit, beyin apsesi, solunum yollarında yabancı cisim, yüksek ateş (39,5 derece ve üzeri).
+
+Doğum teminatı:
+Sadece poliçelerinde doğum teminatı olan sigortalılar için geçerlidir.
+İlk kez sigortalanacak kişinin bu teminatı kullanmaya hak kazanabilmesi için son adet tarihinin poliçe başlangıç tarihi sonrası olması gerekmektedir.
+Tamamlayıcı sağlık sigortası olup, poliçesini yeniletecek olan sigortalının bu teminatı kullanmaya hak kazanabilmesi için; yenilenen poliçesine doğum teminatını ilave etmesi , son adet tarihinin poliçenin yenilendiği tarihten sonra olması, önce hamile ise bir önceki poliçesinde doğum teminatının olması gereklidir.
+Doğum teminatı, sigortalının doğum teminatı bulunan bir poliçe kapsamına dahil olmasından 6 ay sonra yürürlüğe girer. Bekleme süresi dolmadan gerçekleşen doğum giderleri, gebelik mutat kontrolleri, gebelik ve doğumun neden olduğu komplikasyonlara ilişkin giderler poliçe kapsamı dışındadır Doğumla ilgili rutin kontroller yıllık yatışsız tedavi sayısından düşülecektir.
+Poliçesinde yatışsız tedavi teminatı olmayan kişilerin doğum ile ilgili rutin kontrolleri poliçe kapsamı dışındadır.
+Doğum teminatı kapsamına giren tüm giderler, 1 yıllık poliçe döneminde sadece 1 kere ödenir. İsteğe bağlı kürtaj poliçe kapsamı dışındadır. Önceki gebelik döneminde yapılan bir düşüğün  nedeninin araştırılmasına yönelik giderler poliçe kapsamında değildir. Suda doğum poliçe kapsamı dışındadır.
+
+Ameliyat Bekleme Süreleri :
+
+SGK tarafından uygulanan ve tedavinin yapıldığı tarihte yürürlükte olan bekleme süreleri aynı şekilde olmakla beraber, Kurumsal Tamamlayıcı Sağlık Sigortası kapsamına yeni alınan sigortalılar için, sigorta başlangıç tarihinden sonra ortaya çıkan ve 3 ay süreyle ameliyat giderleri kapsam dışında bırakılan rahatsızlıklar aşağıda belirtilmiştir.
+
+Acil durumlarda da ameliyat bekleme süresi geçerlidir.
+
+Malign (kötü huylu) tümörler için 3 aylık bekleme süresi uygulanmaz.
+
+1. Siğil, lipom, kist sebase(yağ bezesi),
+2. Varis, anorektal hastalıklar (hemoroid, anal fissür, fistül, anal abse, vb.), sinüs pilonidalis (kist dermoid sakral), kist hidatik, her türlü fıtık (karın içi organ fıtığı, vb.), safra hastalıkları, tiroid bezi, ve meme hastalıkları ile ilgili ameliyat giderleri
+3. Burun, bademcik, geniz eti ameliyatları, sinüs cerrahisi sinüzit ameliyatı işitme kusuru cerrahisi kulak tüpü takılması, timpanoplasti, vb),
+4. Katarakt ameliyatı, glokom,
+5. Rahim, yumurtalık, sistorektosel, bartholin kisti,
+6. Diz ve diz eklem hastalıkları cerrahisi (menisküs lezyonu, bağ yırtığı, vb.), trigger finger, her türlü tuzak nöropati, ganglion, kistik higroma, morton nöroma,
+7. Üriner sistem taşı kırılması (ESWL) ve cerrahisi, hidrosel, prostat,
+8. Omurga ve disk hastalıkları ile ilgili ameliyatlar giderler, disk hernileri, faset denervasyon, sinir blokajı,
+9. Her türlü organ nakli (transplantasyon)
+
+Septum deviasyonu ve konka hastalıkları ve nazal valv darlıkları ile ilgili tüm giderler bekleme süresi olmaksızın tamamen poliçenin kapsamı dışındadır.
+
+C -) ANADOLU ANONİM TÜRK SİGORTA ŞİRKETİ SAĞLIK SİGORTASI ÖZEL ŞARTLARI :
+
+1 - Poliçenin Yürürlüğe Girmesi :
+
+Sigorta kapsamına alınacak kişiler sigorta şirketine ait bir güncel başvuru formunu eksiksiz doldurup imzalamak zorundadırlar. Firma yetkilileri bir ön yazıyla sigortalıya ait ıslak imzalı olan bu formu sigorta şirketine gönderecekler ve yazıda sigortalının poliçesinin hangi tarihte başlaması gerektiğini belirteceklerdir.
+
+Şirketimiz sigorta kapsamına almadan önce;
+
+-Boy-kilo endeksi (Boy-Kilo Endeksi=Kilo(kg)/ Boy2 (m)) 35’in üzerinde olan sigortalı adaylarından,
+- Yukarıda tanımlanan kapsamda olmamasına rağmen, Şirket doktorlarımız tarafından tetkik yaptırması gerekli görülen sigortalı adaylarından, sigorta kapsamına alınmadan önce Şirketimizin belirlediği tetkiklerin yaptırılması talep edilecektir.
+
+Tetkiklerin yaptırılacağı sağlık kuruluşunu Şirketimiz belirleyecek ve tetkiklerin giderleri Şirketimiz tarafından sağlık kuruluşuna ödenecektir. Sigortalı adayının, sigorta kapsamına alınıp alınmayacağı veya hangi şartlarla alınacağı ön tetkik sonuçlarının incelenmesinden sonra Şirketimiz tarafından belirlenecektir.
+
+Yapılan tetkiklerin sonucunda sigortalı adayının bazı tetkiklerinin sonuçlarının normal değerlerin üstünde çıkması durumunda Şirketimiz sigortalı adayının rahatsızlığının ciddiyetini anlamak için ekstra tetkikler yaptırılmasını isteyebilir. Bu tetkiklerin giderlerini de Şirketimiz ödeyecektir. Sigortalı adayı istenen ilave tetkikleri yaptırmak istemezse o rahatsızlık poliçesinde kapsam dışı bırakılır.
+
+Firma çalışanlarının aile bireylerinin primlerinin tümünün firmanın bütçesinden karşılandığı gruplarda, sigortalanmak isteyen kişiler grup başlangıç tarihinden sonraki 1 ay içinde Sigorta Şirketine başvurmalıdırlar.
+
+Personel ile birlikte sadece eşin ya da sadece bağımlı olan çocukların sigorta yaptırma isteği kabul edilecektir. Ancak bağımlı çocuklar arasında ayrım yapılamaz, sigortalanacaksa bağımlı olan çocukların tümünün sigorta kapsamına alınması gerekmektedir. (Poliçe iptal işlemlerinde de yine çocukların tümü sigorta kapsamından çıkarılması gerekmektedir). Prim ödemelerinin tamamının firmanın bütçesinden karşılandığı gruplarda, bağımlıların da dahil olması halinde personel ve bağımlılarının poliçe başlangıç tarihi, grubun başlangıç tarihi ile aynı olacaktır.
+
+Sigorta kapsamına girmenin isteğe bağlı olduğu gruplarda, sigortalanmak isteyen kişiler grup başlangıç tarihinden sonraki 1 ay içinde Sigorta Şirketine başvurmalıdırlar.
+
+Firma çalışanlarının aile bireylerinin sigorta kapsamına girmelerinin isteğe bağlı olduğu ve aile bireylerinin primlerinin tümünün veya bir kısmının çalışanın maaşından kesildiği gruplarda, personel ile birlikte sadece eşin ya da sadece çocukların sigorta yaptırma isteği kabul edilecektir. Ancak çocuklar arasında ayrım yapılamaz, sigortalanacaksa çocukların tümünün sigortaya dahil edilmesi gerekmektedir.(Poliçe iptal işlemlerinde de yine çocukların tümü sigorta kapsamından çıkarılması gerekmektedir). Sigorta kapsamına girmenin isteğe bağlı olduğu gruplarda, sigortalanmak isteyen kişiler grup başlangıç tarihinden sonraki 1 ay içinde Sigorta Şirketine başvurmalıdırlar. 1 ay içerisinde poliçe kapsamına girmek isteyen kişilerin poliçe başlangıç tarihi, grubun başlangıç tarihi ile aynı olacaktır.
+
+Prim ödemeleri zorunlu ya da isteğe bağlı olarak ödenen gruplarda 1 ay geçtikten sonra sadece işe yeni giren personelin, sigortalı olan personelin yeni doğan çocuklarının ve sigortalı personel ile yeni evlenen eşlerin sigortalanma istekleri kabul edilecektir. Bu kişilerin haricinde hiç kimsenin, grubun başlangıç tarihinin üstünden 1 ay geçtikten sonra yaptıkları başvurular kabul edilmeyecek, bu kişiler isterlerse grubun bir sonraki yenileme döneminde poliçe kapsamına girebileceklerdir.
+
+Sigorta başlangıç tarihinden sonra bağımlı statüsünde poliçe kapsamına dahil olan kişiler için kazanılmış gün esasına göre prim ödenecektir.
+
+Poliçe başlangıç tarihinden sonra bağımlılarının sayısı artarsa, sigorta kapsamına dahil edilecek bağımlılar için yeni başvuru formu doldurulması ve eğer bağımlı yeni doğan çocuksa yeni doğan çocuğun sağlık durumunu ayrıntılı olarak yansıtan doktor raporu ve eğer bağımlı eş ise evlilik cüzdanı gibi resmi belgelerin sigortacıya ulaştırılması gerekmektedir. Sonradan bağımlı özelliği kazanan kişi eş ise, bağımlılık özelliğini kazandıkları tarihten itibaren en geç 30 gün içinde sağlık sigortası kapsamına alınmalıdırlar. Sonradan bağımlı özelliği kazanan kişi yeni doğan çocuk ise bağımlılık özelliğini kazandıkları tarihten itibaren en geç 30 gün içinde sağlık sigortası kapsamına alınmalıdırlar. Bebeklerin doğuştan gelen rahatsızlıklarına ait giderleri poliçe kapsamında olmayacaktır. Sigorta başlangıç tarihinden sonra poliçe kapsamına alınan bağımlıların ödeyecekleri prim, kazanılmış gün esasına göre hesaplanır. Bağımlı olma özelliğini sigorta süresi içinde kazanan kişiler sigorta kapsamına dahil edilmezler ise, ancak sigorta bitim tarihinde poliçe yenilenirken kapsam dahiline alınabilirler.
+
+Tamamlayıcı Sağlık Sigortası Yenileme Garantisine hak kazanmış olan sigortalıların askere gitmeleri durumu
+
+Tamamlayıcı Sağlık Sigortası Yenileme Garantisine hak kazanmış olan ve askere gitme nedeniyle poliçelerini iptal eden sigortalıların, askerlik görevlerini bitirdikten sonraki 1 ay içinde başvurmaları ve askerlik durumlarını belgelemeleri koşuluyla sağlık beyan formu doldurarak Tamamlayıcı Sağlık Sigortası Yenileme Garantisi hakları devam eder. Ancak bu sigortalıların Anadolu Sigorta’da sigortalı olmadıkları süre içinde ortaya çıkan rahatsızlıklar yeni poliçelerinde kapsam dışı bırakılacaktır.
+
+Kurumsal Tamamlayıcı Sağlık Sigortası kapsamında sigortalımız olan sigortalıların, sigortalıyken askere gitmesi ve askerden geldikten sonra en geç 2 ay (askerlik haricinde sigortasız kalınan toplam süre 2 ayı geçmemelidir.) içerisinde tekrar Kurumsal Tamamlayıcı Sağlık Sigortası kapsamına girmek istemesi durumunda; sigortalıya ait kabul formu, Şirketin antetli kağıdına yazılan, personelin askere gidiş ve işe giriş tarihleri ve sigortalının daha önce Kurumsal Tamamlayıcı Sağlık Sigortası olduğu belirtilen bir yazı ekinde gönderildiğinde; sigortalıya ameliyat bekleme süreleri uygulanmayacak, eski sigortalılık dönemi içinde ortaya çıkan rahatsızlıkları ile ilgili giderler ödenmeye devam edecek ancak sigortalının, sigortalı olmadığı ara dönem içinde ortaya çıkan rahatsızlıkları ile ilgili giderler poliçe kapsamında değerlendirilmeyerek, karşılanmayacaktır. Doğum iznine ayrılan personel ve bağımlıları ile askere giden personelin bağımlıları için kazanılmış hakları saklı tutulmayacaktır.
+
+f) Bebeğin poliçelendirilmesi :
+Bebekler, doğum tarihlerini takiben 30 gün içinde (30. gün dahil) başvuru formu doldurulup Şirketimize iletilmesi durumunda, doğum tarihleri itibarıyla sigortalanabileceklerdir. Bebeklerin doğuştan gelen rahatsızlıkları ile ilgili giderleri poliçe kapsamında değildir.
+
+2 - Sigorta Kapsamına Alınmada Üst Yaş Sınırı :
+
+Primleri şirket tarafından ödenen Kurumsal Tamamlayıcı Sağlık Sigortalıları için poliçe kapsamına girişte yaş sınırlaması bulunmamaktadır. Ancak sigortaya katılımı ihtiyari olan grup sigortalıları için sigortalanma üst yaş sınırı 64'tür. İlk kez sigortalanmak veya başka sigorta şirketinden geçiş yapmak isteyen, sigortaya katılımı ihtiyari olan 65 yaş ve üstü kişiler poliçe kapsamına dahil olamayacaklardır.
+
+3 - Poliçenin İptali ya da Hastalıkların Teminat Dışında Bırakılması :
+
+Bu poliçe, sigortalının kabul formunda verdiği tüm bilgilerin tam ve doğru olduğu kabul edilerek düzenlenmiştir. Sigorta ettirenin ve/veya sigortalının beyanı gerçeğe aykırı veya eksikse, Sigorta Şirketi poliçeyi düzenlememe veya iptal etme hakkına sahiptir.
+Sigorta Şirketi vadesinde ödenmeyen primler için Sağlık Sigortası Genel Şartlarının 7. Maddesini (Ek Madde) uygulayacaktır.
+
+4 -Poliçenin otomatik olarak feshi:
+
+Sağlık sigortası teminatı kapsamındaki bir bağımlının poliçesi aşağıdaki durumlardan biri gerçekleştiği takdirde otomatik olarak feshedilecektir :
+
+Bir sigortalının poliçesi eksik ve yanlış beyan ya da kötü niyetli bir hareketi nedeniyle iptal edilirse aynı poliçe kapsamında bulunan diğer aile bireylerinin de poliçeleri aynı gün itibarıyla iptal edilecektir.
+Bağımlısı olduğu sigortalının poliçesi fesh olursa,
+Çalışanın işten ayrılması veya vefat etmesi gibi nedenlerle poliçesi iptal edilirse,
+Sözleşme sona ererse,
+Sigorta ettiren prim ödemelerini vadelerinde yapmazsa,
+Eğer bağımlı bağımlılık niteliğini yitirirse poliçe otomatik olarak fesih olacaktır. Sigortalının boşandığı eşinin poliçesi boşanma günü itibarı ile iptal edilir. Evlenen çocukların poliçeleri evlenme tarihleri itibarı ile iptal edilir. Ay hesabı yapmaksızın (Sigortalının yaşı, sigorta poliçesinin başlangıç yılından sigortalının doğum yılı çıkartılarak bulunur. ) yıl dikkate alınarak 25 yaşına giren çocukların poliçeleri yeni poliçe dönemi başında iptal edilir. 25 yaş ve üzeri bekar çocuklar 30 yaşına kadar (30 yaş dahildir.) eş primi üzerinden sigortalanacaktır. 31 yaş ve üzeri çocuklar Kurumsal Tamamlayıcı Sağlık Sigortası kapsamında sigortalanmayacaktır. Yukarıda belirtilen kişiler isterlerse 1 aydan fazla ara vermemek koşuluyla başka bir poliçe satın alarak sigortalılıklarını devam ettirebilirler.
+
+6- Sigortacının rücu hakkı:
+
+Sigortacı, sigortalının veya doktorun yanlış ve/veya eksik bilgilendirmesi yüzünden poliçenin özel ve genel şartlarına aykırı düşen ödemeler yapmak durumunda kalması halinde, teminat kapsamı dışında yapılan bu ödemeleri sigortalıya rücu ederek tahsil eder. Ayrıca bu uygulama, sigortacının poliçenin özel ve genel şartlarına aykırı düşen harcamalarla ilgili olarak "Yatışsız Tedavi Direkt Ödeme Anlaşması" gereği sigortalı adına "Anlaşmalı Sağlık Kuruluşlarına" yapmak zorunda kaldığı ödemeler için de geçerlidir.
+Sigorta Şirketi’nin herhangi bir nedenle poliçe teminatı kapsamında olmayan bir ödeme yapmış olması, sigortalı tarafından kazanılmış bir hak olarak değerlendirilemez.
+
+7- Sigortalının doktora muayene ettirilmesi ve inceleme yapılması:
+
+Sigortacı, bir tazminat talebinin işlem görmesi sırasında gerekli gördüğü takdirde, sigortalıyı belirleyeceği doktora muayene ettirme hakkına sahiptir. Sigortacı, gerek görmesi halinde, sigortalının sağlık giderlerini ödemeden önce ya da yatışlı tedavisi söz konusu olduğunda yatış onayı vermeden önce inceleme yaptırabilir. Ayrıca, sigorta süresi öncesi ve sonrasında, sigortalının yazılı onayı alınarak, sigortalıyı tedavi eden tüm doktorlar, sağlık kuruluşları, Sosyal Güvenlik Kurumu, Sigorta Bilgi ve Gözetim Merkezi, kamu kuruluşları ve sigortacılık hizmetiyle ilişkili üçüncü şahıslardan sigortalının sağlık özgeçmişi hakkında bilgi ve kayıt kopyalarını isteme hakkına da sahiptir. Anadolu Sigorta, sigortalılarının sağlık bilgileri ile ilgili her türlü detayı Sigorta Bilgi ve Gözetim Merkezi’ne ve sigortacılık hizmetiyle ilişkili üçüncü şahıslara aktarabilecektir.
+
+8- Uygulanan Hatalı Tedaviler
+
+Sigortalının Anlaşmalı Kurumda yürütülen tedavisi sırasında oluşabilecek tıbbi hataların her türlü sorumluluğu resmi kurumlarca belirlenen hata oranında Anlaşmalı Kuruma ve doktoruna aittir. Anadolu Sigorta’nın tıbbi hatalar nedeniyle hiçbir şekilde sorumluluğu ve doğabilecek zararı tazmin yükümlülüğü bulunmamaktadır.
+
+9- Sigortalının vefatı:
+Sigortalının hastalığı veya yaralanması sonucu tedavi görürken vefat etmesi durumunda; tedavisi için yapılmış olan giderler, poliçenin kapsamı ve teminatları dahilinde tazmin edilir. Sigortacı, tazminatın ödendiği tarih itibariyle bütün yükümlülüklerini yerine getirmiş olur. Poliçe feshedilir ve gün esasına göre prim iadesi yapılır. Personelin vefatı halinde, sigorta ettirenin onay vermesi koşulu ile bağımlılar sigorta bitim tarihine kadar sigorta teminatından faydalanırlar.
+
+10 – İhtiyari Grup Sigortalılarının Yenileme Tarihinde Teminat Yükseltme İstemi : Sigorta kapsamına girmenin ihtiyari olduğu gruplardaki sigortalıların, yenileme dönemlerinde daha yüksek teminatlı bir üründen sigortalanmaları Sigorta Şirketinin iznine tabidir. Sigorta Şirketinin riskli gördüğü sigortalılar daha yüksek teminatlı bir ürüne geçiş yapamazlar.
+
+D -) POLİÇENİN KAPSAMI DIŞINDAKİ HALLER :
+Aşağıdaki maddeler ile ilgili tüm muayene, tetkik ve tedavi giderleri kapsam dışındadır.
+
+Gerçekleşme nedeni ne olursa olsun, aşağıda belirtilen haller ile ilgili tedavi giderleri poliçe kapsamı dışındadır:
+Sağlık Sigortası Genel Şartları’nda düzenlenmiş teminat dışı haller,
+
+Sigortalıların, poliçelerinde de belirtilen ve kapsam dışı bırakılan hastalıklarına ve bu hastalıkların komplikasyonlarına ait giderler,
+
+Belirtisinin/bulgusunun veya teşhisinin ve/veya tedavisinin başlangıcı sigorta başlangıç tarihi öncesine dayanan rahatsızlıklar ve bunlara bağlı olarak gelişen rahatsızlıklara (komplikasyonlara) ilişkin tüm giderler,
+
+SGK tarafından sağlanan Genel Sağlık Sigortası’nın aktif olmadığı durumda meydana gelen sağlık giderleri,
+
+SGK tarafından ödenmesine kurallar dahilinde izin verilen, sağlık kurumu tarafından temin edilerek yatışlı tedavide kullanılan malzemeler ve ilaçların karşılanma usulleri dışında kalan SGK tarafından karşılanmayan sağlık hizmetleri,
+
+Kurumsal Tamamlayıcı sağlık sigortası poliçesinde anlaşmalı kurumları dışında gerçekleşecek tedavilere ait sağlık giderleri (acil durumlar da dâhil )
+
+Poliçede belirtilen kullanım adedini ve/veya teminat limitini ve/veya katılım payını aşan yatışsız ve yatışlı tedavi giderleri,
+
+Alkol ve madde bağımlılığı tedavileri ile ilgili giderler, alkol ve uyuşturucu madde kullanımı sonucu meydana gelen rahatsızlıklara ve kazalara ilişkin giderler, ehliyeti olmayan sigortalıların araç kullanırken kaza yapmaları sonucunda oluşan her türlü sağlık giderleri, kavgaya karışma, bilerek ve isteyerek kendine zarar verme sonucu oluşan tedaviler ile ilgili giderler vb.
+
+Resmen ilan edilmiş olan salgın hastalıklar,
+
+Sigortalının kazaen yaralanmasının gerektirdiği müdahaleler dışındaki her türlü estetik amaçlı yapılan müdahaleler, varis sklerozan tedavisi(skleroterapi); kozmetik amaçlı tedaviler, alopesi-saç dökülmesi (alopesi areata hariç), saç ekimi, hirsutizm (kıllanma), jinekomasti tetkik ve tedavileri vb., meme küçültme ve büyütme; ortoptik tedavi, deri nemlendirici ve temizleyici preparatlar, tatlandırıcılar; şişmanlık tetkik ve tedavisi, diyet amaçlı kullanılan tüm ilaç vb. maddeler, asteni, şifa kürleri, çamur banyoları, karantina, akupunktur, nöral terapi masaj, mezoterapi, hidroterapi, manyetoterapi, ses ve konuşma terapileri vb.; huzurevi, sanatoryum, kaplıcalar, jimnastik ve güzellik salonları, ayak bakım merkezleri ve poliçede belirtilen “Sağlık Kuruluşu” tanımına uymayan kuruluşlardan alınan faturalar; alternatif tıp tedavi masrafları, Sigortalıya uygulandığı tarihte, haklarında bir hastalığın tanı veya tedavisindeki gereklilik, etkinlik ve güvenilirliğini ortaya koyacak sayıda ve kalitede kontrollü klinik çalışmanın yayınlanmadığı veya yerli veya yabancı otoritelerden (uzmanlık dernekleri, meslek kuruluşları, Amerikan gıda ve ilaç dairesi (“FDA“), tıp fakülteleri ilgili kürsü bilim kurulları, Sağlık Bakanlığı) birisi tarafından kabul görmüş olmayan ve/veya haklarında tıbbi cemiyet veya otoritelerin bunların deneysel aşamada olduğuna veya aynı işlem veya gereç üzerinde bir başka kişi veya kurumun deneysel alışmalarını sürdürdüğüne dair yazılı bildirimleri tespit edilen her türlü gider kapsam dışıdır. Medikal araçlar, gen terapi, anti-aging (geriye yaşlanma) programı, dengeli beslenme ve kişiye uygun diyet-egzersiz programları uygulayan sağlık merkezi ve/veya doktorların her türlü muayene, tetkik ve tedavi giderleri, anti-aging uygulamaları için yapılan her tür tetkik, takip, girişim ve ilaç bedelleri, PERTH ( Pulsating Energy Resonance Therapy- Pulsatil Enerji Rezonans Tedavisi), metabolik sendrom tanısıyla ilgili her türlü muayene, tetkik ve tedavi giderleri ile bu tedavilerden doğacak her türlü komplikasyonlara ait giderler, hiperhidrozis (aşırı terleme) ile ilgili giderler,
+
+Poliçede belirtilen "Doktor" tanımına uymayan kişiler (Fizyoterapist, diyetisyen, özel hemşire vb.) tarafından yapılan tedavi ve bakımlarla ilgili tüm masraflar,
+
+Kısırlık tetkik ve tedavisi (Ovülasyon takibi, HSG, adhezyolizis, tuboplasti, şinesi açılması vb.), medikal ve cerrahi her tür yapay döllenme
+
+Üreme organlarıyla ilgili yapısal bozukluklar, cinsel işlev bozuklukları, cinsiyet değiştirme, tıbben zorunlu olan haller dışında isteğe bağlı kürtaj, kısırlaştırma, doğum kontrol yöntemlerine ait giderler,
+
+Kısırlıkla ilgisi olsun ya da olmasın, her türlü varikosel tetkik ve tedavilerine ait giderler,
+
+Yalancı gebelik (psikolojik gebelik) ile ilgili giderler,
+
+Motor ve mental gelişim bozukluğu ile büyüme ve gelişme bozukluklarına ait giderler,
+
+Check-up mahiyetindeki doktor muayene giderleri, periyodik kontroller ve doktorun herhangi bir rahatsızlığın araştırılması için istediği, ancak bu rahatsızlıkla ilgili olmayan tetkik giderleri,
+
+Psikiyatrik hastalık tedavisiyle ilgisi olsun veya olmasın, psikotrop ilaçlar, psikiyatrik hastalıklar, psikiyatri kliniklerinde ve/veya psikiyatri doktorları ve psikologlar tarafından yapılan tetkik ve tedaviler,
+
+Çocuk mamaları, çocuk bezleri, biberon ve emzikler; her türlü sabun, şampuan ve solüsyon, alkol ve kolonyalar; hidrofil pamuk, termometre, buz kesesi, sıcak su torbası vb. sıhhi malzemeler; uyku apne cihazı, tekerlekli iskemle, diş protezleri vb. yardımcı tıbbi malzeme ve cihazlar ile telefon, TV masrafları ,tedavi için gerekli olmayan malzemeler ve sair idari masraflar,sağlık kuruluşlarında kullanılanlar dışında sargı bezi, plaster, enjektör ve eldiven
+
+Tüm aşı ve ilaçlara ait giderler ile her türlü alerji testi ve alerji aşılarına ilişkin giderler
+
+Teminat dışı bir durum nedeniyle ameliyat ve doğum teminatı ile ilgili ödeme yapılmaması halinde, ödenmeyen durum için yapılan her türlü doktor, ilaç, tanı, oda-yemek-refakatçi harcamaları ve her türlü giderler,
+
+HIV virüsüne bağlı hastalıklar (AIDS vs.) ile zührevi hastalıklarla ile ilgili tüm giderler.
+
+Organ ve doku nakillerinde vericinin (Donör) masrafları, organ ve doku ücretleri ve organ ve dokunun ulaşım masrafları,
+
+Tehlikeli tarzdaki sportif faaliyetlere (Binicilik, sürücülük, dağcılık, tırmanma, kano, rafting, dalgıçlık, paraşütle atlama, gökyüzü kayağı, bungee jumping, sivil havacılık, deltaplan, planör, balon vb.) katılım sırasında meydana gelecek hastalık ve sakatlıklar,
+
+Profesyonel veya amatör lisanslı sporcu olarak her türlü müsabakaya ve/veya antrenmana katılım sırasında meydana gelecek hastalık ve sakatlıklar,
+
+Sigortalının tazminat talebinde bulunurken veya tedavi görürken yaptığı ulaşım, konaklama masrafları
+
+Hangi nedenle olursa olsun diş hekimleri ve çene cerrahlarınca yapılan muayene, tetkik, diş, diş eti tedavisi ile çene tedavilerine ilişkin tüm giderler
+
+Gözlük, cam, çerçeve, lens giderleri;
+
+Gözde kırılma kusurunun (Myopi, vb.) giderilmesine yönelik müdahaleler ve şaşılık ile ilgili giderler
+
+Poliçede yer almayan teminatlara ilişkin her türlü tetkik ve tedavi giderleri,
+
+Genital siğil, ve kondilom, nevüs (Ben), horlama ve uyku apne sendromuna ait giderler
+
+Epilepsi (Sara) ile ilgili giderler
+
+Geriatrik rahatsızlıklar, yaşlılıktan ileri gelen bunama ile ilgili rahatsızlıklar , Parkinson ve Alzheimmer hastalığı başta olmak üzere her türlü demans ve Dejeneratif beyin hastalığı
+
+24 aya kadar çocukların kasık fıtığı ile ilgili giderler
+
+Hallux valgus hastalıklarına ait tüm giderler poliçe kapsamı dışındadır.
+
+Sigortalılarla, birinci ve ikinci derecede kan bağı olan kişilerin yapmış oldukları muayene, tetkik ve tedavi giderleri,
+
+Kordon kanı ve kök hücre alınması, nakli ve işlenmesi ile ilgili tüm giderler, Kök hücre nakli ve tedavi amaçlı kök hücre çalışmaları, embriyo klonlanması, bu klonlama sonrasında elde
+edilen hücreler ile yapılan her türlü tedavi ve nakil işlemleri, kordon kanı alımı, saklanması ve kordon kanı bankasına ilişkin giderler,
+
+Hastalık tanı ve tedavisinde kullanılmayan tıbbi malzeme ve yardımcı tıbbi malzeme statüsünde değerlendirilemeyecek her türlü alet, cihaz ve yine her ne ad ve isim altında olursa olsun bu cihazlara ait alet kullanım bedeli, alet-cihaz kira bedeli (cerrahinin robotik yapılması durumunda ortaya çıkan ek tedavi giderleri - kira ücreti gibi) ile ilgili tüm giderler,
+
+Evlilik öncesi, işe başlama öncesi ve spor öncesi vb. nedenlerle alınan sağlık kurulu raporu için yapılan giderler,
+
+Normal oda dışındaki odalarda kalınması durumunda, suit ve lüks oda farkı,
+
+Vefat halinde cenaze ile ilgili giderler (morg, cenaze nakli vb.),
+
+Her türlü omurga eğriliği (kifoz, skolyoz,vb,), ile ilgili giderler
+
+Ailevi risk faktörleri nedeniyle yapılan taramalarla ilgili giderler
+
+Varlığından haberdar olunsun ya da olunmasın, oluşumunda konjenital (doğumsal), yapısal veya genetik kusurların etkili olduğu hastalıklara ait tüm giderler (ör. AVM, Aksesuar İleti yolu/WPW sendromu, ASD, vb.) ve genetik testler,
+
+İş yeri hekimlerinin, çalışanların eş ve/veya çocukları için yazmış oldukları ilaç ve/veya tetkiklere ait giderler
+
+5510 sayılı Sosyal Sigortalar ve Genel Sağlık Sigortası Kanununun 98/2 maddesi gereğince, sigortalıların ödemek ile yükümlü oldukları katılım payları,
+
+Yurt dışında gerçekleşen her türlü sağlık harcaması ve yurt dışından getirilen ilaç harcamaları,
+
+Hastanede, tedavi esnasında kullanılan cihaz ve malzemeler haricinde dışarıdan tedarik edilen tüm tıbbi cihaz, malzeme ve benzeri harcama ve giderler
+
+Her ne nedenle olursa olsun kadınlarda yumurta toplama ve saklama işlemi ile erkeklerde sperm toplama ve saklama işlemine ait tüm giderler,
+
+Sebep ne olursa olsun her türlü Bariatrik Cerrahi yöntemleri (Gastrik bypass, mide balonu, mide tüpü, mide kelepçesi, mide küçültme ameliyatları, biliopankreatik diversiyon, Jejuno-ileostomi, barsak kısaltılması vb.)
+
+Türk Ticaret Kanunu’nun 1513. Maddenin 1. fıkrasında yer alan c ve d maddelerince ödenmesi gereken “sigortalının, hastalık sonucu çalışamaması nedeniyle elde edemediği kazançlar için kararlaştırılan günlük iş görememe parası” ve “sigortalının, bakıma ihtiyaç duyar duruma geldiği takdirde, bakım nedeniyle doğan giderler veya kararlaştırılan gündelik bakım parası” poliçe kapsamında karşılanmamaktadır.
+
+SGK anlaşmalı kurumlarda yapılmış olsa dahi, SUT triaj kurallarına göre kırmızı alan kapsamında olan acil durumlar ve trafik kazalarına ilişkin her türlü tedavi gideri
+
+Aksine bir sözleşme veya ek primle alınmış doğum teminatı yoksa, gebelikle ilgili her türlü gider, doğum mutad kontroller ve yeni doğan bebek masrafları kapsam dışındadır
+
+Koroner Arter Kalsiyum Skorlama Testi, Koroner VCT Anjio ve Türk Tabipler Birliği güncel fiyat ve uygulama esaslarında EBT (Elektron Beam Tomografi) konu başlığı altında geçen tüm tetkikler ve buna benzer tarama amaçlı yapılan tetkiklere ait giderler
+
+Kordon kisti poliçe kapsamı dışındadır.
+
+Koklear implant poliçe kapsamı dışındadır.
+
+Sigorta bitiş tarihinde devam eden yatışsız tedaviler poliçe bitim tarihi itibariyle, poliçe kapsamı dışındadır.
+
+Grup içerisinde bulunan özürlü personelin özründen kaynaklanan tetkik ve tedaviler poliçe kapsamı dışındadır.
+
+Genel istisnalarda belirtilen hastalıkların ilk teşhis giderlerinin ödenmesi söz konusu değildir.
+
+Sünnet ile ilgili tüm giderler kapsam dışıdır.
+
+Poliçede tercih edilmiş Network dahilinde olan Anlaşmalı Sağlık Kurumunun kadrosunda Sağlık Bakanlığınca resmi olarak görevli olmayan veya kadroda olsa dahi Şirketimiz sözleşme şartlarını kabul etmeyen doktorlar tarafından gerçekleştirilen sağlık giderleri kapsam dışındadır.
+
+E -) POLİÇEDE ADI GEÇEN BAZI KAVRAMLARIN TANIMLARI :
+
+Sigortacı/ Sigorta Şirketi : Anadolu Anonim Türk Sigorta Şirketi
+
+Sigortalı: Bu poliçenin maddeleri uyarınca sigortalı olmak üzere başvuru formu doldurmuş ve başvurusu Anadolu Sigorta Sigorta Şirketi tarafından kabul edilmiş ve poliçesi düzenlenmiş kişidir.
+
+Bağımlı: Bu sözleşmenin maddeleri uyarınca sigortalı kişinin sigorta kapsamına alınan eşi, 30 yaşına kadar olan evlenmemiş çocukları, üvey çocukları ve kanuni yoldan evlat edindiği çocuklarıdır.
+
+Eş: Sigortalının kanuni olarak evli olduğu kişidir.
+
+SGK: Sosyal Güvenlik Kurumu
+
+Sağlık kuruluşu: T.C. Sağlık Bakanlığı'nca çalışma ruhsatı verilmiş:
+- 24 saat hasta bakımı sağlayan,
+- Teşhis, tedavi ve cerrahi müdahaleye ehliyetli,
+- Bir veya birden çok hekimin her zaman müdahaleye hazır olduğu,
+
+- Doğum amacı ile açılmış özel doğum haneleri içeren tıbbi bakım ve tedavinin yapıldığı Hastane ve/veya Kliniklerdir.
+
+"Sağlık Kuruluşu" deyimi; otel, huzurevi, bakımevi, nekahethane, yetimhane ve darülacezeleri, esas olarak uyuşturucu bağımlıları ile alkoliklerin tecrit ve tedavisi için kullanılan yerleri, sanatoryumları, kaplıcaları, sağlık hidrolarını, zayıflama merkezlerini kapsayacak şekilde yorumlanamaz.
+
+Anlaşmalı sağlık kuruluşu: Anadolu Sigorta’nın sağlık sigortalılarına verilecek tıbbi hizmetler için direkt ödeme anlaşması yaptığı sağlık kuruluşlarıdır. Sigortacının, "Anlaşmalı Sağlık Kuruluşları Listesi’nde poliçe döneminde değişiklik yapma hakkı saklıdır.
+
+Doktor: Hastalığının teşhis ve tedavisi için kendisine başvurulan Tıp Fakültesini bitirmiş, her türlü teşhis ve tedavi için lisansı olan ehliyetli kişidir.
+
+Tedavi: TC. Sağlık Bakanlığı'nca çalışma ruhsatı verilmiş sağlık kuruluşlarında (Hastane, klinik ve poliklinik), özel doktor muayenehanelerinde görevli, çalışmaya ehliyetli doktorlarca,
+hastalıkları tedavi etmek amacıyla yapılan işlemlerdir.
+
+Anadolu Sigorta tarafından sigortalanan bir doktorun kendi kendini tedavi etmesi ile ilgili giderler ödenmez.
+
+Sağlık kuruluşunda yatışlı tedavi: Sigortalının yukarıdaki tanıma uygun bir "Sağlık Kuruluşu"nda yatılı hasta olarak oda ve yemek masrafı tahakkuk ettirerek tedavi görmesidir.
+
+Yatışsız tedavi : Oda ve yemek teminatı verilmeksizin sağlık kuruluşlarında, özel doktor muayenehanelerinde ve polikliniklerde verilen tıbbi tedavilerdir.
+
+Tedavi için gereken masraflar: Bir hastalığın iyileştirilmesi sürecinde gerçekleşen poliçe kapsamındaki giderlerdir.
+
+Teminat: Sağlık Sigortası Genel Şartları ve Kurumsal Tamamlayıcı Sağlık Sigortası Özel Şartları gereği, sigortalıya verdiği taahhütlerdir.
+
+Sigorta başlangıç tarihinden önceki rahatsızlıklar: Sigortalının doğuştan gelen hastalıkları ile belirtisinin/bulgusunun veya teşhisinin ve/veya tedavisinin başlangıcı sigorta başlangıç tarihi öncesine dayanan rahatsızlıklar ve bunlara bağlı olarak gelişen rahatsızlıklar (komplikasyonlar)
+
+Ödeme limiti: Sigortalı tarafından yapılan harcamaların Sigorta Şirketi tarafından ödenecek ve poliçede belirlenen üst sınırıdır.
+
+Sigorta bitiş tarihi: Sigorta teminatının poliçede belirtilen sona erme tarihidir. Sigortalının bu tarihteki sağlık giderleri poliçe teminatının kapsamı dışındadır.
+
+Yenileme: Anadolu Sigorta’nın onayının bulunması kaydıyla, poliçe bitim tarihinde, yeni döneme ait poliçenin priminin ödenmesi ile sigortanın devamının sağlanmasıdır.
+
+SUT: SGK’lı sigortalı ve bakmakla yükümlü olduğu kişilerin, SGK tarafından sağlık hizmetleri, yol, gündelik ve refakatçi giderleri gibi sağlık hizmetlerine bağlı harcamalarının karşılanması esas ve usulleri ile bu hizmetlere ilişkin bedellerin tayin ve tespit edildiği Sosyal Güvenlik Kurumu Sağlık Uygulama Tebliği’ni ifade eder.
+
+Ameliyat ve Cerrahi Müdahaleler : Cerrahi müdahale, radyofrekans, lazer v.b. gibi operasyonel tüm müdahaleleri kapsamaktadır.
+
+Kaza : Doğrudan doğruya sigortalının ihtiyarında olmayan bir dış etkenden dolayı meydana gelen hastalıklar veya yaralanmaları ifade eder.
+
+Kapsam Dışı Hastalıklarla İlgili Giderler : Gerçekleşme nedeni ne olursa olsun, poliçe kapsamı dışında kalan hastalıklara ilişkin her türlü gider (doktor muayene, tetkik vb.) poliçe kapsamı dışındadır.
+
+F -) TAZMİNAT ÖDEMELERİ :
+
+Sigortalının tedavisi için anlaşmalı kuruma başvurması durumunda, anlaşmalı kurum Sosyal Güvenlik Kurumu’ndan ve ardından Şirketimizden provizyon alır ve sigortalı, teminat limitleri dahilinde ödenmesi gereken katılım payını ödeyerek ve ibraname imzalayarak anlaşmalı kurumdan ayrılır.
+
+Tazminat ödemesine ilişkin bilgiler Sigorta Bilgi Merkezi’ne aktarılacaktır.
+
+Anlaşmasız kuruma gitmesi durumunda ise sigortalının tedavi giderleri poliçe kapsamı dışındadır.
+
+Sigorta Şirketi tazminat talebinin işlem görmesi sırasında sigortalıyı, gerekli gördüğü takdirde, istediği uzman bir doktora muayene ettirme ve/veya konusunda uzman doktora dosya yollayarak 2.görüş alma hakkına sahiptir. Ayrıca, sigortalıyı tedavi eden tüm doktor, sağlık kuruluşu ve üçüncü şahıslardan sigortalının tedavisi hakkında bilgi ve kayıt isteyebilir.
+
+Sigorta Şirketi, işin gereği yapılmaması gereken masraflar ile makul ve genel kabul görmüş miktarları aşan talepleri karşılamaz.
+
+Sigorta sözleşmesinden doğan bütün istemler iki yıllık zaman aşımına tabidir. Bu süre içerisinde tazminat belgelerinin ibrazında gün sınırlaması yoktur.
+
+Kurumsal Tamamlayıcı Sağlık Sigortası kapsamına dahil olan sigortalılar için 11.10.2006 tarih ve 5549 sayılı Suç Gelirlerinin Aklanmasının Önlenmesi Hakkında Kanun ile 09.01.2008 tarih ve 26751 sayılı Resmi Gazete’de yayımlanan Suç Gelirlerinin Aklanmasının ve Terörün Finansmanının Önlenmesine Dair Tedbirler Hakkında Yönetmelik gereğince, kimlik tespitine ilişkin belgeler sigorta şirketi tarafından talep edilecektir.
+
+Sigortalının tedavisi için anlaşmalı kuruma başvurması durumunda, anlaşmalı kurum Şirketimizden provizyon alır ve sigortalı, teminat limitleri dahilinde ödenmesi gereken katılım payını ödeyerek ve ibraname imzalayarak anlaşmalı kurumdan ayrılır.
+
+Anlaşmasız kuruma gitmesi durumunda tedavi giderleri karşılanmayacaktır.
+
+H -) İŞTEN AYRILAN PERSONELİN SİGORTA ŞİRKETİNE BİLDİRİLMESİ :
+
+İşten ayrılan personelin Grup Sağlık Sigortası, işten ayrıldığı gün itibarıyla sona erecek, kendisinin ve varsa bağımlılarının poliçesi gün hesabıyla iptal edilecektir. Firma, sigortalı personelin işten ayrıldığını ve poliçesinin iptal edilmesi gerektiğini sigortalının işten ayrıldığı tarihte Sigorta Şirketine bir yazı ile bildirmek ve işten ayrılan personelden kendisine ve varsa bağımlılarına ait sigorta kartlarını geri almak zorundadır.
+
+Personelin işten ayrılmasının Sigorta Şirketine geç bildirilmesi ve/veya sigorta kartlarının geri alınmaması nedeniyle, işten ayrılma tarihinden sonra Sigorta Şirketinin doğrudan sigortalıya veya anlaşmalı sağlık kuruluşlarına işten ayrılan personel ve bağımlılarının sağlık giderleri için haksız yere ödediği tazminat tutarlarının toplamı, firma tarafından Sigorta Şirketine geri ödenecektir. Primlerin sigortalı tarafından ödendiği gruplarda ise, işten ayrılma tarihinden sonra sigortalıya haksız yere ödenen tazminat tutarı, sigortalı tarafından  Sigorta Şirketine geri ödenecektir.
+
+İşten ayrılan bir personelin poliçesi, işten ayrılma tarihi ile çıkış yazısının sigorta şirketi ulaştığı tarihler arasında tazminat almasa dahi, çıkış yazısının sigorta şirketine ulaştığı tarihten en geç 1 ay geriye dönülüp bulunan tarih baz alınarak iptal edilecektir.
+
+I-) FİRMANIN TALEBİ NEDENİYLE İPTAL:
+
+Kurumsal Tamamlayıcı Sağlık Sigortası poliçesi yaptıran firmanın, poliçenin tamamının iptal edilmesini istemesi durumunda aşağıdaki uygulama yapılacaktır.
+Firma Kurumsal Tamamlayıcı Sağlık Sigortası poliçesinin iptal edilmesini istediğini firmayı temsile yetkili kişi ya da kişilerin imzaladığı bir yazıyla sigorta şirketine bildirmek zorundadır. Firma, yazıyı sigorta şirketine ulaştırdığı tarihten önceki bir tarihte poliçenin iptal edilmesini isteyemez. Firma bu istekte bulunsa dahi sigorta şirketi poliçeyi en erken yazının sigorta şirketine ulaştığı tarih itibarıyla iptal edecektir.
+
+Firma tarafından ödenen prim tutarı, poliçenin başlangıç tarihi ile iptal tarihi arasındaki gün sayısı dikkate alınarak hesaplanan sigorta şirketinin gün esasına göre hak kazandığı prim tutarından fazla ise, aradaki fark Sigorta Şirketi tarafından firmaya geri iade edilecektir.
+
+Firma tarafından ödenen prim tutarı, poliçenin başlangıç tarihi ile iptal tarihi arasındaki gün sayısı dikkate alınarak hesaplanan sigorta şirketinin gün esasına göre hak kazandığı prim tutarından az ise, aradaki fark firma tarafından Sigorta Şirketi'ne ödenecektir.
+
+Firma tarafından hiç ödeme yapılmamışsa firma, poliçenin başlangıç tarihi ile iptal tarihi arasındaki gün sayısı dikkate alınarak hesaplanan sigorta şirketinin gün esasına göre hak kazandığı prim tutarını Sigorta Şirketine ödeyecektir.
+
+KURUMSAL TAMAMLAYICI SAĞLIK SİGORTASI YENİLEME GARANTİSİ
+
+Anadolu Anonim Türk Sigorta Şirketi, bu kurumsal sağlık sigortası kapsamında sigortalı olan kişilere aşağıda belirtilen koşullar çerçevesinde “Tamamlayıcı Sağlık Sigortası Yenileme Garantisi” vermeyi kabul eder.
+
+Tamamlayıcı Sağlık Sigortası Yenileme Garantisine Hak Kazanma
+
+Anadolu Sigorta, Tamamlayıcı sağlık sigortası kapsamında, sigortalılıklarını Anadolu Sigorta’da 3 yıl kesintisiz olarak devam ettiren firma personeli ve bağımlılarına Tamamlayıcı Sağlık Sigortası Yenileme Garantisi verir ve bu hakkın kazanıldığı tarihten sonra ortaya çıkan hastalıkları kapsam dışı bırakmaz ve bu hastalıklar için hastalık ek primi almaz.
+Anadolu Anonim Türk Sigorta Şirketi’nde 64 yaşına kadar “Tamamlayıcı Sağlık Sigortası Yenileme Garantisi” almaya hak kazanamamış kişiler, 64 ve üzeri yaşlarda “Tamamlayıcı Sağlık Sigortası Yenileme Garantisi” değerlendirmelerine alınmayacaklar ve “Tamamlayıcı Sağlık Sigortası Yenileme Garantisi” ne hak kazanamayacaklardır.
+
+Sigortalının yaşı, poliçe düzenlendiği tarihten kişinin doğum tarihinin gün/ay/yıl olarak çıkarılmasıyla bulunur.
+Tamamlayıcı Sağlık Sigortası Yenileme Garantisi bireye özel olarak verilir. Aile bireyleriyle birlikte sağlık sigortası kapsamında olan kişilerden birisine Tamamlayıcı Sağlık Sigortası Yenileme Garantisi verilmesi, poliçedeki diğer aile bireylerine de Tamamlayıcı Sağlık Sigortası Yenileme Garantisi verildiği anlamına gelmez.
+Özel Sağlık Sigortası kapsamında, Ömür Boyu Yenileme Garantisi alan bir sigortalı Tamamlayıcı sağlık sigortasına geçerken, yenileme garantisi Tamamlayıcı Sağlık Sigortası Yenileme Garantisi olarak değiştirilecektir.
+Anadolu Sigorta’da grup sağlık sigortası kapsamında sigortalı iken grup poliçesi kapsamından çıkan kişiler en fazla 1 ay içinde Tamamlayıcı bireysel sağlık sigortası yaptırmak için başvurmalıdırlar. Grup poliçesi kapsamından çıkış tarihinden sonra en fazla 1 ay içinde Anadolu Sigorta’ya Tamamlayıcı bireysel sağlık sigortası yaptıran sigortalıların, ileriki tarihlerde yapılacak Tamamlayıcı Yenileme Garantisi değerlendirmesi sırasında, Anadolu Sigorta’daki grup sigortalılık süreleri ve grup sigortası kapsamındaki tazminat - prim oranları göz önünde bulundurulacaktır.
+Sigortalının “Ömür Boyu Yenileme Garantisi”ne hak kazandığı kurumsal sağlık sigortası kapsamından çıkıp, bireysel tamamlayıcı sağlık sigortası satın alması halinde, sigortalının kesintisiz ilk kez kurumsal sağlık sigortası yaptırmadan ve Ömür Boyu Yenileme Garantisine hak kazandığı tarihten önce ortaya çıkan hastalıkları ve/veya sigortalının grup poliçesinde muaf tutulmuş olan hastalıkları, yaptıracağı bireysel poliçesinde kapsam dışı bırakılacaktır. Anadolu Sigorta bu uygulama sırasında, sigortalının sağlık durumuyla ilgili bilgi almayı gerekli gördüğü hallerde sigortalılardan bazı tetkikler yaptırmalarını isteyebilecektir.
+“Tamamlayıcı Sağlık Sigortası Yenileme Garantisi” Hakkının Grup Poliçesi Sona Erdikten Sonra Bireysel Poliçe Satın Alınması Halinde Devam Etmesi Ve Bireysel Poliçeye Geçiş Şartları
+Grup sigortası kapsamındayken Anadolu Anonim Türk Sigorta Şirketi’nin “Tamamlayıcı Sağlık Sigortası Yenileme Garantisi” verdiği sigortalıların kazandığı bu hak, sigortalıların emekli olma, işten ayrılma veya firmanın kurumsal sağlık sigortası sözleşmesinin yenilenmemesine bağlı nedenlerle poliçelerinin sona erdiği tarihten sonraki 1 ay içinde Anadolu Anonim Türk Sigorta Şirketi’nin bireysel tamamlayıcı sağlık sigortası ürünlerinden birini satın almaları halinde devam eder.
+
+Kurumsal sağlık sigortası kapsamında tek başına sigortalıyken “Tamamlayıcı Sağlık Sigortası Yenileme Garantisi” ne hak kazanan bir sigortalının, grup poliçesinin sona erdiği tarihten sonraki bir ay içinde Anadolu Anonim Türk Sigorta Şirketi’nden bireysel tamamlayıcı sağlık sigortası satın almak istemesi halinde, sigortalı bu hakkı elde ettikten sonra grup poliçesinde ortaya çıkan hastalıkları kapsam dışında bırakılmadan ve bu hastalıklar için ek prim alınmadan Anadolu Anonim Türk Sigorta Şirketi’nin belirleyeceği bir bireysel tamamlayıcı sağlık sigortası ürünü satın alabilir. Ayrıca bu sigortalılar Anadolu Anonim Türk Sigorta Şirketi’nin o tarihteki bireysel sağlık sigortası ürünlerine ait sözleşme koşullarına uymak zorundadırlar.
+
+Ancak aile bireyleri ile kurumsal sağlık sigortası kapsamında sigortalıyken “Tamamlayıcı Sağlık Sigortası Yenileme Garantisi” verilen bir sigortalı, gruptan ayrıldıktan sonra bireysel sağlık sigortası poliçesi satın almak isterse, kendisiyle birlikte grup poliçesi kapsamında sigortalı olan diğer aile bireylerinin de, “Tamamlayıcı Sağlık Sigortası Yenileme Garantisi”ne hak kazansınlar veya kazanmasınlar, aynı bireysel poliçe kapsamına alınması zorunludur. Grup poliçesi kapsamındayken “Tamamlayıcı Sağlık Sigortası Yenileme Garantisi”ne hak kazanmayan aile bireylerinin bireysel poliçe yaptırmak istememesi ve aile bireyleri içinde sadece “Tamamlayıcı Sağlık Sigortası Yenileme Garantisi”ne hak kazananların bireysel poliçe yaptırmak istemeleri durumunda “Tamamlayıcı Sağlık Sigortası Yenileme Garantisi”ne hak kazanan aile bireyleri de bireysel poliçe kapsamında sigortalanamayacaklardır.
+
+“Tamamlayıcı Sağlık Sigortası Yenileme Garantisi” verilen sigortalıların bu hakları, kurumsal sağlık sigortası poliçeleri sona erdikten sonra en geç 1 ay içinde Anadolu Anonim Türk Sigorta Şirketi’nin bireysel sağlık sigortası ürünlerinden birini satın almaları halinde devam eder. Sigortalılar bireysel ürünlere ait özel şartlara tabi olurlar ve sigortalandıkları tarihte geçerli olan bireysel ürünlerin prim tutarları üzerinden sigortalanırlar. Daha sonraki yıllarda yapılacak bireysel poliçe yenilemeleri, Anadolu Anonim Türk Sigorta Şirketi bireysel sağlık sigortası özel şartlarında belirtilen ve ödenen tazminat – alınan net prim oranına göre belirlenen hasarsızlık indirimi ve ek prim esaslarına göre yapılır.
+
+Sigortalının boşandığı eşinin poliçesi boşanma günü itibariyle iptal edilir. Kurumsal tamamlayıcı sağlık sigortası kapsamından boşanma sebebi ile ayrılan sigortalının “Tamamlayıcı Sağlık Sigortası Yenileme Garantisi” hakkı var ise, kurumsal tamamlayıcı sağlık sigortası poliçesinin iptalini takip eden 1 ay içerisinde bireysel tamamlayıcı sağlık sigortası yaptırması halinde hakları bireysel tamamlayıcı sağlık sigortası poliçesine devir olur. Ancak, “Tamamlayıcı Sağlık Sigortası Yenileme Garantisi” hakkına sahip olup 1 ay içerisinde bireysel tamamlayıcı sağlık sigortası poliçesi için başvuru yapmayan ve/veya “Tamamlayıcı Sağlık Sigortası Yenileme Garantisi” hakkına sahip olmayan kişiler için risk analizi yapılacaktır.
+Diğer sigorta şirketlerinden geçişlerdeki uygulamalar
+
+Diğer sigorta şirketlerinde sigortalı iken o şirketteki poliçelerini yenilemeyerek, 1 aydan fazla süre ara vermeden yeni dönemde Anadolu Sigorta’da kurumsal tamamlayıcı sağlık sigortası yaptırmak isteyen kişilerin sağlık beyanları ve önceki sigorta şirketinden gönderilen geçmiş sigortalılık bilgileri incelenerek, uygun görülen sigortalılar önceki sigorta şirketlerindeki yenileme garantisi hakları, Anadolu Sigorta Tamamlayıcı Yenileme Garantisi olarak devralınarak sigortalanabileceklerdir.
+
+Diğer sigorta şirketlerinde sigortalı iken o şirketteki sağlık sigortası poliçelerini yenilemeyerek, 1 aydan fazla süre ara vermeden yeni dönemde Anadolu Sigorta’ya bireysel tamamlayıcı sağlık sigortası yaptırmak isteyen kişiler, Anadolu Sigorta’daki sigorta başlangıç tarihinden önce ortaya çıkmış olan hastalıkları kapsam dışı bırakılarak ve/veya bu hastalıklar için ek prim alınarak sigortalanabileceklerdir. Sigorta başlangıç tarihi olarak, Anadolu Sigorta’daki başlangıç tarihi esas alınacaktır.
+
+Tamamlayıcı Sağlık Sigortası Yenileme Garantisi’ne hak kazanmanın avantajları
+
+Sigortalıların, Anadolu Sigorta’da Tamamlayıcı Sağlık Sigortası Yenileme Garantisi hakkı kazandıkları tarihten sonra ortaya çıkan hastalıkları, yenileme dönemlerinde kapsam dışı bırakılmayacak ve söz konusu hastalıklar için hastalık ek primi alınmayacaktır.
+“Tamamlayıcı Sağlık Sigortası Yenileme Garantisi” Hakkına Hak Kazanamayan Sigortalıların Grup Poliçesi Sona Erdikten Sonra Bireysel Poliçe Satın Alınması Halinde Bireysel Poliçeye Geçiş Şartları
+Grup sigortası kapsamındayken Anadolu Anonim Türk Sigorta Şirketi’nin “Tamamlayıcı Sağlık Sigortası Yenileme Garantisi” hakkına sahip olamayan sigortalıların bireysel tamamlayıcı sağlık sigortası ürünlerinden herhangi birini satın almak istemeleri halinde, grup poliçelerinin sona erme sebeplerine bakılmaksızın, bu kişiler için risk analizi yapılacaktır.
+“Tamamlayıcı Sağlık Sigortası Yenileme Garantisi” hakkına sahip olamayan ve grup poliçesi sona eren sigortalıların bireysel tamamlayıcı sağlık sigortası ürünleri kapsamında sigortalanabilmeleri için üst yaş sınırı 64’tür.
+Tamamlayıcı Sağlık Sigortası Yenileme Garantisi hakkı şartlarının değişmesi
+
+Sigortalının gerçeğe aykırı, eksik veya yanlış beyanda bulunduğunun veya sigorta teminatlarının kötü niyetle kullanıldığının tespit edilmesi durumunda, Anadolu Sigorta söz konusu hastalığa muafiyet veya ek prim uygulayarak Tamamlayıcı Sağlık Sigortası Yenileme Garantisi koşullarını değiştirebilir, hastalığa ilişkin yaptığı ödemelerle ilgili olarak sigortalıya rücu edebilir, Tamamlayıcı Sağlık Sigortası Yenileme Garantisini kaldırabilir veya poliçeyi iptal edebilir.
+
+Tamamlayıcı Sağlık Sigortası Yenileme Garantisine hak kazanmış olan sigortalıların askere gitmeleri durumu
+Tamamlayıcı Sağlık Sigortası Yenileme Garantisine hak kazanmış olan ve askere gitme nedeniyle poliçelerini iptal eden sigortalıların, askerlik görevlerini bitirdikten sonraki 1 ay içinde başvurmaları ve askerlik durumlarını belgelemeleri koşuluyla sağlık beyan formu doldurarak Tamamlayıcı Sağlık Sigortası Yenileme Garantisi hakları devam eder. Ancak bu sigortalıların Anadolu Sigorta’da sigortalı olmadıkları süre içinde ortaya çıkan rahatsızlıklar yeni poliçelerinde kapsam dışı bırakılacaktır.
+
+SAĞLIK SİGORTASI GENEL ŞARTLARI
+
+TEMİNAT KAPSAMI
+Madde 1:
+İşbu sigorta, sigortalıların sigorta süresi içinde hastalanmaları ve/veya herhangi bir kaza sonucu yaralanmaları halinde tedavileri için gerekli masrafları ile varsa gündelik tazminatları, bu genel şartlarla varsa özel şartlar çerçevesinde poliçede yazılı meblağlara kadar temin eder.
+TEMİNAT DIŞI KALAN HALLER
+Madde 2
+Aşağıdaki haller nedeniyle sigortalıların sigorta süresi içinde hastalanmaları ve/veya herhangi bir kaza sonucu yaralanmaları teminat dışında kalır.
+a. Harp ve harp niteliğindeki hareket, ihtilal, isyan, ayaklanma ve bunlardan doğan iç kargaşalıklar,
+b. Cürüm işlemek veya cürüme teşebbüs,
+c. Tehlikede bulunan kişileri ve malları kurtarma hali müstesna, sigortalının kendisini bilerek ağır bir tehlikeye maruz bırakacak hareketlerde bulunması,
+d. Esrar, eroin gibi uyuşturucuların kullanımı,
+e. Nükleer rizikolar veya nükleer, biyolojik ve kimyasal silah kullanımı veya nükleer, biyolojik ve kimyasal maddelerin açığa çıkmasına neden olacak her türlü saldırı ve sabotaj,
+f. 3713 sayılı Terörle Mücadele Kanununda belirtilen terör eylemleri ve bu eylemlerden doğan sabotaj sonucunda oluşan veya bu eylemleri önlemek ve etkilerini azaltmak amacıyla yetkili organlar tarafından yapılan müdahaleler sonucu meydana gelen biyolojik ve(veya kimyasal kirlenme, bulaşma veya zehirlenmeler nedeniyle oluşacak bütün zararlar,
+g. Sigortalının intihara teşebbüsü nedeniyle meydana gelebilecek hastalık veya yaralanma halleri
+h. Poliçe özel şartlarında düzenlenecek sair teminat dışı haller.
+AKSİNE SÖZLEŞME YOKSA TEMİNAT DIŞINDA KALAN HALLER
+Madde 3
+Aksine sözleşme yoksa aşağıdaki haller nedeniyle sigortalıların sigorta süresi içinde hastalanmaları ve/veya herhangi bir kaza sonucu yaralanmaları sigorta teminatı dışındadır:
+a. Deprem, sel, yanardağ püskürmesi ve yer kayması.
+b. 2. maddenin (f) bendinde belirtilen zararlar hariç olmak üzere, 3713 sayılı Terörle Mücadele Kanununda belirtilen terör eylemleri ve sabotaj ile bunları önlemek ve etkilerini azaltmak amacıyla yetkili organlar tarafından yapılan müdahaleler.”
+SİGORTANIN COĞRAFİ SINIRI
+Madde 4
+Sigortanın coğrafi sınırları poliçede belirtilecektir.
+SİGORTANIN BAŞLANGICI VE SONU
+Madde 5
+Sigorta, poliçede başlama ve sona erme tarihleri olarak yazılan günlerde, aksi kararlaştırılmadıkça, Türkiye saati ile öğleyin 12:00'de başlar ve öğleyin saat 12:00'de sona erer.
+SİGORTA ETTİRENİN SÖZLEŞME YAPILIRKEN BEYAN YÜKÜMLÜLÜĞÜ
+Madde 6
+Sigortacı bu sigortayı sigorta ettirenin teklifname, teklifname yoksa poliçe ve eklerinde yazılı beyanına dayanarak kabul etmiştir.
+Sigorta ettiren/sigortalı teklifname ve bunu tamamlayıcı belgelerde kendisine sorulan sorulara doğru cevap vermek ve rizikonun konusunu teşkil eden, rizikonun takdirine etkili olacak hususlarından kendisince bilinenleri de beyan etmekle yükümlüdür. Sigorta ettirenin/sigortalının beyanı gerçeğe aykırı veya eksikse, sigortacının sözleşmeyi yapmamasını veya daha ağır şartlarda yapmasını gerektirecek hallerde,
+
+a. Sigorta ettirenin/sigortalının kasdı varsa, sigortacı durumu öğrendiği tarihten itibaren bir ay içinde sözleşmeden cayabilir ve riziko gerçekleşmiş ise sigortalıya tazminatı ödemez.
+Cayma halinde sigortacı prime hak kazanır.
+b. Sigorta ettirenin/sigortalının kasdı bulunmaz ise, sigortacı durumu öğrendiği tarihten itibaren 1 ay içinde sözleşmeyi fesheder veya prim farkını almak suretiyle sözleşmeyi yürürlükte tutar.
+Sigorta ettiren/sigortalı talep edilen prim farkını kabul etmediğini 8 gün içinde bildirdiği takdirde sözleşme feshedilmiş olur.
+Sigortacı tarafından iadeli taahhütlü mektupla veya noter vasıtası ile yapılan fesih ihbarı sigorta ettirenin/sigortalının tebellüğ tarihini takip eden beşinci iş günü saat 12:00'de hüküm ifade eder.
+Feshin hüküm ifade ettiği tarihe kadar geçen sürenin primi gün esası üzerinden hesap edilir ve fazlası geri verilir.
+a. Cayma, fesih veya prim farkını isteme hakkı, süresinde kullanılmadığı takdirde düşer.
+b. Sigorta ettirenin/sigortalının kasdı bulunmadığı takdirde riziko:
+1. Sigortacı durumu öğrenmeden önce veya
+2. Sigortacının fesih ihbarında bulunabileceği süre içinde veyahut
+3. Bu ihbarın hüküm ifade etmesi için geçecek süre içinde gerçekleşirse,
+Sigortacı tahakkuk ettirilen prim ile tahakkuk ettirilmesi gereken prim arasındaki oran dairesinde tazminattan indirim yapar.
+
+SİGORTA SÜRESİ İÇİNDE İHBAR YÜKÜMLÜLÜĞÜ
+Madde 7
+Sözleşmenin yapılmasından sonra teklifnamede, teklifname yoksa poliçe ve eklerinde beyan olunan hususlar değiştiği takdirde sigorta ettiren en geç 8 gün içinde durumu sigortacıya ihbarla yükümlüdür.
+Sigortacı, değişikliği öğrendiği tarihten itibaren, bu değişiklik, sözleşmeyi yapmamasına veya daha ağır şartlarla yapmasını gerektiriyorsa, 8 gün içinde;
+1. Sözleşmeyi fesheder veya
+2. Prim farkını istemek suretiyle sözleşmeyi yürürlükte tutar.
+Sigorta ettiren istenen prim farkını kabul etmediğini 8 gün içinde bildirdiği takdirde, sözleşme feshedilmiş olur.
+Sigortacı tarafından iadeli taahhütlü mektupla veya noter vasıtası ile yapılan fesih ihbarı sigorta ettirenin tebellüğ tarihini takip eden beşinci iş günü saat 12:00'de hüküm ifade eder.
+Feshin hüküm ifade ettiği tarihe kadar geçen sürenin primi gün esası üzerinden hesap edilir ve fazlası geri verilir.
+Süresinde kullanılmayan fesih veya prim farkını isteme hakkı düşer.
+Değişikliği öğrenen sigortacı, sekiz gün içinde sözleşmeyi feshetmez veya sigorta primini tahsil etmek gibi sigorta sözleşmesinin aynen devamına razı olduğunu gösteren bir harekette bulunursa, fesih veya prim farkını talep etme hakkı düşer.
+SİGORTA PRİMİNİN ÖDENMESİ, SİGORTACININ SORUMLULUĞUNUN BAŞLAMASI VE SİGORTA ETTİRENİN TEMERRÜDÜ
+Madde 8
+Sigorta priminin tamamının, primin taksitle ödenmesi kararlaştırılmışsa peşinatın (ilk taksit) akit yapılır yapılmaz ve en geç poliçenin tesliminin karşılığında ödenmesi gerekir. Aksi kararlaştırılmadıkça, prim veya peşinat ödenmediği takdirde poliçe teslim edilmiş olsa dahi sigortacının sorumluluğu başlamaz ve bu husus poliçenin ön yüzüne yazılır. Sigorta ettiren kimse sigorta primini ve primin taksitle ödenmesi kararlaştırıldığı takdirde peşinatını, sigorta poliçesinin teslim edildiği günün bitimine kadar ödemediği takdirde temerrüde düşer ve prim borcunu temerrüde düştüğü tarihi takip eden 30 gün içinde dahi ödemediği takdirde sigorta sözleşmesi hiç bir ihtara gerek olmaksızın feshedilmiş olur. Prim ödenmemiş olmasına rağmen poliçenin teslimi ile sigortacının mesuliyetinin başlayacağının kararlaştırıldığı hallerde, bu bir aylık sürenin ilk on beş gününde sigortacının sorumluluğu devam eder.
+Primin taksitle ödenmesi kararlaştırıldığı takdirde taksitlerin kesin ödeme zamanı, miktarı ve vadesinde ödenmemesinin sonuçları poliçe üzerine yazılır veya poliçe ile birlikte yazılı olarak sigorta ettirene bildirilir. Sigorta ettiren kimse kesin vadeleri poliçe üzerinde belirtilen ya da yazılı olarak kendisine bildirilmiş olan prim taksitlerinin herhangi birini vade günü bitimine kadar ödemediği takdirde temerrüde düşer. Sigorta ettiren prim borcunu temerrüde düştüğü tarihi takip eden onbeş gün içinde ödemediği takdirde sigorta teminatı durur. Rizikonun gerçekleşmemesi kaydıyla teminatın durduğu süre içinde prim borcunun ödenmesi halinde teminat durduğu yerden devam eder.
+Sigorta teminatının durduğu tarihten itibaren 15 gün içerisinde prim borcunun ödenmemesi halinde sigorta sözleşmesi hiç bir ihtara gerek olmaksızın feshedilmiş olur.
+Poliçenin önyüzüne yazılması kaydıyla rizikonun gerçekleşmesi ile henüz vadesi gelmemiş prim taksitlerinin sigortacının ödemekle yükümlü olduğu tazminat miktarını aşmayan kısmı muaccel hale gelir.
+Bu madde uyarınca sigorta sözleşmesinin feshedilmiş sayıldığı hallerde, sigortacının sorumluluğunun devam ettiği süreye tekabül eden prim gün esası üzerinden hesap edilerek fazlası sigorta ettirene iade edilir.
+RİZİKONUN GERÇEKLEŞMESİ HALİNDE SİGORTALININ YÜKÜMLÜLÜKLERİ
+Madde 9
+A. Rizikonun gerçekleştiğinin ihbarı:
+I. Sigorta ettiren / sigortalı rizikonun gerçekleştiğini öğrendiği veya her halükarda haber vermeye muktedir oldukları tarihten itibaren sekiz gün içinde sigortacıya yazı ile bildirmeye mecburdur.
+II. Sigorta ettiren/sigortalı söz konusu ihbarda kazanın veya hastalığın yerini, tarihini, nedenlerini bildirmek ve ayrıca tedaviyi yapan hekimlerden kaza veya hastalığın durumu ile bunun muhtemel sonuçlarını gösteren bir rapor alarak sigortacıya göndermekle yükümlüdür.
+B. Tedaviye başlama ve gerekli önlemleri alma:
+Kaza veya hastalığı müteakip derhal tedaviye başlanması, yaralı veya hastanın iyileşmesi için gereken önlemlerin alınması şarttır.
+Sigortacı her zaman kazazedeyi veya hastayı muayene ve sağlık durumunu kontrol ettirmek hakkına haiz olup bu muayene ve kontrollerin yapılmasına izin verilmesi zorunludur.
+Kazazedenin veya hastanın iyileşmesi hakkında sigortacının hekimi tarafından yapılacak kaza veya hastalık sonuçlarını doğrudan etkileyecek tavsiyelere uyulması da şarttır.
+Yukarıda (A) ve (B) paragraflarında belirtilen yükümlülükler;
+a. Kasten yerine getirilmediği takdirde poliçeden doğan haklar kaybolur.
+b. Kusur sonucunda yerine getirilmediği ve bu nedenle kaza ve hastalık sonuçları ağırlaştığı takdirde sigortacı ağırlaşan kısımdan sorumlu olmaz.
+c. Gerekli belgelerin teslimi
+Sigorta ettiren veya sigortalı kaza veya hastalık sonucu ödenmesi gereken muayene, tedavi, ilaç ve hastane masraflarını gösteren belgelerin asıllarını veya asıllarından şüpheyi davet etmeyecek suretlerini tedaviyi yapan hekim veya hastanece doldurulacak şirket ihbar ve tedavi formları ekinde teslim etmekle yükümlüdür.
+MASRAFLARIN TESPİTİ
+Madde 10
+İşbu sigorta, teminat altına alınan rizikoların gerçekleşmesi nedeniyle sigorta ettirenin varsa gündelik tazminat ile yapmış bulunduğu masrafları da poliçede yazılı limitlere kadar temin eder.
+Sigortacı aşağıda yazılı durumlarda yapılan masraflarla ilgili istekleri karşılamaz:
+a. İşin gereği yapılmaması gereken masraflar ile özel bir anlaşmaya dayanarak ve makul miktarı aşan talepler
+b. Sigorta özel şartlarına aykırı masraf talepleri,
+Taraflar masraf miktarı üzerinde uyuşamadıkları takdirde, masraf miktarı varsa hekimlerin meslek kuruluşları tarafından belirlenecek yoksa uzman kişiler arasından seçilecek ve hakem-bilirkişi diye adlandırılan kişiler tarafından aşağıdaki hükümlere tabi olmak üzere tespit edilir.
+a. İki taraf (b) fıkrasına göre tek hakem-bilirkişi seçiminde anlaşamadıkları takdirde, taraflardan her biri kendi hakem-bilirkişisini tayin eder ve bu hususu noter eliyle diğer tarafa bildirir. Taraflar hakem-bilirkişileri tayinlerinden itibaren yedi gün içerisinde ve incelemeye geçmeden önce, bir üçüncü tarafsız hakem-bilirkişi seçerek bunu bir tutanakla tespit ederler. Üçüncü hakem-bilirkişi ancak taraf hakem-bilirkişilerinin anlaşamadıkları hususlarda, anlaşamadıkları sınırlar içerisinde kalmak ve bu kapsam içinde olmak kaydıyla karar vermeye yetkilidir. Üçüncü hakem-bilirkişi kararını ayrı bir rapor halinde verebileceği gibi, diğer hakem bilirkişilerle birlikte bir rapor halinde de verebilir.
+Hakem-bilirkişi raporları taraflara aynı zamanda tebliğ edilir.
+b. Taraflardan herhangi biri diğer tarafça yapılan tebliğden itibaren 15 gün içerisinde hakem bilirkişini tayin etmez yahut taraf hakem- bilirkişileri üçüncü hakem-bilirkişileri üçüncü hakem bilirkişinin seçimi hususunda yedi gün içerisinde anlaşamazlar ise, taraf hakem hakem-bilirkişisi veya üçüncü hakem bilirkişi, taraflardan birinin talebi üzerine tedavi yerindeki ticaret davalarına bakmaya yetkili mahkeme başkanı tarafından tarafsız ve uzman kişiler arasından seçilir.
+c. Her iki taraf üçüncü hakem-bilirkişisini bu kişi ister taraf hakem-bilirkişilerince, ister yetkili mahkeme başkanı tarafından seçilecek olsun sigortacının veya sigortalının ikamet ettiği veya tedavinin yapıldığı yer dışından seçilmesini isteme hakkını haizdirler ve bu isteğin yerine getirilmesi gereklidir.
+d. Hakem-bilirkişi ölür, görevden çekilir veya reddedilir ise, ayrılan hakem-bilirkişi yerine yenisi aynı usule göre seçilir ve tespit işlemine kaldığı yerden devam edilir. Sigortalının ölümü, tayin edilmiş bulunan hakem-bilirkişinin görevini sona erdiremez.
+İhtisas yokluğu nedeniyle hakem-bilirkişilere yapılacak itiraz, bu kişilerin öğrenildiği tarihten itibaren yedi gün içinde yapılmadığı takdirde itiraz hakkı düşer.
+e. Hakem-bilirkişiler masraf miktarının tespiti bakımından gerekli görecekleri delilleri, kayıt ve belgeleri isteyebilir ve tedavi yerinde incelemede bulunabilirler.
+f. Hakem-bilirkişi veya hakem-bilirkişiler ya da üçüncü hakem-bilirkişinin masraf miktarı hususunda verecekleri kararlar kesindir, tarafları bağlar. Bir hakem-bilirkişi kararına dayanmadan sigortacıdan tazminat istenemez ve sigortacı dava edilemez.
+Hakem-bilirkişi ve kararlarına ancak, kararların açıkça gerçek durumundan önemli şekilde farklı olduğu anlaşılır ise itiraz edilebilir ve bunların iptali raporun tebliğ tarihinden itibaren bir hafta içinde, tedavi yerinde ticaret davalarına bakmaya yetkili mahkemeden istenebilir.
+g. Taraflar tazminat miktarı hususunda anlaşamadıkça alacak ancak hakem-bilirkişi kararı ile muaccel olur ve zaman aşımı kesin raporun taraflara tebliği tarihinden evvel işlemeye başlamaz. Meğer ki, hakem-bilirkişilerin tayini ile Türk Ticaret Kanunu'nun 1446.Maddesindeki ihbar süresi arasında iki yıllık süre geçmiş olsun.
+h. Taraflar kendi hakem-bilirkişilerinin ücret ve masraflarını öderler.
+Üçüncü hakem-bilirkişinin ücret ve masrafları taraflarca yarı yarıya ödenir.
+ı. Masraf miktarının tespiti teminat verilen rizikolar, sigorta bedeli, sigorta değeri sorumluluğunun başlangıcı, hak düşürücü ve hak azaltıcı nedenler hususunda bu poliçede ve mevzuatta mevcut hüküm ve şartları ve bunların ileri sürülmesini etkilemez.
+
+TAZMİNATIN SONUÇLARI VE SİGORTACININ HALEFİYET HAKKI
+Madde 11
+Sigortacı ödediği tazminat tutarınca sigortalının sosyal güvenlik hukuku kapsamında olanlar dahil tüm haklarına halef olur. Sigortacı ödediği tutar için rücu hakkını, yükümlülere karşı kullanabilir.
+Sigorta ettiren ve sigortalı, sigortacının açabileceği davaya veya takibe yararlı ve elde edilmesi mümkün belge ve bilgileri vermeye zorunludur.
+
+MÜŞTEREK SİGORTA
+Madde 12
+Tedavi masraflarının birden fazla sigortacı tarafından temin edilmiş olunması halinde bu masraflar sigortacılar arasında teminatları oranında paylaşılır.
+
+SIRLARIN SAKLI TUTULMASI
+Madde 13
+Sigorta kapsamına girecek veya giren kişiler, ilgili belgeleri imzalamakla risk değerlendirmesi yapılabilmesi ve tazminat başvurularının sonuçlandırılabilmesi amacıyla, sağlık bilgilerinin, sigortalılık kayıtlarının ve diğer bilgilerinin 5684 sayılı Sigortacılık Kanunun 31/A ve 31/B maddeleri hükmü çerçevesinde paylaşılmasına rıza göstermiş sayılır. Keyfiyet, bilgilendirme formunda ve poliçe veya katılım sertifikasında belirtilir.
+Bu maddenin birinci fıkrası kapsamında risk değerlendirmesi yapılabilmesi ve tazminat başvurularının sonuçlandırılabilmesi amacıyla talep edilen bilgi ve belgelerin ihtiyaç ile uyumlu olması ve doğrudan bağının bulunması gerekmektedir.
+Şirket; sağlık bilgileri, sigortalılık kayıtları ve diğer bilgileri, ilgili mevzuat ile yetkilendirilen merciler haricinde, sigortalının rızası olmadıkça hiçbir gerçek ve tüzel kişiye veremez.
+Sigortalı hakkındaki sırlara vakıf olan tüm gerçek ve tüzel kişiler, bu sırların saklı tutulmasından sorumludur.
+
+TEBLİĞ VE İHBARLAR
+Madde 14
+Sigorta ettirenin ihbar ve tebliğleri Sigorta Şirketinin merkezine veya sigorta sözleşmesine aracılık yapan acenteye, noter aracılığı ile veya yazılı olarak yapılır.
+Sigorta Şirketinin ihbar ve tebliğleri de sigorta ettirenin poliçede gösterilen adresine bu adreslerin değişmiş olması halinde ise Sigorta Şirketinin merkezine veya sigorta sözleşmesine aracılık yapan acenteye bildirilen son adresine aynı suretle yapılır.
+YETKİLİ MAHKEME
+Madde 15
+Bu poliçeden doğan uyuşmazlıklar nedeniyle Sigorta Şirketi aleyhine açılacak davalarda yetkili mahkeme, sigorta şirketi merkezinin veya sigorta sözleşmesine aracılık yapan acentenin ikametgahının bulunduğu veya hasarın ortaya çıktığı sigorta şirketi tarafından açılacak davalarda ise, davalının ikametgahının bulunduğu yerin ticaret davalarına bakmakla görevli mahkemesidir.
+ZAMAN AŞIMI
+Madde 16
+Sigorta sözleşmesinden doğan bütün istemler iki yıllık zaman aşımına tabidir.
+
+ÖZEL ŞARTLAR
+Madde 17
+Poliçelere, bu genel şartlara ve varsa bunlara ilişkin klozlara aykırı düşmeyen özel şartlar konulabilir.
+GRUP VE AİLE SİGORTALARINDA BİLGİLENDİRME FORMU VE KATILIM SERTİFİKASI
+Madde 18
+Grup sözleşmesi kapsamındaki sigortalılara bilgilendirme formu ve katılım sertifikası verilmesi şarttır.
+Bilgilendirme formu ve katılım sertifikası imza karşılığı verilir ve imzalı bir örneği şirkette saklanır. 
+Bilgilendirme formu, sigortalının grup sözleşmesine dahil olmasından önce; katılım sertifikası, sigortalının grup sözleşmesine dahil olmasından itibaren on beş gün içinde verilir. 
+Ancak; sigortacı ile sigortalıların fiziki olarak karşı karşıya gelmesinin söz konusu olmadığı hallerde veya işin mahiyetinin gerektirdiği durumlarda elektronik ortamda veya sigortalının erişimini mümkün kılan benzeri araçlarla yukarıda belirlenen süreler içinde bilgilendirme formu ve katılım sertifikası verilebilir.
+Sigortalıların bilgi paylaşımına ilişkin yazılı onayı imza karşılığı verilen bilgilendirme formu ve katılım sertifikası aracılığı ile temin edilemez ise teklifname veya izni gösterir bir muvafakatname veya benzeri başka bir yöntemle temin edilir. 
+Bilgilendirme formunun ve katılım sertifikasının verildiğini ve bilgi paylaşımına ilişkin onayın alındığını ispat yükümlülüğü Sigortacıya aittir.
+Bilgilendirme formu ve katılım sertifikasının birer örneği sigortalının şirket internet sayfası üzerinden ulaşabildiği kişisel sayfasına konulur. 
+Sigorta ettiren, sigortacının bilgilendirme ve katılım sertifikası verme yükümlülüğünü gereği gibi yerine getirmesini teminen her türlü kolaylığı gösterir.
+
+KİŞİSEL VERİLERİN İŞLENMESİNE İLİŞKİN AYDINLATMA METNİ
+
+Anadolu Anonim Türk Sigorta Şirketi (“Şirket”) olarak kişisel verilerinizin güvenliğinize önem veriyoruz. Bu doğrultuda 6698 sayılı Kişisel Verilerin Korunması Kanunu (“Kanun”) kapsamında, poliçenizle bağlantılı veri işleme faaliyetlerimiz hakkında sizleri bilgilendirmek istiyoruz. Yasal düzenlemeler veya şirket politikalarındaki değişikliklerin sonucu olarak belli aralıklarla bu metinde güncelleme yapılması söz konusu olabilir. Bu durumda metnin en güncel halini internet sitemizde sizlerle paylaşacağımızı belirtmek isteriz.
+
+1- İşlenen Kişisel Verileriniz
+Poliçeniz kapsamında işlenebilecek kişisel verileriniz aşağıda sayılmaktadır. Bu bilgiler, poliçenizin niteliğine ve yararlandığınız hizmetlere göre değişiklik gösterebilmektedir:
+Kimlik (ad/soyad, TCKN, pasaport numarası, kimlik fotokopisi, doğum tarihi ve doğum yeri, cinsiyet, uyruk, medeni hal; eş, çocuk, yakın bilgisi, imza),
+İletişim (e-posta, telefon numarası, adres),
+Lokasyon (rizikonun gerçekleştiği yer bilgisi),
+Özlük (meslek/unvan/pozisyon bilgisi, sicil numarası),
+Hukuki İşlem (hukuki işlem kayıtları, hukuki talepler, yetkili mercilere yapılan başvurulara ilişkin bilgiler, vekâletnameler, yasal temsilci bilgileri),
+Müşteri İşlem (poliçe bilgileri, hasar kayıtları, ürün ve hizmetlerin kullanımına yönelik kayıtlar, talep ve şikayetler, sigorta ettiren / lehtar bilgileri, segmentasyon ve skorlamaya ilişkin veriler),
+İşlem Güvenliği (web sitesi ve mobil uygulama işlem kayıtları, IP adresi, cihaz bilgisi, tarayıcı bilgisi, oturum bilgileri, işlem geçmişi, izin kayıtları),
+Risk Yönetimi (poliçe kapsamındaki risk değerlendirmeleri),
+Finans (kredi kartı bilgileri, banka hesap bilgileri, ödeme yöntemi, tahsilat ve tazminat bilgileri),
+Pazarlama (izinli iletişim tercihleri, anket bilgileri, kampanya bilgileri, alışveriş geçmişi bilgileri),
+Görsel ve İşitsel Kayıtlar (çağrı merkezi görüşmelerine ilişkin ses kayıtları, mobil uygulama veya web kamera ile alınan görüntü kayıtları, fotoğraf),
+Sağlık (genel sağlık durumu bilgileri, sağlık geçmişi bilgileri, e-nabız kayıtları, muayene, teşhis ve tedavi bilgileri, reçete ve ilaç bilgileri, sunulan sağlık hizmetine ilişkin bilgiler, psikolojik/davranışsal sağlık bilgileri, boy/kilo/vücut kitle endeksi, gerekli durumlarda aile hastalık geçmişi, gerekli durumlarda hamilelik durumu)
+
+2- Kişisel Verilerinizin İşlenme Amaçları ve Hukuki Sebepleri
+Poliçeniz kapsamında kişisel verileriniz Kanun’un 5. maddesinde belirtilen aşağıdaki hukuki sebeplere ve işlenme amaçlarına dayalı olarak işlenmektedir.
+
+“Sözleşmenin kurulmasıyla ve ifasıyla doğrudan doğruya ilgili olması sebebiyle gerekli olması” hukuki sebebine dayalı olarak Kimlik, İletişim, Lokasyon, Özlük, Müşteri İşlem, Risk Yönetimi, Finans ile Görsel ve İşitsel Kayıtlar kategorisindeki kişisel verileriniz işlenmektedir. Söz konusu bilgiler aşağıdaki amaçlar doğrultusunda işlenmektedir:
+Poliçe teklif, düzenleme, durdurma, yenileme ve iptal süreçlerinin yürütülmesi
+Poliçe kapsamında risk değerlendirmesi ve araştırma faaliyetlerinin yürütülmesi
+Poliçeden kaynaklanan hakların kullanılması ve yükümlülüklerin yerine getirilmesi
+Poliçe işlemlerinin gerçekleştirilmesi
+Poliçe ile bağlantılı hizmetlerin sunulması ve satış sonrasında destek hizmetinin verilmesi
+İletişim faaliyetlerinin yürütülmesi ile talep ve şikayetlerin değerlendirilmesi
+Reasürans ve koasürans işlemlerinin yürütülmesi
+
+“Veri sorumlusunun hukuki yükümlülüğünü yerine getirebilmesi için zorunlu olması”, “Kanunlarda açıkça öngörülme”, “İlgili kişinin hakkının tesisi, kullanılması veya korunması için veri işlemenin zorunlu olması” hukuki sebeplerine dayalı olarak Kimlik, İletişim, Lokasyon, Hukuki İşlem, Müşteri İşlem, İşlem Güvenliği, Risk Yönetimi ve Finans kategorisindeki verileriniz işlenmektedir. Söz konusu bilgiler aşağıdaki amaçlar doğrultusunda işlenmektedir:
+Tazminat süreçlerinin yürütülmesi
+Geçiş işlemlerinin yürütülmesi
+Bilgi güvenliği süreçlerinin yürütülmesi
+Hasar ve rücu süreçlerinin işletilmesi
+Yasal düzenlemelerden kaynaklı hakların kullanılması ve yükümlülüklerin yerine getirilmesi
+Bilgilendirme faaliyetlerinin yürütülmesi
+Saklama ve arşiv faaliyetlerinin yürütülmesi
+Yetkili kurum ve kuruluşlara gerekli bilgilerin sunulması
+Hukuki iş ve işlemlerin yürütülmesi ve takibi
+
+“Veri sorumlusunun meşru menfaatleri için veri işlenmesinin zorunlu olması” hukuki sebebine dayalı olarak Kimlik, İletişim, Özlük, Hukuki İşlem, Müşteri İşlem, İşlem Güvenliği, Risk Yönetimi, Pazarlama ve Finans kategorisindeki verileriniz işlenmektedir. Söz konusu bilgiler aşağıdaki amaçlar doğrultusunda işlenmektedir:
+Faaliyetlerin Şirket prosedürleri ve ilgili mevzuata uygun olarak yürütülmesinin sağlanması için gerekli denetim faaliyetlerinin planlanması ve icrası
+Ürün ve hizmetlerin geliştirilmesi ve en uygun şekilde sunulması için araştırma ve analizlerin yapılması
+Bilimsel araştırma faaliyetlerinin yapılması
+İç denetim, süreç iyileştirme ve operasyonel güvenliğin sağlanması
+Müşteri memnuniyet süreçlerinin yürütülmesi, müşteri ilişkileri yönetimi ve müşteri değerlendirme çalışmalarının yapılması
+Suistimal önleme ve tespit faaliyetlerinin yapılması
+Pazar araştırması yapılarak rekabetin analiz edilmesi ve değerlendirilmesi
+Yapay zeka sistemlerinin eğitilmesi ve geliştirilmesi
+Segmentasyon faaliyetlerinin yapılması
+
+“İlgili kişinin açık rızasının olması” hukuki sebebine dayanarak Kimlik, İletişim, Müşteri İşlem, Pazarlama kategorisindeki verileriniz işlenmektedir. Söz konusu bilgiler aşağıdaki amaçlar doğrultusunda işlenmektedir:
+Pazarlama, tanıtım, kampanya ve müşteri bağlılığı faaliyetlerin yürütülmesi
+Kişiye özel tekliflerin hazırlanması ve profilleme faaliyetlerinin yürütülmesi
+
+Kişilerin fiziksel ve ruhsal sağlığına ilişkin her türlü bilgi ile sunulan sağlık hizmeti ile ilgili bilgiler olan kişisel sağlık verileri “özel nitelikli kişisel veri” kategorisinde yer almaktadır. Bu kapsamda, sağlık verileriniz Kanun’un 6. maddesinde belirtilen aşağıdaki hukuki sebeplere ve işlenme amaçlarına dayalı olarak işlenmektedir.
+
+“Kanunlarda açıkça öngörülme” ve “Bir hakkın tesisi, kullanılması veya korunması için zorunlu olması” hukuki sebeplerine dayalı olarak sağlık verileriniz işlenmektedir. Söz konusu bilgiler aşağıdaki amaçlar doğrultusunda işlenmektedir:
+Teklif, poliçe ve reasürans süreçleri dahil risk değerlendirmesi yapılabilmesi
+Tazminat süreçlerinin yürütülmesi
+Geçiş işlemlerinin yürütülmesi
+Sigortalı beyanının doğrulanması
+Hasar ve rücu süreçlerinin işletilmesi
+Yasal düzenlemelerden kaynaklı hakların kullanılması ve yükümlülüklerin yerine getirilmesi
+Destek hizmetlerinin alınması
+Saklama ve arşiv faaliyetlerinin yürütülmesi
+Yetkili kurum ve kuruluşlar ile mevzuatta belirlenen yetkileri çerçevesinde bilgi paylaşımı yapılması
+Hukuki iş ve işlemlerin yürütülmesi ve takibi
+
+“İlgili kişinin açık rızasının olması” hukuki sebebine dayalı olarak sağlık verileriniz işlenmektedir. Söz konusu bilgiler aşağıdaki amaç doğrultusunda işlenmektedir:
+Risk değerlendirmesi yapılması amacıyla geçmiş sağlık bilgilerinin talep edilmesi
+
+3- Kişisel Verilerinizin Toplanma Yöntemi
+Kişisel verileriniz doğrudan doğruya sizden veya Sigorta Bilgi ve Gözetim Merkezi’nden, yetkili kamu kurum ve kuruluşlardan, sağlık kuruluşlarından, sigorta şirketlerinden, kanuni temsilci, işveren veya sizin adınıza poliçe düzenleme yetkisine sahip kişi/kişilerden, 3. taraf hizmet sunan firmalardan veya yetkili acentelerimiz/brokerlarımızdan elektronik ortamda otomatik yollarla veya sözlü/yazılı şekilde otomatik olmayan yollarla toplanmaktadır.
+
+4- Kişisel Verilerinizin Aktarıldığı Üçüncü Taraflar
+Kişisel verileriniz; yukarıda sayılan amaçlar doğrultusunda faaliyetin niteliğine bağlı olarak aşağıda belirtilen üçüncü taraflara aktarılabilmektedir:
+Yetkili acenteler/brokerler, reasürörler/koasürörler, asistans şirketleri, sigorta ettiren, provizyon hizmet kuruluşları, aktüerler, dış uzmanlar, destek hizmet sağlayıcıları, veri doğrulama hizmeti sunan kuruluşlar, diğer sigorta şirketleri, sağlık kuruluşları, Sigorta Bilgi ve Gözetim Merkezi, Sigortacılık ve Özel Emeklilik Düzenleme ve Denetleme Kurumu, Türkiye Sigorta, Reasürans ve Emeklilik Şirketleri Birliği, kanuni temsilciler, bankalar/finansman şirketleri, hukuki, finansal, vergisel ve operasyonel konularda danışmanlık alınan kişi ve kuruluşlar, denetim kuruluşları, hizmet alınan tedarikçiler, uyuşmazlık mercileri ve yetkili kamu kurum ve kuruluşlarına, pazarlama ve reklam hizmeti sunan şirketler, tahsil alacak şirketlerine, uyuşmazlık mercileri ve yetkili kamu kurum ve kuruluşlarına aktarılabilmektedir.
+
+5- Kanun’un 11. Maddesinde Sayılan Haklarınız
+Kişisel verilerin işlenip işlenmediğini öğrenme, kişisel verileriniz işlenmişse buna ilişkin bilgi talep etme, kişisel verilerinizin işlenme amacını ve bunların amacına uygun kullanılıp kullanılmadığını öğrenme, yurt içinde veya yurt dışında kişisel verilerinizin aktarıldığı üçüncü tarafları bilme, kişisel verilerin eksik veya yanlış işlenmiş olması halinde bunların düzeltilmesini isteme, kişisel verilerinizin işlenmesini gerektiren sebeplerin ortadan kalkması halinde silinmesini ya da yok edilmesini talep etme, düzeltme/silme/yok etme işlemlerinin, kişisel verilerin aktarıldığı 3. kişilere bildirilmesini talep etme, işlenen kişisel verilerin münhasıran otomatik sistemler vasıtasıyla analiz edilmesi suretiyle aleyhe bir sonucun ortaya çıkması durumunda buna itiraz etme ve kişisel verilerin mevzuata aykırı olarak işlenmesi sebebiyle zarara uğranılması halinde zararın giderilmesini talep etme haklarınız bulunmaktadır.
+
+Kişisel verilerinizin işlenmesine ilişkin haklarınız kapsamındaki talepleri, internet sitemizdeki “Başvuru Formu” aracılığıyla veya Veri Sorumlusuna Başvuru Usul ve Esasları Hakkında Tebliğ’de düzenlenen şartlara uygun olarak bize her zaman iletebilirsiniz. Ayrıca başvuru adresleri ve başvuru süreçlerine ilişkin daha detaylı bilgileri internet sitemizde ve başvuru formunda bulabilirsiniz.
+
+UYARILAR
+
+Sigorta kapsamına girecek veya giren kişilerin sağlık bilgileri, sigortalılık kayıtları ve diğer bilgileri, ilgili mevzuata uygun olarak risk değerlendirmesi yapılabilmesi ve tazminat başvurularının sonuçlandırılabilmesi amacıyla Sigorta Bilgi ve Gözetim Merkezi’nden (SBGM) , Sosyal Güvenlik Kurumu’ndan, Sağlık Bakanlığı’ndan , sağlık kurum ve kuruluşlarından ve sigorta şirketlerinden edinilebilir ve şirket nezdindeki bahse konu bilgi ve kayıtlar SBGM, sigorta şirketleri ve ilgili mevzuatta yetkilendirilen merciler ile paylaşılabilir.
+
+Anadolu Sigorta, ihtiyaç görmesi halinde, sigortalının sağlık durumunun tespiti için hekim görüşünün alınmasını isteyebilir. Bahse konu işleme ilişkin masraflar Anadolu Sigorta tarafından karşılanır. Sigortalının Anadolu Sigorta’ya sağlık geçmişi bilgilerine erişim yetkisi vermediği durumlarda, sözleşme sigorta ettirenin, sigortalının ve temsilci aracılığıyla sigorta yapılıyorsa temsilcinin beyanı ve varsa şirketin yazılı sorularına verilen cevaplara dayanılarak yapılır. Sigorta ettiren, sigortalı ve varsa temsilci, kendisine sorulan sorulara doğru ve eksiksiz cevap vermek, kendisince bilinen ve şirketin sözleşmeyi yapmamasını veya daha ağır şartlarla yapmasını gerektirecek bütün halleri bildirmekle yükümlüdür. Anadolu Sigorta, ihtiyaç görmesi halinde, sigortalının sağlık durumunun tespiti için hekim görüşünün alınmasını isteyebilir. Bahse konu işleme ilişkin masraflar sigorta ettiren ve sigortalı tarafından karşılanır.
+
+Sağlık Sigortası Genel Şartları gereği sigortalılara ait bilgilendirme formları ve katılım sertifikaları, Anadolu Sigorta’nın online.anadolusigorta.com.tr sayfasına eklenmiştir. İlgili sayfada, sigortalılar kimlik bilgileri ve cep telefon numaraları ile sisteme giriş yapabilecek olup “Hesap İşlemleri” menü adımından “Katılım Sertifikası Onayı” ve “Bilgilendirme Formu Onayı ”adımlarından dokümanlara onay verebilecektir. Yenileme garantisi almayan sigortalılara iletilen “Ömür Boyu Yenileme Değerlendirmesi”” yazılarına da sigortalılar yine aynı adres üzerinden ulaşabilecektir. Poliçe kapsamında sigortalı olan 18 yaş ve üzeri her bir birey, web sayfası üzerinden ayrıca giriş yaparak dokümanlarını onaylayacaktır.
+Anadolu Sigorta, sigorta ettirenden sağlık sigortası kapsamında bulunan tüm sigortalıların e-posta ve cep telefonu numarası bilgisini (kişisel iletişim bilgilerini) talep edecek ve sigortalılara ait kişisel sayfaya erişim yöntemi hakkında sigorta ettireni bilgilendirecektir. Sigorta ettiren, kendisine ve sigortalılara ait iletişim bilgilerinin doğru ve güncel şekilde Anadolu Sigorta’ya iletilmesinden sorumludur. Sigorta ettiren tarafından sigortalılara ait bilgilerin paylaşılmaması halinde Anadolu Sigorta yükümlülüklerin yerine getirilmemesinden dolayı sorumlu tutulmayacaktır.

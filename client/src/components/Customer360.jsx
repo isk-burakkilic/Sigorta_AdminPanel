@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import { policies } from '../lib/api.js';
 import { parsePremium, fmtTLfull } from '../lib/stats.js';
 import { toast } from '../lib/toast.jsx';
+import { digitsOnly, TC_LEN, VKN_LEN } from '../lib/format.js';
+import AccountLedger from './AccountLedger.jsx';
 
 const money = (v) => { const n = parsePremium(v); return isNaN(n) ? '—' : fmtTLfull(n); };
 const statusCls = (s) => {
@@ -53,7 +55,9 @@ const PencilIcon = () => (
 );
 
 // One personal-info row with an inline pencil-to-edit affordance.
+// `sanitize` her tuş vuruşunda uygulanır — kimlik numaralarında harf yazılamaz.
 function EditableField({ label, value, type = 'text', display, extra, onSave,
+                         inputMode, maxLength, sanitize = (v) => v,
                          toInput = (v) => (v ?? ''), fromInput = (v) => v }) {
   const [editing, setEditing] = useState(false);
   const [val, setVal] = useState(toInput(value));
@@ -74,8 +78,9 @@ function EditableField({ label, value, type = 'text', display, extra, onSave,
         <span>{label}</span>
         <div className="c360-edit">
           <input type={type} value={val} autoFocus disabled={busy}
-            onChange={(e) => setVal(e.target.value)}
-            onKeyDown={(e) => { if (e.key === 'Enter') commit(); else if (e.key === 'Escape') cancel(); }} />
+            inputMode={inputMode} maxLength={maxLength}
+            onChange={(e) => setVal(sanitize(e.target.value))}
+            onKeyDown={(e) => { if (e.key === 'Enter') commit(); else if (e.key === 'Escape') { e.stopPropagation(); cancel(); } }} />
           <button type="button" className="c360-ibtn ok" onClick={commit} disabled={busy} title="Kaydet" aria-label="Kaydet">✓</button>
           <button type="button" className="c360-ibtn" onClick={cancel} disabled={busy} title="İptal" aria-label="İptal">✕</button>
         </div>
@@ -102,14 +107,20 @@ export default function Customer360({ contact, onBack, onClose, onOpenPolicy }) 
   const [type, setType] = useState('note');
   const [body, setBody] = useState('');
   const [busy, setBusy] = useState(false);
+  const [tab, setTab] = useState('genel'); // genel | cari
 
   const load = async () => { const r = await policies.interactions(contact.id); setItems(r.ok ? r.data : []); };
   useEffect(() => { load(); /* eslint-disable-next-line */ }, [contact.id]);
 
   // Locally editable copy of the personal fields (persisted per-contact).
   const [info, setInfo] = useState({ tc: contact.tc, vergi: contact.vergi, gsm: contact.gsm, dogum: contact.dogum, produktor: contact.produktor });
+  // Kontak nesnesi tazelendiğinde (poliçe düzenleyicide kayıt yapıldıktan sonra
+  // liste yeniden çekilir) kişisel bilgiler de güncel değerlerle yenilenir.
   useEffect(() => {
     setInfo({ tc: contact.tc, vergi: contact.vergi, gsm: contact.gsm, dogum: contact.dogum, produktor: contact.produktor });
+  }, [contact]);
+  useEffect(() => {
+    setTab('genel'); // başka müşteriye geçince genel görünümden başla
   }, [contact.id]); // eslint-disable-line
 
   // Save one field across all of this contact's policy rows.
@@ -176,8 +187,12 @@ export default function Customer360({ contact, onBack, onClose, onOpenPolicy }) 
             </div>
             <div className="c360-info">
               <div className="c360-info-row"><span>Kontak ID</span><code>{contact.id}</code></div>
-              <EditableField label="TC Kimlik No" value={info.tc} onSave={(v) => saveField('tc', v)} />
-              <EditableField label="Vergi Kimlik No" value={info.vergi} onSave={(v) => saveField('vergi', v)} />
+              <EditableField label="TC Kimlik No" value={info.tc}
+                inputMode="numeric" maxLength={TC_LEN} sanitize={(v) => digitsOnly(v, TC_LEN)}
+                onSave={(v) => saveField('tc', v)} />
+              <EditableField label="Vergi Kimlik No" value={info.vergi}
+                inputMode="numeric" maxLength={VKN_LEN} sanitize={(v) => digitsOnly(v, VKN_LEN)}
+                onSave={(v) => saveField('vergi', v)} />
               <EditableField label="GSM" value={info.gsm} type="tel"
                 display={info.gsm || '—'}
                 extra={waNumber ? <a className="c360-wa" href={`https://wa.me/${waNumber}`} target="_blank" rel="noreferrer" title="WhatsApp'ta aç">💬</a> : null}
@@ -191,6 +206,24 @@ export default function Customer360({ contact, onBack, onClose, onOpenPolicy }) 
           </aside>
 
           <main className="c360-main">
+            {/* ── Sekmeler: genel görünüm ↔ cari hesap ── */}
+            <div className="c360-tabs" role="tablist">
+              <button role="tab" aria-selected={tab === 'genel'}
+                className={`c360-tab ${tab === 'genel' ? 'active' : ''}`}
+                onClick={() => setTab('genel')}>📁 Poliçeler & Geçmiş</button>
+              <button role="tab" aria-selected={tab === 'cari'}
+                className={`c360-tab ${tab === 'cari' ? 'active' : ''}`}
+                onClick={() => setTab('cari')}>💰 Cari Hesap</button>
+            </div>
+
+            {tab === 'cari' && (
+              <section className="c360-section">
+                <h3>💰 Cari Hesap</h3>
+                <AccountLedger contact={contact} />
+              </section>
+            )}
+
+            {tab === 'genel' && (<>
             {/* ── Policies across years ── */}
             <section className="c360-section">
               <h3>📁 Poliçeler ({contact.policies.length})</h3>
@@ -253,6 +286,7 @@ export default function Customer360({ contact, onBack, onClose, onOpenPolicy }) 
                 </div>
               )}
             </section>
+            </>)}
           </main>
         </div>
       </div>

@@ -1,19 +1,41 @@
-import { useEffect, useState, useCallback } from 'react';
+import { useEffect, useRef, useState, useCallback, lazy, Suspense } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { policies, auth, resetCsrf } from '../lib/api.js';
+import { policies, auth, resetCsrf, clearTabToken } from '../lib/api.js';
+import { startIdleWatch } from '../lib/session.js';
+import { useBackLevel, useBackTarget, goBack, installBackGuard, installEscGuard } from '../lib/backnav.js';
+import { digitsOnly, idLimit, idLine } from '../lib/format.js';
 import { toast } from '../lib/toast.jsx';
 import Chatbot from '../components/Chatbot.jsx';
 import Comparison from '../components/Comparison.jsx';
 import PieChart from '../components/PieChart.jsx';
 import ContactSearch from '../components/ContactSearch.jsx';
+import TeklifPdf from '../components/TeklifPdf.jsx';
 import Settings from '../components/Settings.jsx';
+import TakipIsler from '../components/TakipIsler.jsx';
+import NotificationBell from '../components/NotificationBell.jsx';
+import UpcomingJobs from '../components/UpcomingJobs.jsx';
+import ThemeToggle from '../components/ThemeToggle.jsx';
+import HelpGuide from '../components/HelpGuide.jsx';
+// Lazily loaded: pulls in the QR decoder only when the reader is opened.
+const RuhsatReader = lazy(() => import('../components/RuhsatReader.jsx'));
+// Lazily loaded: pulls in pdfjs + xlsx only when the tracker is opened.
+const DisPoliceTakip = lazy(() => import('../components/DisPoliceTakip.jsx'));
+// Lazily loaded: xlsx here, ExcelJS only once a report is actually generated.
+const PolisoftCompare = lazy(() => import('../components/PolisoftCompare.jsx'));
+// Grafikler — kendi SVG çizim ilkelleriyle gelir; ana sayfada gerekmez.
+const Analytics = lazy(() => import('../components/Analytics.jsx'));
 import { aggregate, toSlices, fmtTL } from '../lib/stats.js';
 import { buildContacts, contactKey } from '../lib/contacts.js';
+import { setTypeCategories, displayCategory, categoryNames } from '../lib/policyTypes.js';
 import {
-  compType, parseComparison, genKaskoNotes, regenTrafik, gen722Notes,
-  buildSaveNotlar, defaultKaskoRow, defaultTrafikRow,
+  compType, parseComparison, buildSaveNotlar, defaultKaskoRow, defaultTrafikRow,
 } from '../lib/comparison.js';
 import '../styles/panel.css';
+
+// Auto-logout after this much inactivity. The REAL value comes from the server
+// (/api/auth/session → idleMinutes, driven by SESSION_IDLE_MIN); this is only
+// the fallback used until that response lands, so the two can never drift.
+const IDLE_MINUTES_FALLBACK = 60;
 
 const MONTHS_TR = ['', 'Ocak', 'Şubat', 'Mart', 'Nisan', 'Mayıs', 'Haziran', 'Temmuz', 'Ağustos', 'Eylül', 'Ekim', 'Kasım', 'Aralık'];
 const STATUS = ['Çalışılmadı', 'Çalışıldı', 'Poliçelendirildi', 'İptal', 'Eksik Tahsilat', 'Yapılmayacak', 'Dış Teklif Bekleniyor'];
@@ -23,8 +45,11 @@ const COLS = [
   ['bitis_tarihi', 'Bitiş Tarihi'], ['police_numarasi', 'Poliçe No'], ['hesap_adi', 'Hesap Adı'],
   ['arac_plakasi', 'Plaka'], ['produktor_tali_adi', 'Prodüktör'], ['sigorta_sirketi', 'Sigorta Şirketi'],
   ['police_turu', 'Poliçe Türü'], ['brut_tl', 'Brüt (TL)'], ['tc_kimlik_no', 'TC / Vergi No'],
-  ['gsm_no', 'GSM'], ['belge_seri_no', 'Seri No'], ['sistem_durum', 'Durum'],
+  ['gsm_no', 'GSM'], ['belge_seri_no', 'Seri No'], ['brut_2026', 'Güncel Prim'], ['sistem_durum', 'Durum'],
 ];
+
+// Alt toplam satırı "Brüt (TL)" sütununun altına hizalanır.
+const BRUT_COL = COLS.findIndex(([k]) => k === 'brut_tl');
 
 // Editor field grid — order matches the original form panel (4 columns).
 const EDIT_FIELDS = [
@@ -32,15 +57,16 @@ const EDIT_FIELDS = [
   ['brut_tl', 'Brüt (TL)'], ['tc_kimlik_no', 'TC Kimlik No'], ['vergi_kimlik_no', 'Vergi Kimlik No'], ['gsm_no', 'GSM No'],
   ['dogum_tarihi', 'Doğum Tarihi'],
   ['belge_seri_no', 'Belge Seri No'], ['bitis_tarihi', 'Bitiş Tarihi'], ['police_numarasi', 'Poliçe Numarası'], ['produktor_tali_adi', 'Prodüktör / Tali'],
-  ['brut_2026', 'Brüt 2026 (TL)'],
+  ['brut_2026', 'Güncel Prim'],
 ];
 
 // Auto-message generator — ported from the legacy generateAutoMessage().
+// Şirket kayıtlarında TC yerine vergi numarası olur; etiket de ona göre değişir.
 function genAutoMsg(rec) {
   const pType = String(rec.police_turu || '').toUpperCase();
   if (['701', '410', 'TRAFİK', 'TRAFIK', 'KASKO'].some((s) => pType.includes(s))) {
     const tur = (pType.includes('701') || pType.includes('KASKO')) ? 'Kasko' : 'Trafik';
-    return `Merhaba, \n${tur} Poliçesi;\n\nTC: ${rec.tc_kimlik_no || ''}\nPlaka: ${rec.arac_plakasi || ''}\nBelge Seri No: ${rec.belge_seri_no || ''}\n\nİyi çalışmalar.`;
+    return `Merhaba, \n${tur} Poliçesi;\n\n${idLine(rec.tc_kimlik_no, rec.vergi_kimlik_no)}\nPlaka: ${rec.arac_plakasi || ''}\nBelge Seri No: ${rec.belge_seri_no || ''}\n\nİyi çalışmalar.`;
   }
   return '';
 }
@@ -94,6 +120,36 @@ function MetricTile({ icon, tone, label, value }) {
   );
 }
 
+// Sidebar/topbar brand: the logged-in tenant's name, last word in gold
+// (same treatment the old "Zenith Peak" wordmark had). Falls back to the
+// product name until the session response arrives.
+function TenantBrand({ name }) {
+  if (!name) return <>Zenith <span>Peak</span></>;
+  const parts = name.trim().split(/\s+/);
+  if (parts.length === 1) return <>{name}</>;
+  const last = parts.pop();
+  return <>{parts.join(' ')} <span>{last}</span></>;
+}
+
+// Üst bara sabitlenmiş Geri butonu. Bar `position: fixed` olduğu için sayfa
+// ne kadar kaydırılırsa kaydırılsın buton hep aynı yerde durur. Hedefi geri
+// yığınının en üstteki katmanı söyler (bkz. lib/backnav.js); kök ekranda
+// pasif görünür ki bar hiçbir ekranda yerinden oynamasın.
+function TopbarBack() {
+  const target = useBackTarget();
+  return (
+    <button className="topbar-back" onClick={goBack} disabled={!target}
+      title={target ? `${target.label} ekranına dön` : 'Ana sayfadasınız'}
+      aria-label={target ? `Geri: ${target.label}` : 'Geri'}>
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+        strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M15 18l-6-6 6-6" />
+      </svg>
+      <span className="tb-back-label">{target ? target.label : 'Geri'}</span>
+    </button>
+  );
+}
+
 const statusClass = (s) => {
   const map = {
     'Çalışılmadı': 'calisilmadi', 'Çalışıldı': 'calisildi', 'Poliçelendirildi': 'policelendirildi',
@@ -102,13 +158,25 @@ const statusClass = (s) => {
   return 'status-badge status-' + (map[s] || 'calisilmadi');
 };
 
-// Policy-type filter options + matching logic — verbatim from the legacy panel.
-const TYPE_OPTIONS = [
+// Ay görünümü poliçe türü filtresi.
+// Acente Ayarlar → Poliçe Türleri → Kategoriler'den eşleme tanımladıysa filtre
+// KATEGORİLERİ listeler ("Trafik Poliçesi" seçince 410 + TRAFİK + TRAFİK
+// POLİÇESİ hepsi gelir). Henüz eşleme yoksa eski sabit kod listesine düşülür,
+// böylece kategori kurmayan acentede davranış birebir aynı kalır.
+const LEGACY_TYPE_OPTIONS = [
   ['410', '410 / Trafik'], ['701', '701 / Kasko'], ['722', '722'], ['956', '956'],
   ['718', '718'], ['800', '800'], ['TIBBI', 'TIBBİ KÖTÜ UYGULAMA'], ['KOBI', 'Kobi (İşyeri + KOBİ)'],
 ];
+// Kategori filtresi değerleri "cat:" ile ön eklenir — bir kategori adı ile
+// bir poliçe kodu ("722") aynı metin olsa bile karışmasın diye.
+const CAT_PREFIX = 'cat:';
+function typeOptions(cats) {
+  if (!cats.length) return LEGACY_TYPE_OPTIONS;
+  return cats.map((c) => [CAT_PREFIX + c, c]);
+}
 function matchType(policeTuru, type) {
   if (!type) return true;
+  if (type.startsWith(CAT_PREFIX)) return displayCategory(policeTuru) === type.slice(CAT_PREFIX.length);
   const pt = (policeTuru || '').toLocaleUpperCase('tr-TR');
   if (type === 'TIBBI') return pt.includes('TIBBI');
   if (type === 'KOBI') return pt.includes('İŞYERİ') || pt.includes('IŞYERI') || pt.includes('KOBİ') || pt.includes('KOBI');
@@ -162,11 +230,15 @@ export default function Panel() {
   const nav = useNavigate();
   const [user, setUser] = useState('');
   const [tenantName, setTenantName] = useState('');
+  const [tenantId, setTenantId] = useState('');   // aktif acente kimliği
+  const [tenants, setTenants] = useState([]);     // girebildiği acenteler (sunucudan)
   const [sidebarOpen, setSidebarOpen] = useState(true); // open by default on the homepage
-  const [view, setView] = useState('dashboard');          // dashboard | uretim | month
+  const [view, setView] = useState('dashboard');          // dashboard | uretim | month | takip | …
   const [summary, setSummary] = useState({});              // keyed by month_num
   const [currentMonth, setCurrentMonth] = useState(null);
   const [records, setRecords] = useState([]);
+  const [selectMode, setSelectMode] = useState(false);       // toplu seçim modu açık mı
+  const [selected, setSelected] = useState(() => new Set()); // seçili kayıt id'leri
   const [q, setQ] = useState('');
   const [statusFilter, setStatusFilter] = useState('');
   const [typeFilter, setTypeFilter] = useState('');
@@ -176,14 +248,42 @@ export default function Panel() {
   const [saving, setSaving] = useState(false);
   const [kaskoRows, setKaskoRows] = useState([]);
   const [trafikRows, setTrafikRows] = useState([]);
+  // Kıyaslamadan "Teklife Aktar" ile seçilen tek satır (firma+fiyat+taksit).
+  // Yalnızca Teklif PDF açılırken o firmanın alanını ön doldurur; başka hiçbir
+  // şeye (notlar dahil) yazılmaz, kayıt değişince temizlenir.
+  const [teklifPrefill, setTeklifPrefill] = useState(null);
   const [msgOpen, setMsgOpen] = useState(false); // Otomatik Mesaj panel collapsed by default
   const [sync, setSync] = useState({ state: 'syncing', text: 'Bağlanıyor...' });
   const [stats, setStats] = useState(null);
+  const [teklif, setTeklif] = useState(null); // teklif belgesi açık olan kayıt
   const [contactsOpen, setContactsOpen] = useState(false);
+  const [helpOpen, setHelpOpen] = useState(false);
+  const [helpSection, setHelpSection] = useState('genel');
   const [contacts, setContacts] = useState(null); // null = not loaded yet
   const [options, setOptions] = useState({ companies: [], types: [] }); // dropdown values from Excel data
+  const [typeCats, setTypeCats] = useState([]); // tanımlı poliçe türü kategorileri (ay filtresi için)
+  const [idleMinutes, setIdleMinutes] = useState(IDLE_MINUTES_FALLBACK);
 
-  useEffect(() => { auth.session().then((s) => { setUser(s.user || ''); setTenantName(s.tenantName || ''); }); }, []);
+  useEffect(() => {
+    auth.session().then((s) => {
+      setUser(s.user || '');
+      setTenantName(s.tenantName || '');
+      setTenantId(s.tenant || '');
+      setTenants(Array.isArray(s.tenants) ? s.tenants : []);
+      if (s.idleMinutes > 0) setIdleMinutes(s.idleMinutes); // sunucu neyi zorluyorsa o
+    });
+  }, []);
+
+  // Acente değiştir — yalnızca sunucunun bu kullanıcıya açtığı acenteler
+  // arasında (yönetici ise hepsi). Yetkiyi sunucu ayrıca doğrular.
+  // Değişimden sonra sayfa yenilenir: her ekran kendi verisini yeni acentenin
+  // veritabanından çeksin, eski acentenin kayıtları ekranda kalmasın.
+  const switchTenant = useCallback(async (id) => {
+    if (!id || id === tenantId) return;
+    const r = await auth.switchTenant(id);
+    if (r.ok) window.location.reload();
+    else toast(r.error || 'Acente değiştirilemedi.', 'err');
+  }, [tenantId]);
 
   const loadStats = useCallback(async () => {
     const r = await policies.stats();
@@ -198,6 +298,11 @@ export default function Panel() {
       companies: [...r.data.companies].sort((a, b) => a.localeCompare(b, 'tr')),
       types: [...r.data.types].sort((a, b) => a.localeCompare(b, 'tr')),
     });
+    // Poliçe türü kategorileri modül seviyesindeki kayıt defterine yüklenir;
+    // grafikler (stats.js) ve teklif formu seçimi (comparison.js) saf
+    // fonksiyonlar olduğu için React prop'u ile beslenemez.
+    const c = await policies.typeCategories();
+    if (c.ok) { setTypeCategories(c.data); setTypeCats(categoryNames()); }
   }, []);
   useEffect(() => { loadOptions(); }, [loadOptions]);
 
@@ -218,6 +323,10 @@ export default function Panel() {
 
   // When the policy type is Kasko/Trafik and no rows exist yet, seed one (legacy behaviour).
   const ctype = editing ? compType(editing.police_turu) : null;
+  // DASK (800) poliçelerinde adres ayrı bir alan — eskiden notlar'a yazılırdı.
+  const isDask = editing
+    ? (String(editing.police_turu ?? '').trim() === '800' || displayCategory(editing.police_turu) === 'DASK')
+    : false;
   useEffect(() => {
     if (ctype === 'kasko' && kaskoRows.length === 0) setKaskoRows([defaultKaskoRow()]);
     if (ctype === 'trafik' && trafikRows.length === 0) setTrafikRows([defaultTrafikRow()]);
@@ -226,6 +335,7 @@ export default function Panel() {
 
   async function showMonth(m) {
     setCurrentMonth(m); setView('month'); setSidebarOpen(false); setQ(''); setStatusFilter(''); setTypeFilter(''); setSortKey('');
+    setSelectMode(false); setSelected(new Set());
     setSync({ state: 'syncing', text: `${MONTHS_TR[m]} yükleniyor...` });
     const r = await policies.byMonth(m);
     if (r.ok) { setRecords(r.data); setSync({ state: 'ok', text: `${MONTHS_TR[m]} — ${r.data.length} kayıt` }); }
@@ -235,9 +345,49 @@ export default function Panel() {
   function showDashboard() { setView('dashboard'); setSidebarOpen(true); }   // homepage → sidebar open
   function showUretim() { setView('uretim'); loadSummary(); setSidebarOpen(false); } // other pages → closed
   function showSettings() { setView('settings'); setSidebarOpen(false); }
+  function showRuhsat() { setView('ruhsat'); setSidebarOpen(false); }
+  function showDisPolice() { setView('dispolice'); setSidebarOpen(false); }
+  function showPolisoftCompare() { setView('polisoftcompare'); setSidebarOpen(false); }
+  function showTakip() { setView('takip'); setSidebarOpen(false); }
+  function showGrafikler() { setView('grafikler'); setSidebarOpen(false); }
+  function openHelp(section = 'genel') { setHelpSection(section); setHelpOpen(true); }
+
+  // ── Geri yığını ──
+  // Ana Sayfa köktür; her ekran ve üstüne binen her katman kendi geri adımını
+  // kaydeder. Üst bardaki Geri butonu ile tarayıcının/telefonun geri tuşu aynı
+  // yığını kullanır, böylece ikisi de aynı yere götürür.
+  useBackLevel(view !== 'dashboard', view === 'month' ? 'Üretim Listesi' : 'Ana Sayfa',
+    () => { if (view === 'month') showUretim(); else showDashboard(); });
+  // Dar ekranda kenar çubuğu içeriğin üstünü karartarak açılır — bir katmandır,
+  // geri tuşu önce onu kapatmalı. Geniş ekranda çubuk içeriği ittiği için değil.
+  const [narrow, setNarrow] = useState(() => window.matchMedia('(max-width: 820px)').matches);
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 820px)');
+    const onChange = (e) => setNarrow(e.matches);
+    mq.addEventListener('change', onChange);
+    return () => mq.removeEventListener('change', onChange);
+  }, []);
+  useBackLevel(narrow && sidebarOpen, 'Panel', () => setSidebarOpen(false));
+
+  useBackLevel(contactsOpen, 'Panel', () => setContactsOpen(false));
+  useBackLevel(helpOpen, 'Panel', () => setHelpOpen(false));
+  useBackLevel(!!editing, 'Kayıt Listesi', () => setEditing(null));
+  useBackLevel(!!teklif, 'Kayıt', () => setTeklif(null));
+
+  // Tarayıcı/telefon geri tuşu siteden atmasın: bir adım uygulama içinde geri
+  // gitsin. Kök ekranda yapacak bir şey yoksa kullanıcıyı sekmeye bağlı
+  // oturumdan düşürmek yerine kısa bir uyarı gösteriyoruz.
+  const backHintRef = useRef(0);
+  useEffect(() => installBackGuard(() => {
+    if (Date.now() - backHintRef.current < 4000) return;
+    backHintRef.current = Date.now();
+    toast('Ana sayfadasınız. Oturumu kapatmak için menüdeki “Çıkış Yap”ı kullanın.', 'info', 4000);
+  }), []);
+  useEffect(() => installEscGuard(), []);
 
   async function openRecord(id) {
     setMsgOpen(false);
+    setTeklifPrefill(null);
     const r = await policies.get(id);
     if (r.ok) {
       const rec = { ...r.data };
@@ -248,7 +398,7 @@ export default function Panel() {
       setEditing(rec);
     } else toast(r.error || 'Kayıt açılamadı', 'err');
   }
-  function newRecord() { setKaskoRows([]); setTrafikRows([]); setMsgOpen(false); setEditing({ id: null, sistem_durum: 'Çalışılmadı' }); }
+  function newRecord() { setKaskoRows([]); setTrafikRows([]); setTeklifPrefill(null); setMsgOpen(false); setEditing({ id: null, sistem_durum: 'Çalışılmadı' }); }
 
   async function openContactSearch() {
     setContactsOpen(true);
@@ -262,12 +412,34 @@ export default function Panel() {
       }
     }
   }
-  function openPolicyFromContact(id) { setContactsOpen(false); openRecord(id); }
+  // Poliçe, Kontak Arama içinden açıldığında panel KAPANMAZ — düzenleyici
+  // üstüne biner. Kapatınca kullanıcı bıraktığı Müşteri 360 ekranına döner.
+  function openPolicyFromContact(id) { openRecord(id); }
 
-  // Comparison change handlers — mirror the legacy live-notes regeneration.
-  const onKasko = (rows) => { setKaskoRows(rows); setEditing((s) => ({ ...s, notlar: genKaskoNotes(rows) })); };
-  const onTrafik = (rows) => { setTrafikRows(rows); setEditing((s) => ({ ...s, notlar: regenTrafik(rows, s.notlar) })); };
-  const on722 = (key, val) => setEditing((s) => { const next = { ...s, [key]: val }; return { ...next, notlar: gen722Notes(next) }; });
+  // Kontak listesini geçersiz kıl. Kontak Arama açıkken hemen yeniden çekilir:
+  // arkada açık duran Müşteri 360 ekranı güncel poliçelerle devam etsin.
+  const reloadContacts = useCallback(async () => {
+    const r = await policies.contacts();
+    setContacts(r.ok ? buildContacts(r.data) : []);
+  }, []);
+  function invalidateContacts() { if (contactsOpen) reloadContacts(); else setContacts(null); }
+
+  // Comparison change handlers. Fiyat/teminat alanları kendi state'lerinde
+  // (kaskoRows/trafikRows/editing[key]) tutulur ve JSON olarak KAYIT ANINDA
+  // notlar'a eklenir (buildSaveNotlar, save() içinde) — düzenleme sırasında
+  // notlar'a DOKUNULMAZ. Eskiden her fiyat/teminat değişiminde notlar canlı
+  // olarak yeniden üretiliyordu; bu, kullanıcının (veya bir meslektaşının)
+  // elle yazdığı metni sessizce siliyordu. Bkz. docs/ altındaki not.
+  const onKasko = (rows) => setKaskoRows(rows);
+  const onTrafik = (rows) => setTrafikRows(rows);
+  const on722 = (key, val) => setEditing((s) => ({ ...s, [key]: val }));
+
+  // Kıyaslama satırındaki "➜" ile seçilen TEK firma+fiyat+taksit — Teklif PDF
+  // açıldığında yalnızca o firmanın alanını ön doldurur (diğer şirketler boş kalır).
+  function sendToTeklif(firma, fiyat, taksit) {
+    setTeklifPrefill({ firma, fiyat, taksit });
+    toast(`${firma} fiyatı Teklif PDF'e aktarıldı.`, 'ok');
+  }
 
   async function save() {
     if (!editing.id) {                       // strict mandatory-field check for new records
@@ -287,14 +459,14 @@ export default function Panel() {
     try {
       const payload = { ...editing, notlar: buildSaveNotlar(editing, kaskoRows, trafikRows) };
       const r = await policies.save(payload);
-      if (r.ok) { toast('Kayıt kaydedildi.', 'ok'); setEditing(null); if (currentMonth) showMonth(currentMonth); loadSummary(); loadStats(); setContacts(null); }
+      if (r.ok) { toast('Kayıt kaydedildi.', 'ok'); setEditing(null); if (currentMonth) showMonth(currentMonth); loadSummary(); loadStats(); invalidateContacts(); }
       else toast(r.error || 'Kaydedilemedi.', 'err', 6000);
     } catch { toast('Bağlantı hatası.', 'err'); } finally { setSaving(false); }
   }
   async function remove() {
     if (!editing?.id || !confirm('Bu kaydı silmek istediğinize emin misiniz?')) return;
     const r = await policies.remove(editing.id);
-    if (r.ok) { toast('Kayıt silindi.', 'ok'); setEditing(null); if (currentMonth) showMonth(currentMonth); loadSummary(); loadStats(); setContacts(null); }
+    if (r.ok) { toast('Kayıt silindi.', 'ok'); setEditing(null); if (currentMonth) showMonth(currentMonth); loadSummary(); loadStats(); invalidateContacts(); }
     else toast(r.error || 'Silinemedi.', 'err');
   }
 
@@ -331,14 +503,45 @@ export default function Panel() {
     else toast(r.error || 'İçe aktarılamadı.', 'err');
   }
 
-  async function logout() { await auth.logout(); resetCsrf(); nav('/giris', { replace: true }); }
+  async function logout() { await auth.logout(); resetCsrf(); clearTabToken(); nav('/giris', { replace: true }); }
+
+  // ── Session watchdog ──
+  // Auto-logout after IDLE_MINUTES of no user activity, and react immediately
+  // when the server drops the session (idle elsewhere / tab token no longer valid).
+  useEffect(() => {
+    const leave = (reason) => {
+      clearTabToken();
+      resetCsrf();
+      nav(`/giris?reason=${reason}`, { replace: true });
+    };
+    const stop = startIdleWatch({
+      idleMs: idleMinutes * 60 * 1000,
+      onIdle: async () => { try { await auth.logout(); } catch { /* already gone */ } leave('idle'); },
+      onBeat: () => { auth.heartbeat().catch(() => {}); },
+    });
+    const onLost = (e) => { stop(); leave(e.detail === 'idle' ? 'idle' : 'session'); };
+    window.addEventListener('zp:auth-lost', onLost);
+    return () => { stop(); window.removeEventListener('zp:auth-lost', onLost); };
+  }, [nav, idleMinutes]);
 
   const closeSidebar = () => setSidebarOpen(false);
   const cm = new Date().getMonth() + 1;
 
   const isNewRec = (r) => r.is_manually_added == 1 || r.is_manually_added === '1';
+  const toggleSel = (id) => setSelected((prev) => {
+    const next = new Set(prev);
+    if (next.has(id)) next.delete(id); else next.add(id);
+    return next;
+  });
   const renderRow = (r, isNew = false) => (
-    <tr key={r.id} data-status={r.sistem_durum} className={isNew ? 'new-rec' : ''} onClick={() => openRecord(r.id)}>
+    <tr key={r.id} data-status={r.sistem_durum}
+      className={`${isNew ? 'new-rec' : ''}${selectMode && selected.has(r.id) ? ' row-selected' : ''}`}
+      onClick={() => (selectMode ? toggleSel(r.id) : openRecord(r.id))}>
+      {selectMode && (
+        <td className="sel-cell" onClick={(e) => { e.stopPropagation(); toggleSel(r.id); }}>
+          <input type="checkbox" checked={selected.has(r.id)} readOnly />
+        </td>
+      )}
       <td className="mono">{formatDate(r.bitis_tarihi) || '-'}</td>
       <td className="mono">{r.police_numarasi || '-'}</td>
       <td className="name-cell">{isNew && <span className="new-marker">✱</span>}{r.hesap_adi || '-'}</td>
@@ -350,6 +553,7 @@ export default function Panel() {
       <td className="mono" style={{ fontSize: '.72rem' }}>{r.tc_kimlik_no || r.vergi_kimlik_no || '-'}</td>
       <td className="mono">{r.gsm_no || '-'}</td>
       <td className="mono">{r.belge_seri_no || '-'}</td>
+      <td className="mono">{formatCurrency(r.brut_2026)}</td>
       <td><span className={statusClass(r.sistem_durum)}>{r.sistem_durum || '?'}</span></td>
     </tr>
   );
@@ -372,9 +576,37 @@ export default function Panel() {
       let av, bv;
       if (sortKey === 'bitis_tarihi') { av = dateToSortKey(a.bitis_tarihi); bv = dateToSortKey(b.bitis_tarihi); return sortAsc ? av - bv : bv - av; }
       if (sortKey === 'brut_tl') { av = parseNum(a.brut_tl) || 0; bv = parseNum(b.brut_tl) || 0; return sortAsc ? av - bv : bv - av; }
+      if (sortKey === 'brut_2026') { av = parseNum(a.brut_2026) || 0; bv = parseNum(b.brut_2026) || 0; return sortAsc ? av - bv : bv - av; }
       av = String(a[sortKey] || '').toLowerCase(); bv = String(b[sortKey] || '').toLowerCase();
       return sortAsc ? av.localeCompare(bv, 'tr') : bv.localeCompare(av, 'tr');
     });
+  }
+
+  // Listenin altındaki toplam üretim — filtre/aramadan SONRAKİ satırlar üzerinden
+  // hesaplanır, yani ekranda ne görünüyorsa onun toplamıdır.
+  const brutSum = filtered.reduce((a, r) => a + (parseNum(r.brut_tl) || 0), 0);
+
+  // ── Toplu seçim yardımcıları ──
+  const colCount = COLS.length + (selectMode ? 1 : 0);
+  const visibleIds = filtered.map((r) => r.id);
+  const allVisibleSelected = visibleIds.length > 0 && visibleIds.every((id) => selected.has(id));
+  const toggleSelectAll = () => setSelected((prev) => {
+    const next = new Set(prev);
+    if (allVisibleSelected) visibleIds.forEach((id) => next.delete(id));
+    else visibleIds.forEach((id) => next.add(id));
+    return next;
+  });
+  async function applyBulkStatus(status) {
+    const ids = [...selected];
+    if (!ids.length || !status) return;
+    if (!confirm(`${ids.length} kaydın durumu "${status}" olarak güncellenecek.\n\nOnaylıyor musunuz?`)) return;
+    const r = await policies.bulkStatus(ids, status);
+    if (r.ok) {
+      toast(`${r.data.updated} kaydın durumu güncellendi.`, 'ok');
+      setRecords((prev) => prev.map((x) => (selected.has(x.id) ? { ...x, sistem_durum: status } : x)));
+      setSelected(new Set());
+      loadSummary(); loadStats();
+    } else toast(r.error || 'Güncellenemedi.', 'err', 5000);
   }
 
   return (
@@ -382,29 +614,47 @@ export default function Panel() {
       {/* ── SIDEBAR ── */}
       <aside className="p-sidebar">
         <div className="p-sidebar-header">
-          <div className="p-sidebar-logo">Zenith <span>Peak</span></div>
+          <div className="p-sidebar-logo" title={tenantName || 'Zenith Peak'}><TenantBrand name={tenantName} /></div>
           <button className="p-sidebar-close" onClick={closeSidebar}>✕</button>
         </div>
 
-        <div className="p-sidebar-section">Veri</div>
-        <button className="p-sidebar-btn" onClick={() => { newRecord(); closeSidebar(); }}>
-          <span className="sb-icon">＋</span> Yeni Kayıt Oluştur
-        </button>
+        <nav className="p-sidebar-nav">
+          <div className="p-sidebar-section">Veri</div>
+          <button className="p-sidebar-btn" onClick={() => { newRecord(); closeSidebar(); }}>
+            <span className="sb-icon">＋</span> Yeni Kayıt Oluştur
+          </button>
 
-        <div className="p-sidebar-divider" />
-        <div className="p-sidebar-section">Navigasyon</div>
-        <button className={`p-sidebar-btn ${view === 'dashboard' ? 'active' : ''}`} onClick={showDashboard}>
-          <span className="sb-icon">🏠</span> Ana Sayfa
-        </button>
-        <button className={`p-sidebar-btn ${view === 'uretim' || view === 'month' ? 'active' : ''}`} onClick={showUretim}>
-          <span className="sb-icon">📈</span> Üretim Listesi
-        </button>
-        <button className="p-sidebar-btn" onClick={() => { openContactSearch(); closeSidebar(); }}>
-          <span className="sb-icon">🔎</span> Kontak Arama
-        </button>
-        <button className="p-sidebar-btn" onClick={() => nav('/')}>
-          <span className="sb-icon">↩</span> Siteye Dön
-        </button>
+          <div className="p-sidebar-divider" />
+          <div className="p-sidebar-section">Navigasyon</div>
+          <button className={`p-sidebar-btn ${view === 'dashboard' ? 'active' : ''}`} onClick={showDashboard}>
+            <span className="sb-icon">🏠</span> Ana Sayfa
+          </button>
+          <button className={`p-sidebar-btn ${view === 'uretim' || view === 'month' ? 'active' : ''}`} onClick={showUretim}>
+            <span className="sb-icon">📈</span> Üretim Listesi
+          </button>
+          <button className="p-sidebar-btn" onClick={() => { openContactSearch(); closeSidebar(); }}>
+            <span className="sb-icon">🔎</span> Kontak Arama
+          </button>
+          <button className={`p-sidebar-btn ${view === 'takip' ? 'active' : ''}`} onClick={showTakip}>
+            <span className="sb-icon">🗓️</span> Takip Edilen İşler
+          </button>
+          <button className={`p-sidebar-btn ${view === 'grafikler' ? 'active' : ''}`} onClick={showGrafikler}>
+            <span className="sb-icon">📊</span> Grafikler
+          </button>
+
+          <div className="p-sidebar-divider" />
+          <div className="p-sidebar-section">Uygulamalar</div>
+          <button className={`p-sidebar-btn ${view === 'ruhsat' ? 'active' : ''}`} onClick={showRuhsat}>
+            <span className="sb-icon">📋</span> Ruhsat Okuyucu
+          </button>
+          <button className={`p-sidebar-btn ${view === 'dispolice' ? 'active' : ''}`} onClick={showDisPolice}>
+            <span className="sb-icon">📄</span> Dış Poliçe Takip
+          </button>
+          <button className={`p-sidebar-btn ${view === 'polisoftcompare' ? 'active' : ''}`} onClick={showPolisoftCompare}>
+            <span className="sb-icon">📊</span>
+            <span className="sb-label">Polisoft – Sigorta Şirketi Karşılaştırması</span>
+          </button>
+        </nav>
 
         <div className="p-sidebar-footer">
           <div className="p-sidebar-user">
@@ -414,6 +664,17 @@ export default function Panel() {
               <div className="p-user-role">{tenantName || 'Acente'}</div>
             </div>
           </div>
+          {/* Birden fazla acenteye erişimi olan kullanıcı (yönetici ya da
+              kendisine ek acente açılmış kişi) buradan çıkış yapmadan geçer.
+              Tek acentesi olanda kutu hiç görünmez. */}
+          {tenants.length > 1 && (
+            <label className="p-tenant-switch">
+              <span>Acente</span>
+              <select value={tenantId} onChange={(e) => switchTenant(e.target.value)}>
+                {tenants.map((t) => <option key={t.id} value={t.id}>{t.name}</option>)}
+              </select>
+            </label>
+          )}
           <button className="p-logout" onClick={logout}>Çıkış Yap</button>
         </div>
       </aside>
@@ -424,14 +685,24 @@ export default function Panel() {
         <button className="p-hamburger" onClick={() => setSidebarOpen(true)} aria-label="Menü">
           <span /><span /><span />
         </button>
-        <div className="p-topbar-title">Zenith <span>Peak</span></div>
+        <TopbarBack />
+        <span className="p-topbar-sep" aria-hidden="true" />
+        <div className="p-topbar-title"><TenantBrand name={tenantName} /></div>
         <div className="p-breadcrumb">
           <span className="crumb" onClick={showDashboard}>Ana Sayfa</span>
           {(view === 'uretim' || view === 'month') && <><span className="sep">›</span><span className="crumb" onClick={showUretim}>Üretim Listesi</span></>}
           {view === 'month' && <><span className="sep">›</span><span>{MONTHS_TR[currentMonth]}</span></>}
+          {view === 'takip' && <><span className="sep">›</span><span>Takip Edilen İşler</span></>}
+          {view === 'grafikler' && <><span className="sep">›</span><span>Grafikler</span></>}
           {view === 'settings' && <><span className="sep">›</span><span>Ayarlar</span></>}
         </div>
         <div className="p-topbar-right">
+          <button className="topbar-help" onClick={() => openHelp('genel')} title="Nasıl Kullanılır?" aria-label="Nasıl Kullanılır?">
+            <span className="topbar-help-icon">❓</span>
+            <span className="topbar-help-label">Nasıl Kullanılır?</span>
+          </button>
+          <NotificationBell tenant={tenantName} user={user} onOpenTakip={showTakip} />
+          <ThemeToggle />
           <button className={`topbar-gear ${view === 'settings' ? 'active' : ''}`} onClick={showSettings} title="Ayarlar" aria-label="Ayarlar">
             <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <circle cx="12" cy="12" r="3" />
@@ -452,7 +723,7 @@ export default function Panel() {
             <div className="dash-header">
               <div className="dashboard-greeting">
                 <h1>Hoş geldiniz, {user || 'kullanıcı'} 👋</h1>
-                <p>Zenith Peak yönetim paneli</p>
+                <p>{tenantName || 'Zenith Peak'} yönetim paneli</p>
               </div>
               <button className="btn btn-navy ks-open-btn" onClick={openContactSearch}>🔎 Kontak Arama</button>
             </div>
@@ -460,11 +731,16 @@ export default function Panel() {
               <div className="dash-loading">Yükleniyor…</div>
             ) : (
               <>
-                <div className="chart-row">
-                  <PieChart title="Üretim Dağılımı" subtitle="Yıllık brüt prim tutarına göre sigorta türü dağılımı"
-                    slices={toSlices(stats.byType, 7)} format={fmtTL} />
-                  <PieChart title="Satışlar Dağılımı" subtitle="Yıllık brüt prim tutarına göre sigorta şirketi dağılımı"
-                    slices={toSlices(stats.byCompany, 7)} format={fmtTL} />
+                {/* Grafikler geçmişi anlatır, ajanda yarını — geniş ekranda yan
+                    yana dururlar; dar ekranda ajanda grafiklerin altına iner. */}
+                <div className="dash-grid">
+                  <div className="chart-row">
+                    <PieChart title="Üretim Dağılımı" subtitle="Yıllık brüt prim tutarına göre sigorta türü dağılımı"
+                      slices={toSlices(stats.byType, 7)} format={fmtTL} />
+                    <PieChart title="Satışlar Dağılımı" subtitle="Yıllık brüt prim tutarına göre sigorta şirketi dağılımı"
+                      slices={toSlices(stats.byCompany, 7)} format={fmtTL} />
+                  </div>
+                  <UpcomingJobs onOpen={showTakip} />
                 </div>
                 <div className="metric-row">
                   <MetricTile icon="📋" tone="blue" label="Toplam Üretim" value={fmtTL(stats.total)} />
@@ -479,9 +755,12 @@ export default function Panel() {
 
         {view === 'uretim' && (
           <>
-            <div className="dashboard-greeting">
-              <h1>Üretim Listesi</h1>
-              <p>Çalışmak istediğiniz ayı seçin</p>
+            <div className="dash-header">
+              <div className="dashboard-greeting">
+                <h1>Üretim Listesi</h1>
+                <p>Çalışmak istediğiniz ayı seçin</p>
+              </div>
+              <button className="btn btn-navy ks-open-btn" onClick={openContactSearch}>🔎 Kontak Arama</button>
             </div>
             <div className="month-grid">
               {Array.from({ length: 12 }, (_, i) => i + 1).map((m) => {
@@ -492,6 +771,9 @@ export default function Panel() {
                 const partial = parseInt(s.partial) || 0;
                 const wontDo = parseInt(s.wont_do) || 0;
                 const pend = Math.max(0, tot - done - cancelled - partial - wontDo);
+                // Geçen yılın primi toplamı — sunucudan hazır gelir (month_summary
+                // içindeki SUM), istemcide tekrar hesaplanmaz.
+                const brutTot = Number(s.brut_total) || 0;
                 const grade = monthGrade(tot, done);
                 return (
                   <div key={m} className={`month-card ${m === cm ? 'current-month' : ''}`} onClick={() => showMonth(m)}>
@@ -506,6 +788,10 @@ export default function Panel() {
                           <div className="month-stat"><span className="month-stat-label">İptal</span><span className="month-stat-val stat-cancel">{cancelled}</span></div>
                           <div className="month-stat"><span className="month-stat-label">Yapılmayacak</span><span className="month-stat-val stat-wontdo">{wontDo}</span></div>
                           <div className="month-stat"><span className="month-stat-label">Bekliyor</span><span className="month-stat-val stat-pend">{pend}</span></div>
+                          <div className="month-stat month-stat-sum">
+                            <span className="month-stat-label">Geçen Yıl Primi</span>
+                            <span className="month-stat-val stat-brut">{formatCurrency(brutTot)} ₺</span>
+                          </div>
                         </>
                       ) : <span className="month-stat-val stat-empty">Kayıt yok</span>}
                     </div>
@@ -518,10 +804,11 @@ export default function Panel() {
 
         {view === 'month' && (
           <>
+            {/* Geri butonu üst bardadır (sabit) — burada tekrarlanmaz. */}
             <div className="month-view-header">
-              <button className="btn-back" onClick={showUretim}>← Geri</button>
               <div className="month-view-title">{MONTHS_TR[currentMonth]} {new Date().getFullYear()}</div>
               <span className="month-badge">{filtered.length} kayıt</span>
+              <button className="btn btn-navy ks-open-btn mvh-ks" onClick={openContactSearch}>🔎 Kontak Arama</button>
             </div>
             <div className="table-controls">
               <div className="search-box">
@@ -534,9 +821,14 @@ export default function Panel() {
               </select>
               <select className="filter-select" value={typeFilter} onChange={(e) => setTypeFilter(e.target.value)}>
                 <option value="">Tüm Poliçe Türleri</option>
-                {TYPE_OPTIONS.map(([v, l]) => <option key={v} value={v}>{l}</option>)}
+                {typeOptions(typeCats).map(([v, l]) => <option key={v} value={v}>{l}</option>)}
               </select>
               <div className="tc-right">
+                <label className="bulk-toggle" title="Toplu seçim modunu aç/kapat">
+                  <input type="checkbox" checked={selectMode}
+                    onChange={(e) => { setSelectMode(e.target.checked); if (!e.target.checked) setSelected(new Set()); }} />
+                  <span>Toplu Seçim</span>
+                </label>
                 <div className="tc-btns">
                   <label className="tc-btn gold" title="Excel Yükle & Aktar">
                     📥 Excel Yükle &amp; Aktar
@@ -547,10 +839,35 @@ export default function Panel() {
                 <span className="record-count-pill">{filtered.length} kayıt</span>
               </div>
             </div>
+
+            {selectMode && (
+              <div className="bulk-bar">
+                <span className="bulk-count">{selected.size} kayıt seçildi</span>
+                <select className="filter-select" value=""
+                  disabled={!selected.size}
+                  onChange={(e) => { const v = e.target.value; e.target.value = ''; applyBulkStatus(v); }}>
+                  <option value="">Seçilenleri şu duruma al…</option>
+                  {STATUS.map((s) => <option key={s} value={s}>{s}</option>)}
+                </select>
+                <button className="tc-btn" onClick={toggleSelectAll}>
+                  {allVisibleSelected ? '✖ Seçimi Kaldır' : '☑ Tümünü Seç'}
+                </button>
+                {selected.size > 0 && (
+                  <button className="tc-btn" onClick={() => setSelected(new Set())}>Temizle</button>
+                )}
+              </div>
+            )}
+
             <div className="tbl-wrap">
               <table className="data">
                 <thead>
                   <tr>
+                    {selectMode && (
+                      <th className="sel-cell">
+                        <input type="checkbox" checked={allVisibleSelected} onChange={toggleSelectAll}
+                          title={allVisibleSelected ? 'Seçimi kaldır' : 'Tümünü seç'} />
+                      </th>
+                    )}
                     {COLS.map(([key, label]) => (
                       <th key={key} onClick={() => sortBy(key)}>
                         {label}
@@ -560,17 +877,62 @@ export default function Panel() {
                   </tr>
                 </thead>
                 <tbody>
-                  {filtered.filter((r) => !isNewRec(r)).map((r) => renderRow(r))}
+                  {/* Yeni eklenenler en üstte: acente açar açmaz görsün */}
                   {filtered.some(isNewRec) && (
                     <tr className="new-section-row">
-                      <td colSpan={12}>🆕 YENİ EKLENEN MÜŞTERİLER ({filtered.filter(isNewRec).length})</td>
+                      <td colSpan={colCount}>🆕 YENİ EKLENEN MÜŞTERİLER ({filtered.filter(isNewRec).length})</td>
                     </tr>
                   )}
                   {filtered.filter(isNewRec).map((r) => renderRow(r, true))}
-                  {!filtered.length && <tr><td colSpan={12} style={{ textAlign: 'center', color: 'var(--muted)', padding: 40 }}>Bu ay için kayıt bulunamadı.</td></tr>}
+                  {filtered.filter((r) => !isNewRec(r)).map((r) => renderRow(r))}
+                  {!filtered.length && <tr><td colSpan={colCount} style={{ textAlign: 'center', color: 'var(--muted)', padding: 40 }}>Bu ay için kayıt bulunamadı.</td></tr>}
                 </tbody>
+                {filtered.length > 0 && (
+                  <tfoot>
+                    <tr className="total-row">
+                      {/* Brüt (TL) sütununa kadar olan hücreler tek etikette birleşir */}
+                      <td colSpan={BRUT_COL + (selectMode ? 1 : 0)} className="total-label">TOPLAM ÜRETİM</td>
+                      <td className="mono total-val">{formatCurrency(brutSum)} ₺</td>
+                      <td colSpan={COLS.length - BRUT_COL - 1}></td>
+                    </tr>
+                  </tfoot>
+                )}
               </table>
             </div>
+          </>
+        )}
+
+        {view === 'ruhsat' && (
+          <Suspense fallback={<div className="set-loading">Ruhsat okuyucu yükleniyor…</div>}>
+            <RuhsatReader onTransferred={() => { loadSummary(); loadStats(); setContacts(null); }} />
+          </Suspense>
+        )}
+
+        {view === 'dispolice' && (
+          <Suspense fallback={<div className="set-loading">Dış Poliçe Takip yükleniyor…</div>}>
+            <DisPoliceTakip />
+          </Suspense>
+        )}
+
+        {view === 'polisoftcompare' && (
+          <Suspense fallback={<div className="set-loading">Karşılaştırma aracı yükleniyor…</div>}>
+            <PolisoftCompare />
+          </Suspense>
+        )}
+
+        {view === 'takip' && <TakipIsler companies={options.companies} types={options.types} />}
+
+        {view === 'grafikler' && (
+          <>
+            <div className="dash-header">
+              <div className="dashboard-greeting">
+                <h1>Grafikler</h1>
+                <p>Yenilenme oranı, aylık üretim ve geçen yıla göre değişim</p>
+              </div>
+            </div>
+            <Suspense fallback={<div className="set-loading">Grafikler yükleniyor…</div>}>
+              <Analytics />
+            </Suspense>
           </>
         )}
 
@@ -578,6 +940,7 @@ export default function Panel() {
           <Settings
             onUserChanged={setUser}
             onDataChanged={() => { loadOptions(); loadStats(); loadSummary(); setContacts(null); }}
+            onOpenGuide={openHelp}
           />
         )}
       </main>
@@ -590,6 +953,8 @@ export default function Panel() {
               <button className="editor-close" onClick={() => setEditing(null)} title="Kapat">✕</button>
               <div className="editor-title">{editing.hesap_adi || (editing.id ? `Kayıt #${editing.id}` : 'Yeni Kayıt')}</div>
               <button className={`editor-msgtoggle ${msgOpen ? 'active' : ''}`} onClick={() => setMsgOpen((o) => !o)} title="Otomatik Mesaj">🔔</button>
+              <button className="editor-teklif" onClick={() => setTeklif(editing)}
+                title="Bu müşteri için teklif belgesi hazırla">📄 TEKLİF PDF</button>
               {editing.id && <button className="editor-del" onClick={remove} title="Sil">🗑</button>}
               <button className="editor-save" onClick={save} disabled={saving}>{saving ? '...' : '💾 KAYDET'}</button>
             </div>
@@ -620,6 +985,11 @@ export default function Panel() {
                             ))}
                           </select>
                         )
+                        : idLimit(key)
+                        // Kimlik numaraları: yalnızca rakam, sabit hane sınırı.
+                        ? <input value={editing[key] ?? ''} inputMode="numeric" autoComplete="off"
+                            maxLength={idLimit(key)} placeholder={'0'.repeat(idLimit(key))}
+                            onChange={(e) => setEditing((s) => ({ ...s, [key]: digitsOnly(e.target.value, idLimit(key)) }))} />
                         : <input value={editing[key] ?? ''} onChange={(e) => setEditing((s) => ({ ...s, [key]: e.target.value }))} />}
                     </div>
                   ))}
@@ -640,7 +1010,14 @@ export default function Panel() {
                         onTrafik={onTrafik}
                         on722={on722}
                         companies={options.companies}
+                        onSendToTeklif={sendToTeklif}
                       />
+                    </div>
+                  )}
+                  {isDask && (
+                    <div className="field full" style={{ marginBottom: 0 }}>
+                      <label>Adres</label>
+                      <input value={editing.adres ?? ''} onChange={(e) => setEditing((s) => ({ ...s, adres: e.target.value }))} />
                     </div>
                   )}
                   <div className="field full" style={{ marginBottom: 0 }}>
@@ -670,15 +1047,31 @@ export default function Panel() {
         </div>
       )}
 
+      {/* ── TEKLİF BELGESİ (müşteriye özel; düzenleyicinin üstüne biner) ── */}
+      {teklif && (
+        <TeklifPdf
+          rec={teklif}
+          tenantName={tenantName}
+          user={user}
+          companies={options.companies}
+          prefill={teklifPrefill}
+          onClose={() => setTeklif(null)}
+        />
+      )}
+
       {/* ── CONTACT SEARCH ── */}
       {contactsOpen && (
         <ContactSearch
           contacts={contacts || []}
           loading={contacts === null}
+          paused={!!editing}
           onClose={() => setContactsOpen(false)}
           onOpenPolicy={openPolicyFromContact}
         />
       )}
+
+      {/* ── NASIL KULLANILIR? ── */}
+      {helpOpen && <HelpGuide onClose={() => setHelpOpen(false)} initialSection={helpSection} />}
 
       {/* ── FLOATING AI ADVISOR ── */}
       <Chatbot />

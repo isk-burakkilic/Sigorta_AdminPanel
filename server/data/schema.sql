@@ -36,6 +36,87 @@ CREATE TABLE `interactions` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Table structure for table `cari_hareketler`
+--
+-- Cari hesap hareketleri: müşterinin acenteye olan borç/alacak akışı.
+-- Poliçe primleri BU TABLODA TUTULMAZ — onlar `policeler.brut_tl` üzerinden
+-- canlı hesaplanır. Burada yalnızca elle girilen hareketler durur:
+--   yon = 'alacak' -> Tahsilat / İade   (bakiyeyi düşürür)
+--   yon = 'borc'   -> Ek Prim / Masraf / Manuel Borç (bakiyeyi artırır)
+-- contact_id, TC+İsim'den türeyen deterministik kontak kimliğidir
+-- (bkz. client/src/lib/contacts.js) — `interactions` ile aynı mantık.
+--
+
+DROP TABLE IF EXISTS `cari_hareketler`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cari_hareketler` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `tenant` varchar(50) NOT NULL,
+  `contact_id` varchar(64) NOT NULL,
+  `tarih` date NOT NULL,
+  `yon` varchar(10) NOT NULL DEFAULT 'alacak' COMMENT 'borc | alacak',
+  `kategori` varchar(40) NOT NULL DEFAULT 'Tahsilat',
+  `tutar` decimal(14,2) NOT NULL DEFAULT 0.00,
+  `aciklama` varchar(255) DEFAULT '',
+  `police_id` int(11) DEFAULT NULL COMMENT 'İlişkili poliçe (opsiyonel)',
+  `odeme_yontemi` varchar(30) DEFAULT '',
+  `created_by` varchar(100) DEFAULT NULL,
+  `updated_by` varchar(100) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  PRIMARY KEY (`id`),
+  KEY `idx_cari_lookup` (`tenant`,`contact_id`),
+  KEY `idx_cari_tarih` (`tenant`,`tarih`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+--
+-- Table structure for table `takip_isler`
+--
+-- TAKİP EDİLEN İŞLER — acentenin "unutmamam gereken işler" defteri.
+-- Yalnızca `musteri_adi` zorunludur; tarih dahil gerisi isteğe bağlı.
+-- `is_turu`: 'police' (poliçe bitişi takibi) | 'tahsilat' (tahsilat takibi) —
+-- `police_bitis` kolonu türe göre poliçe bitişini ya da tahsilat gününü tutar.
+-- `hatirlatma_gun`: tarihe bu kadar gün kala zil bildirimi + e-posta devreye girer
+-- (kullanıcı seçer: 0/7/15/30/45/60/90; 0 = gün geldiğinde, tahsilatın varsayılanı).
+-- `son_bildirim`: hangi gün mail atıldığı —
+-- mükerrer maili engeller; bitiş tarihi/hatırlatma günü düzenlenince NULL'a döner.
+-- Bkz. server/src/takip.js, server/src/reminders.js
+--
+
+DROP TABLE IF EXISTS `takip_isler`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `takip_isler` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `tenant` varchar(50) NOT NULL,
+  `musteri_adi` varchar(150) NOT NULL COMMENT 'ZORUNLU',
+  `police_bitis` date DEFAULT NULL COMMENT 'is_turu = police ise police bitisi, tahsilat ise tahsilat gunu',
+  `police_no` varchar(60) DEFAULT '',
+  `sigorta_sirketi` varchar(80) DEFAULT '',
+  `police_turu` varchar(60) DEFAULT '',
+  `plaka` varchar(20) DEFAULT '',
+  `tc_kimlik_no` varchar(11) DEFAULT '',
+  `gsm_no` varchar(30) DEFAULT '',
+  `prim` decimal(14,2) DEFAULT NULL,
+  `notlar` varchar(500) DEFAULT '',
+  `is_turu` varchar(20) NOT NULL DEFAULT 'police' COMMENT 'police | tahsilat',
+  `hatirlatma_gun` int(11) NOT NULL DEFAULT 30 COMMENT 'tarihe kac gun kala haber verilecek (0 = gun geldiginde)',
+  `durum` varchar(20) NOT NULL DEFAULT 'takipte' COMMENT 'takipte | tamamlandi | iptal',
+  `son_bildirim` date DEFAULT NULL COMMENT 'e-postanin gonderildigi gun',
+  `created_by` varchar(100) DEFAULT NULL,
+  `updated_by` varchar(100) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  PRIMARY KEY (`id`),
+  KEY `idx_takip_tenant` (`tenant`,`durum`),
+  KEY `idx_takip_bitis` (`tenant`,`police_bitis`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Table structure for table `policeler`
 --
 
@@ -58,6 +139,7 @@ CREATE TABLE `policeler` (
   `produktor_tali_adi` varchar(80) NOT NULL DEFAULT '',
   `brut_2026` varchar(50) DEFAULT '',
   `belge_seri_no` varchar(100) DEFAULT '',
+  `adres` varchar(255) NOT NULL DEFAULT '' COMMENT 'DASK (800) poliçeleri için sigortalı adresi',
   `notlar` text DEFAULT NULL,
   `otomatik_mesaj` text DEFAULT NULL,
   `sistem_durum` varchar(50) DEFAULT 'Çalışılmadı',

@@ -16,13 +16,15 @@ export const KASKO_IMM = ['2.500.000 TL', '5.000.000 TL', '10.000.000 TL', 'Limi
 export const KASKO_IKAME = ['Yok', '7-48 Grup1', '15-48 Grup1'];
 export const TRAFIK_FIRMS = ['Anadolu Sigorta', 'Allianz', 'Mapfre', 'Sompo Sigorta', 'Quick Sigorta', 'Ray Sigorta', 'Türkiye Sigorta'];
 
-export function compType(policeTuru) {
-  const p = String(policeTuru || '').toUpperCase();
-  if (p.includes('701') || p.includes('KASKO')) return 'kasko';
-  if (['410', 'TRAFİK', 'TRAFIK'].some((x) => p.includes(x))) return 'trafik';
-  if (p.includes('722')) return '722';
-  return null;
-}
+// Hangi karşılaştırma formu açılacak (kasko / trafik / 722).
+// Kural `lib/policyTypes.js`'e taşındı: önce türün KATEGORİSİ bulunur, sezgi
+// kategori adı üzerinde çalışır. Böylece "KASKO BEYGİR 12" gibi tanınmayan bir
+// tür Ayarlar'dan "Kasko Poliçesi"ne bağlandığında kasko formu açılır —
+// eskiden sadece metinde "KASKO" geçerse çalışıyordu.
+// Yeniden aktarım DEĞİL, önce import: buildSaveNotlar() aşağıda compType'ı
+// çağırıyor; `export {…} from` adı bu modüle bağlamaz (bkz. stats.js notu).
+import { systemKind as compType } from './policyTypes.js';
+export { compType };
 
 export function defaultKaskoRow() {
   return {
@@ -45,43 +47,6 @@ export function parseComparison(notlar) {
   if (tm) { try { trafikRows = JSON.parse(tm[1]) || []; } catch { trafikRows = []; } }
   const display = s.replace(/^TRAFIK_JSON:.*?\n/, '').replace(/^KASKO_JSON:.*?\n/, '');
   return { kaskoRows, trafikRows, display };
-}
-
-const fmtTaksit = (tk, fiyat) => { const p = String(fiyat || '').trim(); return p ? `(${tk}) ${p} TL` : '-'; };
-
-export function genKaskoNotes(rows) {
-  let n = '--- KASKO KIYASLAMA ---\n';
-  rows.forEach((r, i) => {
-    const t1 = fmtTaksit(r.taksit1_tk, r.taksit1_fiyat);
-    const t2 = fmtTaksit(r.taksit2_tk, r.taksit2_fiyat);
-    n += `${i + 1}. ${r.yil || ''} | ${r.firma || ''} | ${r.tur || ''} | İMM:${r.imm || ''} | Cam:${r.cam || ''} | Hasarsız:${r.hasarsizlik || ''} | İkame:${r.ikame || ''} | T1:${t1} | T2:${t2}\n`;
-  });
-  return n;
-}
-
-export function genTrafikNotes(rows) {
-  let g = '--- TRAFİK FİYAT KARŞILAŞTIRMASI ---\n';
-  rows.forEach((r, i) => {
-    const durum = r.miniDurum === 'kesildi' ? '✅ Kesiliyor' : '❌ Kesilmiyor';
-    g += `${i + 1}. ${r.firma}: Taban ${r.taban || '-'} TL | ${r.taksit} Taksit | Mini ${r.mini || '-'} TL | ${durum}\n`;
-  });
-  return g;
-}
-// Rebuild the trafik block while preserving any other manual notes (legacy behaviour).
-export function regenTrafik(rows, currentNotlar) {
-  const existing = (currentNotlar || '')
-    .replace(/^TRAFIK_JSON:.*?\n/, '')
-    .replace(/--- TRAFİK FİYAT KARŞILAŞTIRMASI ---[\s\S]*?(?=\n\n|\n?$)/, '')
-    .trimStart();
-  return genTrafikNotes(rows) + (existing ? '\n' + existing : '');
-}
-
-export function gen722Notes(rec) {
-  let n = '--- 722 POLİÇE KIYASLAMA ---\n';
-  [['Deprem', 'deprem'], ['Makina', 'makina'], ['Bina', 'bina'], ['Eşya', 'esya']].forEach(([l, k]) => {
-    n += `• ${l}: Gçn: ${rec[k + '_gecen'] || '-'} | Bu Yıl: ${rec[k + '_buyil'] || '-'}\n`;
-  });
-  return n;
 }
 
 // Build the `notlar` value to persist, injecting the JSON prefix by type.

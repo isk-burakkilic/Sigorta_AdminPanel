@@ -17,7 +17,15 @@ server/data/users.json
 server/data/tenants.json
 
 # ── Per-agency database registry (may hold DB creds — NEVER commit) ──
+# Yıldızlı desen ŞART: tenant_db.json.prod.bak gibi yedekler de aynı canlı
+# veritabanı şifrelerini taşır ve düz `tenant_db.json` deseni onları YAKALAMAZ.
 server/data/tenant_db.json
+server/data/tenant_db.json.*
+server/data/*.bak
+*.bak
+
+# ── Kaba-kuvvet kilit sayaçları (çalışma zamanı durumu) ─────
+server/data/lockouts.json
 
 # ── Local DB setup (contains a local dev DB password) ───────
 server/data/setup.sql
@@ -31,6 +39,9 @@ server/data/ek_bilgiler.txt
 
 # ── Security audit log (PII-access records — NEVER commit) ──
 server/data/audit.log
+
+# ── "Bu cihazı hatırla" kayıtları (oturum sırları — NEVER commit) ──
+server/data/trusted_devices.json
 
 # ── Node / build artifacts ──────────────────────────────────
 node_modules/
@@ -49,3 +60,10 @@ Thumbs.db
 server/data/bitis_serial_backup.json
 # ── Deployment artifacts (DB dump with PII — NEVER commit) ──
 deploy/
+
+# ── Tesseract çalışma dosyaları (npm run setup:tesseract ile üretilir) ──
+client/public/tesseract/
+
+# ── Ayrı git deposu olan yan projeler (submodule olarak eklenmesin) ──
+File-Comparing/
+productor-file/

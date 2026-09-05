@@ -14,8 +14,24 @@ const Sel = ({ options, value, onChange, style }) => (
   </select>
 );
 
+// Taksit seçimi "6TK" biçiminde tutulur; Teklif PDF'in beklediği tek şey rakam ("6").
+const tkSayi = (tk) => String(tk || '').replace(/TK$/i, '');
+
+// Bir fiyat hücresinin yanındaki "Teklife Aktar" düğmesi. Yalnızca o hücredeki
+// firma + fiyat + taksit'i Teklif PDF'in ön dolum durumuna gönderir — kıyaslama
+// tablosuna hiçbir şey yazmaz, Teklif PDF ekranının kendisi de değişmez.
+function QuoteBtn({ firma, fiyat, taksit, onSendToTeklif }) {
+  if (!onSendToTeklif) return null;
+  const dolu = String(fiyat || '').trim() !== '';
+  return (
+    <button type="button" className="cmp-quote-btn" disabled={!dolu}
+      title={dolu ? `${firma} fiyatını Teklif PDF'e aktar` : 'Önce fiyat girin'}
+      onClick={() => onSendToTeklif(firma, fiyat, taksit)}>➜</button>
+  );
+}
+
 // ── Kasko (701) ──────────────────────────────────────────────
-function KaskoTable({ rows, onChange, companies }) {
+function KaskoTable({ rows, onChange, companies, onSendToTeklif }) {
   const patch = (i, p) => onChange(rows.map((r, idx) => (idx === i ? { ...r, ...p } : r)));
   const del = (i) => onChange(rows.filter((_, idx) => idx !== i));
   const firms = companies.length ? companies : KASKO_FIRMS;
@@ -43,12 +59,14 @@ function KaskoTable({ rows, onChange, companies }) {
                 <div className="taksit-cell">
                   <Sel options={TK} value={r.taksit1_tk} onChange={(v) => patch(i, { taksit1_tk: v })} />
                   <input value={r.taksit1_fiyat || ''} placeholder="Fiyat" onChange={(e) => patch(i, { taksit1_fiyat: e.target.value })} />
+                  <QuoteBtn firma={r.firma} fiyat={r.taksit1_fiyat} taksit={tkSayi(r.taksit1_tk)} onSendToTeklif={onSendToTeklif} />
                 </div>
               </td>
               <td>
                 <div className="taksit-cell">
                   <Sel options={TK} value={r.taksit2_tk} onChange={(v) => patch(i, { taksit2_tk: v })} />
                   <input value={r.taksit2_fiyat || ''} placeholder="Fiyat" onChange={(e) => patch(i, { taksit2_fiyat: e.target.value })} />
+                  <QuoteBtn firma={r.firma} fiyat={r.taksit2_fiyat} taksit={tkSayi(r.taksit2_tk)} onSendToTeklif={onSendToTeklif} />
                 </div>
               </td>
               <td className="del-cell"><button type="button" className="cmp-del-btn" onClick={() => del(i)}>✕</button></td>
@@ -62,7 +80,7 @@ function KaskoTable({ rows, onChange, companies }) {
 }
 
 // ── Trafik (410) ─────────────────────────────────────────────
-function TrafikTable({ rows, onChange, companies }) {
+function TrafikTable({ rows, onChange, companies, onSendToTeklif }) {
   const patch = (i, p) => onChange(rows.map((r, idx) => (idx === i ? { ...r, ...p } : r)));
   const del = (i) => onChange(rows.filter((_, idx) => idx !== i));
   const firms = companies.length ? companies : TRAFIK_FIRMS;
@@ -79,7 +97,12 @@ function TrafikTable({ rows, onChange, companies }) {
           {rows.map((r, i) => (
             <tr key={i}>
               <td><Sel options={withCurrent(firms, r.firma)} value={r.firma} onChange={(v) => patch(i, { firma: v })} /></td>
-              <td><input value={r.taban || ''} placeholder="0,00" onChange={(e) => patch(i, { taban: e.target.value })} /></td>
+              <td>
+                <div className="taksit-cell">
+                  <input value={r.taban || ''} placeholder="0,00" onChange={(e) => patch(i, { taban: e.target.value })} />
+                  <QuoteBtn firma={r.firma} fiyat={r.taban} taksit={r.taksit} onSendToTeklif={onSendToTeklif} />
+                </div>
+              </td>
               <td><Sel options={taksitOpts} value={String(r.taksit)} onChange={(v) => patch(i, { taksit: v })} /></td>
               <td><input value={r.mini || ''} placeholder="0,00" onChange={(e) => patch(i, { mini: e.target.value })} /></td>
               <td><Sel options={[['✅ Kesiliyor', 'kesildi'], ['❌ Kesilmiyor', 'kesilmedi']]} value={r.miniDurum} onChange={(v) => patch(i, { miniDurum: v })} /></td>
@@ -120,17 +143,17 @@ function Table722({ rec, onField }) {
   );
 }
 
-export default function Comparison({ type, kaskoRows, trafikRows, rec, onKasko, onTrafik, on722, companies = [] }) {
+export default function Comparison({ type, kaskoRows, trafikRows, rec, onKasko, onTrafik, on722, companies = [], onSendToTeklif }) {
   if (type === 'kasko') return (
     <div className="cmp-block">
       <div className="cmp-sep">🚗 Kasko Kıyaslama</div>
-      <KaskoTable rows={kaskoRows} onChange={onKasko} companies={companies} />
+      <KaskoTable rows={kaskoRows} onChange={onKasko} companies={companies} onSendToTeklif={onSendToTeklif} />
     </div>
   );
   if (type === 'trafik') return (
     <div className="cmp-block">
       <div className="cmp-sep">🚦 Trafik Fiyat Karşılaştırması</div>
-      <TrafikTable rows={trafikRows} onChange={onTrafik} companies={companies} />
+      <TrafikTable rows={trafikRows} onChange={onTrafik} companies={companies} onSendToTeklif={onSendToTeklif} />
     </div>
   );
   if (type === '722') return (

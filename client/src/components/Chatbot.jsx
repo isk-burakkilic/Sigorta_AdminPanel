@@ -5,7 +5,7 @@ import { askGemini } from '../lib/api.js';
 // Bottom-right gold button -> bubble -> TSS/ÖSS selection -> chat.
 export default function Chatbot() {
   const [open, setOpen] = useState(false);
-  const [type, setType] = useState('');           // '' | 'TSS' | 'OSS'
+  const [type, setType] = useState('');           // '' | 'TSS' | 'OSS' | 'GSS'
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
   const [busy, setBusy] = useState(false);
@@ -15,10 +15,11 @@ export default function Chatbot() {
     if (msgsRef.current) msgsRef.current.scrollTop = msgsRef.current.scrollHeight;
   }, [messages, busy]);
 
-  const titles = { TSS: 'TSS Danışmanı', OSS: 'ÖSS Danışmanı' };
+  const titles = { TSS: 'TSS Danışmanı', OSS: 'ÖSS Danışmanı', GSS: 'GSS Danışmanı' };
   const greets = {
     TSS: 'Merhaba! 👋 Tamamlayıcı Sağlık Sigortası (TSS) hakkında sorularınızı yanıtlamaktan memnuniyet duyarım.',
     OSS: 'Merhaba! 👋 Özel Sağlık Sigortası (ÖSS) hakkında sorularınızı yanıtlamaktan memnuniyet duyarım.',
+    GSS: 'Merhaba! 👋 Grup Sağlık Sigortası (GSS) hakkında sorularınızı yanıtlamaktan memnuniyet duyarım.',
   };
 
   function select(t) {
@@ -71,6 +72,9 @@ export default function Chatbot() {
               </button>
               <button className="ai-sel-btn" onClick={() => select('OSS')}>
                 Özel Sağlık Sigortası <span className="ai-sel-badge">ÖSS</span>
+              </button>
+              <button className="ai-sel-btn" onClick={() => select('GSS')}>
+                Grup Sağlık Sigortası <span className="ai-sel-badge">GSS</span>
               </button>
             </div>
           ) : (

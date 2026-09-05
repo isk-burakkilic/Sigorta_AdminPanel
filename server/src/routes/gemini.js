@@ -10,8 +10,11 @@
 //      on error codes 429 / 503 / 404
 //    ✓ Response shape { reply } / { error }
 //
-//  Hardening added: requires auth + rate limit (the endpoint burns a paid
-//  API key; the original left it open — see README security notes).
+//  Kullanılan API: yalnızca Google Gemini (AI Studio) ÜCRETSİZ katmanı.
+//  Başka hiçbir sağlayıcıya (OpenAI, Groq, Anthropic vb.) bağlanılmaz.
+//
+//  Hardening added: requires auth + rate limit (free-tier kotasını hızla
+//  tüketmemek ve anahtarı korumak için — orijinalde açıktı).
 // ============================================================
 import { Router } from 'express';
 import rateLimit from 'express-rate-limit';
@@ -78,7 +81,7 @@ router.post('/', requireAuth, geminiLimiter, async (req, res) => {
       '=== ' + tip + ' TEMEL NOTLAR ===\n\n' + birlestirilmisNotlar;
   } else {
     systemPrompt =
-      "Sen Ahenk Sigorta danismanisın. Kullanicidan once sigorta turu secmesini iste: 'Tamamlayici Saglik Sigortasi (TSS)' veya 'Ozel Saglik Sigortasi (OSS)'. Turkce yaz.";
+      "Sen Ahenk Sigorta danismanisın. Kullanicidan once sigorta turu secmesini iste: 'Tamamlayici Saglik Sigortasi (TSS)', 'Ozel Saglik Sigortasi (OSS)' veya 'Grup Saglik Sigortasi (GSS)'. Turkce yaz.";
   }
 
   const payload = {
